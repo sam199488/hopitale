@@ -78,12 +78,11 @@ WSGI_APPLICATION = 'hopitale.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'hemato',
-        'USER': 'root',
-        'PASSWORD': '',
-        'OPTIONS': {
-            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
-        },
+        'NAME': '2483028_hemato',
+        'USER': '2483028_hemato',
+        'PASSWORD': 'hematodb1',
+        'HOST': 'fdb15.awardspace.net',   # Or an IP Address that your DB is hosted on
+        'PORT': '3306',
     }
 }
 
