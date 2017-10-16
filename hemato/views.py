@@ -17,7 +17,8 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 
 
 def index(request):
-    return render(request, 'hemato/accueil.html')
+    #return render(request, 'hemato/accueil.html')
+    return render(request, 'hemato/b.html')
 
 class Login(TemplateView):
 
