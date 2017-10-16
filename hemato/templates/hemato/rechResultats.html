@@ -1,0 +1,47 @@
+{% extends 'hemato/base.html' %}
+
+{% block title %}  Hemato DataBase | nouveau patient{% endblock %}
+
+
+{% block sidebar %}
+    <ul class="nav nav-sidebar">
+
+
+    </ul>
+{% endblock %}
+
+
+{% block content %}
+    {% comment %}<h1>Hello sam</h1>
+    <button type="button" class="btn btn-default">click me!</button>{% endcomment %}
+    <div class="container-fluid">
+        <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>nom</th>
+                        <th>prenom</th>
+                        <th>type de consultation</th>
+                        <th>date</th>
+                        <th>lien</th>
+                        <th>consultation</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for pat in patient %}
+                        <tr>
+                            <td>{{ pat.nompatient }}</td>
+                            <td>{{ pat.prenompatient }}</td>
+                            <td>{{ pat.type_consultation }}</td>
+                            <td>{{ pat.date_consultation }}</td>
+                            <td><a href=""> dossier </a></td>
+                            <td><a href="{% url 'consulsuivi' pat.idpatient %}"> consultation</a></td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+    </div>
+
+
+{% endblock %}

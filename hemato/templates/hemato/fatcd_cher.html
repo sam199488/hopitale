@@ -1,0 +1,146 @@
+{% extends 'hemato/base.html' %}
+
+{% block title %}  Hemato DataBase {% endblock %}
+
+
+{% block sidebar %}
+    <ul class="nav nav-sidebar">
+        <li><a href="">Informations générales <span class="sr-only">(current)</span></a></li>
+        <li><a href="{% url 'facris' id %}">Facteur de risques cardiovasculaire</a></li>
+        <li><a href="{% url 'epTr' id %}">Episodes trombotique</a></li>
+        <li class="active"><a href="{% url 'atcd' id %}">Antecedent chirugicaux</a></li>
+        <li><a href="{% url 'trRec' id %}">Thromboses récidivantes</a></li>
+        <li><a href="{% url 'pathoMaligne' id %}">Thrombose et oncologie</a></li>
+        <li><a href="{% url 'compVasGI' id %}">Complications vasculaires de la grossesse etinfertilité</a></li>
+        <li><a href="">Bilan biologique</a></li>
+        <li><a href="{% url 'consulsuivi' id %}">Consultation de suivi</a></li>
+        <li><a href="{% url 'ExamenArret' id %}">Examens à faire à l’arrêt du traitement : Hypercoagulabilité </a></li>
+        <li><a href="{% url 'Recommandation' id %}">Recommandations thérapeutiques – Suivi sous traitement </a></li>
+    </ul>
+{% endblock %}
+
+
+{% block content %}
+
+    <div class="container-fluid">
+
+        <div id="signupbox" style=" margin-top:50px" class="mainbox col-md-9  col-sm-9  ">
+
+            <form class="form-horizontal" method="post">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="col-md-8">
+                        <div id="" class="form-group ">
+                            <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Nature
+                                : </label>
+                            <div class="controls col-md-8 ">
+                                <input class="input-md  textInput form-control" id="id1" name="n1" placeholder="1er"
+                                       style="margin-bottom: 10px" type="text"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div id="" class="form-group ">
+                            <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Annee
+                                : </label>
+                            <div class="controls col-md-8 ">
+                                <input class="input-md  textInput form-control" id="id1" name="annee1" placeholder=""
+                                       style="margin-bottom: 10px" type="date"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <div id="" class="form-group ">
+                            <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Nature
+                                : </label>
+                            <div class="controls col-md-8 ">
+                                <input class="input-md  textInput form-control" id="id1" name="n2" placeholder="2eme"
+                                       style="margin-bottom: 10px" type="text"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div id="" class="form-group ">
+                            <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Annee
+                                : </label>
+                            <div class="controls col-md-8 ">
+                                <input class="input-md  textInput form-control" id="id1" name="annee2" placeholder=""
+                                       style="margin-bottom: 10px" type="date"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <div id="" class="form-group ">
+                            <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Nature
+                                : </label>
+                            <div class="controls col-md-8 ">
+                                <input class="input-md  textInput form-control" id="id1" name="n3" placeholder="3eme"
+                                       style="margin-bottom: 10px" type="text"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div id="" class="form-group ">
+                            <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Annee
+                                : </label>
+                            <div class="controls col-md-8 ">
+                                <input class="input-md  textInput form-control" id="id1" name="annee3" placeholder=""
+                                       style="margin-bottom: 10px" type="date"/>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div id="" class="form-group ">
+                        <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Commentaire
+                            : </label>
+                        <div class="controls col-md-8 ">
+                            <input class="input-md  textInput form-control" id="id1" name="commentaires"
+                                   placeholder="" style="margin-bottom: 10px" type="text"/>
+                        </div>
+                    </div>
+
+                    <div id="" class="form-group ">
+                        <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Complication
+                            thrombotique : </label>
+                        <div class="controls col-md-8 ">
+                            <select class="form-control" onchange="yesnoCheck2('1')" id="ynCheck1" name="is_compli_throm">
+                                <option value="0">non</option>
+                                <option value="1">oui</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div id="field_1" style="display:none">
+                        <div id="" class="form-group ">
+                            <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Lesquelles
+                                : </label>
+                            <div class="controls col-md-8 ">
+                                <input class="input-md  textInput form-control" id="id1" name="compli_throm"
+                                       placeholder="" style="margin-bottom: 10px" type="text"/>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div id="div_id_id_p" class="form-group " style="visibility: hidden">
+                        <label for="id-1" class="control-label col-md-4  " style="text-align: left"> id_p<span
+                                class="asteriskField">*</span> </label>
+                        <div class="controls col-md-8 ">
+                            <input class="input-md  textInput form-control" id="id1" name="patient_idpatient"
+                                   placeholder="" style="margin-bottom: 10px" type="text" value="{{ id }}"/>
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <input class="btn btn-default" type="submit" value="Save" class="default" name="save"/>
+                    </div>
+
+
+                </div>
+
+
+            </form>
+        </div>
+    </div>
+
+
+{% endblock %}

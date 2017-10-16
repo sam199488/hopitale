@@ -1,0 +1,173 @@
+{% extends 'hemato/base.html' %}
+
+{% block title %}  Hemato DataBase | nouveau patient{% endblock %}
+
+
+{% block sidebar %}
+    <ul class="nav nav-sidebar">
+        <li><a href="">Informations générales <span class="sr-only">(current)</span></a></li>
+        <li><a href="{% url 'facris' id %}">Facteur de risques cardiovasculaire</a></li>
+        <li><a href="{% url 'epTr' id %}">Episodes trombotique</a></li>
+        <li><a href="{% url 'atcd' id %}">Antecedent chirugicaux</a></li>
+        <li><a href="{% url 'trRec' id %}">Thromboses récidivantes</a></li>
+        <li><a href="{% url 'pathoMaligne' id %}">Thrombose et oncologie</a></li>
+        <li><a href="{% url 'compVasGI' id %}">Complications vasculaires de la grossesse et infertilité</a></li>
+        <li><a href="">Bilan biologique</a></li>
+        <li><a href="{% url 'consulsuivi' id %}">Consultation de suivi</a></li>
+        <li class="active"><a href="{% url 'consulsuivi' id %}">consultation de suivi</a></li>
+        <li><a href="{% url 'ExamenArret' id %}">Examens à faire à l’arrêt du traitement : Hypercoagulabilité </a></li>
+        <li><a href="{% url 'Recommandation' id %}">Recommandations thérapeutiques – Suivi sous traitement </a></li>
+
+    </ul>
+{% endblock %}
+
+
+{% block content %}
+    {% comment %}<h1>Hello sam</h1>
+    <button type="button" class="btn btn-default">click me!</button>{% endcomment %}
+    <div class="container-fluid">
+        <div id="signupbox" style=" margin-top:50px" class="mainbox col-md-6  col-sm-8  ">
+            <h2>Examens à faire à l’arrêt du traitement </h2>
+            <form class="form-horizontal" method="post">
+                {% csrf_token %}
+
+                <div id="" class="form-group ">
+                    <h3>Test de génération de thrombine en PPP :</h3>
+                </div>
+                <div class="form-group ">
+                    <label for="" class="control-label col-md-4" style="text-align: left">Lag-time :</label>
+                    <div class="controls col-md-8 ">
+                        <input class="input-md textinput textInput form-control" id="" name="lag_time" placeholder=""
+                               style="margin-bottom: 10px" type="text"/>
+                    </div>
+                </div>
+                <div class="form-group ">
+                    <label for="" class="control-label col-md-4" style="text-align: left">ttPeak :</label>
+                    <div class="controls col-md-8 ">
+                        <input class="input-md textinput textInput form-control" id="" name="ttpeak" placeholder=""
+                               style="margin-bottom: 10px" type="text"/>
+                    </div>
+                </div>
+                <div class="form-group ">
+                    <label for="" class="control-label col-md-4" style="text-align: left">Peak :</label>
+                    <div class="controls col-md-8 ">
+                        <input class="input-md textinput textInput form-control" id="" name="peak" placeholder=""
+                               style="margin-bottom: 10px" type="text"/>
+                    </div>
+                </div>
+                <div class="form-group ">
+                    <label for="" class="control-label col-md-4" style="text-align: left">MRI :</label>
+                    <div class="controls col-md-8 ">
+                        <input class="input-md textinput textInput form-control" id="" name="mri" placeholder=""
+                               style="margin-bottom: 10px" type="text"/>
+                    </div>
+                </div>
+                <div class="form-group ">
+                    <label for="" class="control-label col-md-4" style="text-align: left">ETP :</label>
+                    <div class="controls col-md-8 ">
+                        <input class="input-md textinput textInput form-control" id="" name="etp" placeholder=""
+                               style="margin-bottom: 10px" type="text"/>
+                    </div>
+                </div>
+                <div id="" class="form-group ">
+                    <h3>Thrombo-élastométrie Sang Total min TF :</h3>
+                </div>
+                <div class="form-group ">
+                    <label for="" class="control-label col-md-4" style="text-align: left">CT :</label>
+                    <div class="controls col-md-8 ">
+                        <input class="input-md textinput textInput form-control" id="id_password1" name="ct"
+                               placeholder="" style="margin-bottom: 10px" type="text"/>
+                    </div>
+                </div>
+                <div class="form-group ">
+                    <label for="" class="control-label col-md-4" style="text-align: left">CFT :</label>
+                    <div class="controls col-md-8 ">
+                        <input class="input-md textinput textInput form-control" id="id_password1" name="cft"
+                               placeholder="" style="margin-bottom: 10px" type="text"/>
+                    </div>
+                </div>
+                <div class="form-group ">
+                    <label for="" class="control-label col-md-4" style="text-align: left">α :</label>
+                    <div class="controls col-md-8 ">
+                        <input class="input-md textinput textInput form-control" id="id_password1" name="alpha"
+                               placeholder="" style="margin-bottom: 10px" type="text"/>
+                    </div>
+                </div>
+                <div class="form-group ">
+                    <label for="" class="control-label col-md-4" style="text-align: left">MA :</label>
+                    <div class="controls col-md-8 ">
+                        <input class="input-md textinput textInput form-control" id="id_password1" name="ma"
+                               placeholder="" style="margin-bottom: 10px" type="text"/>
+                    </div>
+                </div>
+                <div id="" class="form-group ">
+                    <h3>NFS :</h3>
+                </div>
+                <div class="form-group ">
+                    <label for="" class="control-label col-md-4" style="text-align: left">Globules blancs:</label>
+                    <div class="controls col-md-8 ">
+                        <input class="input-md textinput textInput form-control" id="id_password1" name="glob_bla"
+                               placeholder="g/L  " style="margin-bottom: 10px" type="text"/>
+                    </div>
+                </div>
+                <div class="form-group ">
+                    <label for="" class="control-label col-md-4" style="text-align: left">Hb:</label>
+                    <div class="controls col-md-8 ">
+                        <input class="input-md textinput textInput form-control" id="id_password1" name="hb"
+                               placeholder="g/dl  " style="margin-bottom: 10px" type="text"/>
+                    </div>
+                </div>
+                <div class="form-group ">
+                    <label for="" class="control-label col-md-4" style="text-align: left">Plaquettes:</label>
+                    <div class="controls col-md-8 ">
+                        <input class="input-md textinput textInput form-control" id="id_password1" name="plaquettes"
+                               placeholder="g/L  " style="margin-bottom: 10px" type="text"/>
+                    </div>
+                </div>
+                <div class="form-group ">
+                    <label for="" class="control-label col-md-4" style="text-align: left">Fibrinogène :</label>
+                    <div class="controls col-md-8 ">
+                        <input class="input-md textinput textInput form-control" id="id_password1" name="fibrinogene"
+                               placeholder="g/L" style="margin-bottom: 10px" type="text"/>
+                    </div>
+                </div>
+                <div class="form-group ">
+                    <label for="" class="control-label col-md-4" style="text-align: left">FVIII :</label>
+                    <div class="controls col-md-8 ">
+                        <input class="input-md textinput textInput form-control" id="id_password1" name="fviii"
+                               placeholder="%" style="margin-bottom: 10px" type="text"/>
+                    </div>
+                </div>
+                <div class="form-group ">
+                    <label for="" class="control-label col-md-4" style="text-align: left">FvW antigéne  :</label>
+                    <div class="controls col-md-8 ">
+                        <input class="input-md textinput textInput form-control" id="id_password1" name="fvw"
+                               placeholder="%" style="margin-bottom: 10px" type="text"/>
+                    </div>
+                </div>
+                <div class="form-group ">
+                    <label for="" class="control-label col-md-4" style="text-align: left">D-ng/mlDimères :</label>
+                    <div class="controls col-md-8 ">
+                        <input class="input-md textinput textInput form-control" id="id_password1" name="ddimeres"
+                               placeholder="ng/ml" style="margin-bottom: 10px" type="text"/>
+                    </div>
+                </div>
+
+                <div id="div_id_id_p" class="form-group " style="visibility: hidden">
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left"> id_p<span
+                            class="asteriskField">*</span> </label>
+                    <div class="controls col-md-8 ">
+                        <input class="input-md  textInput form-control" id="id1" name="patient_idpatient" placeholder=""
+                               style="margin-bottom: 10px" type="text" value="{{ id }}"/>
+                    </div>
+                </div>
+
+                <div class="col-md-8">
+                    <input class="btn btn-default" type="submit" value="Save" class="default" name="save"/>
+                </div>
+
+
+            </form>
+        </div>
+    </div>
+{% endblock %}

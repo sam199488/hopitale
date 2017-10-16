@@ -1,0 +1,140 @@
+{% extends 'hemato/base.html' %}
+
+{% block title %}  Hemato DataBase | nouveau patient{% endblock %}
+
+
+{% block sidebar %}
+    <ul class="nav nav-sidebar">
+        <li><a href="">Informations générales <span class="sr-only">(current)</span></a></li>
+        <li><a href="{% url 'facris' id %}">Facteur de risques cardiovasculaire</a></li>
+        <li><a href="{% url 'epTr' id %}">Episodes trombotique</a></li>
+        <li><a href="{% url 'atcd' id %}">Antecedent chirugicaux</a></li>
+        <li><a href="{% url 'trRec' id %}">Thromboses récidivantes</a></li>
+        <li class="active"><a href="{% url 'pathoMaligne' id %}">Thrombose et oncologie</a></li>
+        <li><a href="{% url 'compVasGI' id %}">Complications vasculaires de la grossesse etinfertilité</a></li>
+        <li><a href="">Bilan biologique</a></li>
+        <li><a href="{% url 'consulsuivi' id %}">Consultation de suivi</a></li>
+        <li><a href="{% url 'ExamenArret' id %}">Examens à faire à l’arrêt du traitement : Hypercoagulabilité </a></li>
+        <li><a href="{% url 'Recommandation' id %}">Recommandations thérapeutiques – Suivi sous traitement </a></li>
+    </ul>
+{% endblock %}
+
+
+{% block content %}
+    <div class="container-fluid">
+        <div id="signupbox" style=" margin-top:50px" class="mainbox col-md-6  col-sm-8  ">
+
+            <form class="form-horizontal" method="post">
+                {% csrf_token %}
+                <div id="div_id_id_p" class="form-group " style="visibility: hidden">
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Caractère<span
+                            class="asteriskField">*</span> </label>
+                    <div class="controls col-md-8 ">
+                        <input class="input-md  textInput form-control" id="id1" name="caractere" placeholder=""
+                               style="margin-bottom: 10px" type="text" value="Hémopathies tissu lymphoïde"/>
+                    </div>
+                </div>
+                <div id="" class="form-group ">
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left">Site initial: </label>
+                    <div class="controls col-md-8 ">
+                        <select class="form-control" id="sel1" name="site_initiale">
+                            <option value="Amylose">Amylose</option>
+                            <option value="Gammapathie monoclonale">Gammapathie monoclonale</option>
+                            <option value="Lymphome Hodgkin">Lymphome Hodgkin</option>
+                            <option value="Lymphome non Hodgkin B">Lymphome non Hodgkin B</option>
+                            <option value="Lymphome non Hodgkin T">Lymphome non Hodgkin T</option>
+                            <option value="Maladie de Waldenström">Maladie de Waldenström</option>
+                            <option value="Myélome multiple symptomatique">Myélome multiple symptomatique</option>
+                            <option value="Myélome multiple asymptomatique">Myélome multiple asymptomatique</option>
+                            <option value="Plasmocytome">Plasmocytome</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="" class="form-group ">
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Stade : </label>
+                    <div class="controls col-md-8 ">
+                        <select class="form-control" id="sel1" name="stade">
+                            <option value="1">I</option>
+                            <option value="2">II</option>
+                            <option value="3">III</option>
+                            <option value="4">IV</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="" class="form-group ">
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left">Statut évolutif
+                        : </label>
+                    <div class="controls col-md-8 ">
+                        <select class="form-control" id="sel1" name="statut_evolutif">
+                            <option value="Progression">Progression</option>
+                            <option value="Rémission">Rémission</option>
+                            <option value="Stabilité">Stabilité</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="" class="form-group ">
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left">Temps écoulé depuis le
+                        diagnostic : </label>
+                    <div class="controls col-md-8">
+                        <select class="form-control" id="sel1" name="temp_ecoule">
+                            <option value="< 3 mois"> < 3 mois</option>
+                            <option value="3-6 mois"> 3-6 mois</option>
+                            <option value="6-12 mois"> 6-12 mois</option>
+                            <option value="> 12 mois"> > 12 mois</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="" class="form-group ">
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left">Score ECOG: </label>
+                    <div class="controls col-md-8 ">
+                        <select class="form-control" id="sel1" name="score_ecog">
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="" class="form-group ">
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left">Indice de performance
+                        ECOG </label>
+                    <div class="controls col-md-8 ">
+                        <select class="form-control" id="sel1" name="indice_perf_ocog">
+                            <option value="0">Activité physique diminuée mais ambulatoire et capable de mener un
+                                travail
+                            </option>
+                            <option value="1">Ambulatoire et capable de prendre soin de soi-même, incapable de
+                                travailler. Alité moins de 50 % de son temps
+                            </option>
+                            <option value="2">Capable d'une activité identique à celle précédant la maladie sans aucune
+                                restriction
+                            </option>
+                            <option value="3">Capable seulement de quelques soins. Alité ou en chaise plus de 50% du
+                                temps
+                            </option>
+                        </select>
+                    </div>
+                </div>
+
+                <div id="div_id_id_p" class="form-group " style="visibility: hidden">
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left"> id_p<span
+                            class="asteriskField">*</span> </label>
+                    <div class="controls col-md-8 ">
+                        <input class="input-md  textInput form-control" id="id1" name="patient_idpatient" placeholder=""
+                               style="margin-bottom: 10px" type="text" value="{{ id }}"/>
+                    </div>
+                </div>
+
+                <div class="col-md-8">
+                    <input class="btn btn-default" type="submit" value="Save" class="default" name="save"/>
+                </div>
+
+
+            </form>
+        </div>
+
+
+    </div>
+
+
+{% endblock %}

@@ -1,0 +1,640 @@
+{% extends 'hemato/base.html' %}
+
+{% block title %}  Hemato DataBase | nouveau patient{% endblock %}
+
+
+{% block sidebar %}
+    <ul class="nav nav-sidebar">
+        <li><a href="">Informations générales <span class="sr-only">(current)</span></a></li>
+        <li><a href="{% url 'facris' id %}">Facteur de risques cardiovasculaire</a></li>
+        <li><a href="{% url 'epTr' id %}">Episodes trombotique</a></li>
+        <li><a href="{% url 'atcd' id %}">Antecedent chirugicaux</a></li>
+        <li class="active"><a href="{% url 'trRec' id %}">Thromboses récidivantes</a></li>
+        <li><a href="{% url 'pathoMaligne' id %}">Thrombose et oncologie</a></li>
+        <li><a href="{% url 'compVasGI' id %}">Complications vasculaires de la grossesse et
+            infertilité</a></li>
+        <li><a href="">Bilan biologique</a></li>
+        <li><a href="{% url 'consulsuivi' id %}">Consultation de suivi</a></li>
+        <li><a href="{% url 'ExamenArret' id %}">Examens à faire à l’arrêt du traitement : Hypercoagulabilité </a></li>
+        <li><a href="{% url 'Recommandation' id %}">Recommandations thérapeutiques – Suivi sous traitement </a></li>
+
+    </ul>
+{% endblock %}
+
+
+{% block content %}
+
+    <div class="container-fluid">
+        <div id="signupbox" style=" margin-top:50px" class="mainbox col-md-6  col-sm-8  ">
+
+            <form class="form-horizontal" method="post">
+                {% csrf_token %}
+
+                <div id="" class="form-group ">
+                    <h3>Anti-métabolites</h3>
+                </div>
+                <div id="" class="form-group ">
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left">  Methotrexate: </label>
+                    <div class="controls col-md-2 ">
+                        <select class="form-control" id="sel1" name="methotrexate">
+                            <option value="1">oui</option>
+                            <option value="0">non</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="" class="form-group ">
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left">
+                        6-MERCAPTOPURINE: </label>
+                    <div class="controls col-md-2 ">
+                        <select class="form-control" id="sel1" name="number_6_mercaptopurine">
+                            <option value="1">oui</option>
+                            <option value="0">non</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="" class="form-group ">
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Purinnethol: </label>
+                    <div class="controls col-md-2 ">
+                        <select class="form-control" id="sel1" name="purinethole">
+                            <option value="1">oui</option>
+                            <option value="0">non</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="" class="form-group ">
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left">Fludarabine  : </label>
+                    <div class="controls col-md-2 ">
+                        <select class="form-control" id="sel1" name="fludarabine">
+                            <option value="1">oui</option>
+                            <option value="0">non</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="" class="form-group ">
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left"> 5FU : </label>
+                    <div class="controls col-md-2 ">
+                        <select class="form-control" id="sel1" name="number_5fu">
+                            <option value="1">oui</option>
+                            <option value="0">non</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="" class="form-group ">
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left">Cytarabine : </label>
+                    <div class="controls col-md-2 ">
+                        <select class="form-control" id="sel1" name="cytarbine">
+                            <option value="1">oui</option>
+                            <option value="0">non</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="" class="form-group ">
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left">Hydrea : </label>
+                    <div class="controls col-md-2 ">
+                        <select class="form-control" id="sel1" name="hydrea">
+                            <option value="1">oui</option>
+                            <option value="0">non</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="" class="form-group ">
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left">L-Asparginase : </label>
+                    <div class="controls col-md-2 ">
+                        <select class="form-control" id="sel1" name="asparginase">
+                            <option value="1">oui</option>
+                            <option value="0">non</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div id="" class="form-group ">
+                    <h3>Alkylants </h3>
+                </div>
+                <div id="" class="form-group ">
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left">Chlorambucil  : </label>
+                    <div class="controls col-md-2 ">
+                        <select class="form-control" id="sel1" name="chlorambucil">
+                            <option value="1">oui</option>
+                            <option value="0">non</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="" class="form-group ">
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left">Melphalan : </label>
+                    <div class="controls col-md-2 ">
+                        <select class="form-control" id="sel1" name="melphalan">
+                            <option value="1">oui</option>
+                            <option value="0">non</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="" class="form-group ">
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Cyclophosphamide
+                        : </label>
+                    <div class="controls col-md-2 ">
+                        <select class="form-control" id="sel1" name="cyclophosphamide">
+                            <option value="1">oui</option>
+                            <option value="0">non</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="" class="form-group ">
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Nitroso-urees : </label>
+                    <div class="controls col-md-2 ">
+                        <select class="form-control" id="sel1" name="nitroso_urees">
+                            <option value="1">oui</option>
+                            <option value="0">non</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="" class="form-group ">
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Derives du platine : </label>
+                    <div class="controls col-md-2 ">
+                        <select class="form-control" id="sel1" name="derives_platine">
+                            <option value="1">oui</option>
+                            <option value="0">non</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="" class="form-group ">
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Mitomycine : </label>
+                    <div class="controls col-md-2 ">
+                        <select class="form-control" id="sel1" name="mitomycine">
+                            <option value="1">oui</option>
+                            <option value="0">non</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div id="" class="form-group ">
+                    <h3>Intercalants Anthracycline </h3>
+                </div>
+                <div id="" class="form-group ">
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Doxorubicine  : </label>
+                    <div class="controls col-md-2 ">
+                        <select class="form-control" id="sel1" name="doxorubicine">
+                            <option value="1">oui</option>
+                            <option value="0">non</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="" class="form-group ">
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Mitoxanthone : </label>
+                    <div class="controls col-md-2 ">
+                        <select class="form-control" id="sel1" name="mitoxanthone">
+                            <option value="1">oui</option>
+                            <option value="0">non</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="" class="form-group ">
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Bleomycine : </label>
+                    <div class="controls col-md-2 ">
+                        <select class="form-control" id="sel1" name="bleomycine">
+                            <option value="1">oui</option>
+                            <option value="0">non</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="" class="form-group ">
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Eetoposide: </label>
+                    <div class="controls col-md-2 ">
+                        <select class="form-control" id="sel1" name="etoposide">
+                            <option value="1">oui</option>
+                            <option value="0">non</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div id="" class="form-group ">
+                    <h3>Anti-fuseau</h3>
+                </div>
+                <div id="" class="form-group ">
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Vincristine: </label>
+                    <div class="controls col-md-2 ">
+                        <select class="form-control" id="sel1" name="vincristine">
+                            <option value="1">oui</option>
+                            <option value="0">non</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="" class="form-group ">
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Vinblastatine: </label>
+                    <div class="controls col-md-2 ">
+                        <select class="form-control" id="sel1" name="vinblastatine">
+                            <option value="1">oui</option>
+                            <option value="0">non</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="" class="form-group ">
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Taxanes: </label>
+                    <div class="controls col-md-2 ">
+                        <select class="form-control" id="sel1" name="taxanes">
+                            <option value="1">oui</option>
+                            <option value="0">non</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="" class="form-group ">
+                    <h3>Immunothérapie</h3>
+                </div>
+
+                 <div id="" class="form-group ">
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Rituximab: </label>
+                    <div class="controls col-md-2 ">
+                        <select class="form-control" id="sel1" name="rituximab">
+                            <option value="1">oui</option>
+                            <option value="0">non</option>
+                        </select>
+                    </div>
+                </div>
+                 <div id="" class="form-group ">
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Daratumumab: </label>
+                    <div class="controls col-md-2 ">
+                        <select class="form-control" id="sel1" name="daratumumab">
+                            <option value="1">oui</option>
+                            <option value="0">non</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div id="" class="form-group ">
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Autre </label>
+                    <div class="controls col-md-8 ">
+                        <input class="input-md  textInput form-control" id="id1" name="autre_immunotherapie" placeholder=""
+                               style="margin-bottom: 10px" type="text" value=""/>
+                    </div>
+                </div>
+
+                <div id="" class="form-group ">
+                    <h3>Anti-aromatase</h3>
+                </div>
+                <div id="" class="form-group ">
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Anastrozole
+                        (ARIMIDEX): </label>
+                    <div class="controls col-md-2 ">
+                        <select class="form-control" id="sel1" name="anastrozole">
+                            <option value="1">oui</option>
+                            <option value="0">non</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="" class="form-group ">
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Exémestane
+                        (AROMASIN): </label>
+                    <div class="controls col-md-2 ">
+                        <select class="form-control" id="sel1" name="exemestane">
+                            <option value="1">oui</option>
+                            <option value="0">non</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="" class="form-group ">
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Létrozole
+                        (FEMARA): </label>
+                    <div class="controls col-md-2 ">
+                        <select class="form-control" id="sel1" name="letrozole">
+                            <option value="1">oui</option>
+                            <option value="0">non</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="" class="form-group ">
+                    <h3>Anti-œstrogènes</h3>
+                </div>
+                <div id="" class="form-group ">
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Fulvestrant
+                        (FASLODEX): </label>
+                    <div class="controls col-md-2 ">
+                        <select class="form-control" id="sel1" name="fulvestrant">
+                            <option value="1">oui</option>
+                            <option value="0">non</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="" class="form-group ">
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left">Raloxifène
+                        (EVISTA): </label>
+                    <div class="controls col-md-2 ">
+                        <select class="form-control" id="sel1" name="raloxifene">
+                            <option value="1">oui</option>
+                            <option value="0">non</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="" class="form-group ">
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Tamoxifène
+                        (NOLVADEX,TAMOFEN)</label>
+                    <div class="controls col-md-2 ">
+                        <select class="form-control" id="sel1" name="tamoxifene">
+                            <option value="1">oui</option>
+                            <option value="0">non</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div id="" class="form-group ">
+                    <h3>Anti-androgènes</h3>
+                </div>
+                <div id="" class="form-group ">
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Bicalutamide
+                        (CASODEX): </label>
+                    <div class="controls col-md-2 ">
+                        <select class="form-control" id="sel1" name="bicalutamide">
+                            <option value="1">oui</option>
+                            <option value="0">non</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="" class="form-group ">
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left">Cyprotérone
+                        (ANDROCUR): </label>
+                    <div class="controls col-md-2 ">
+                        <select class="form-control" id="sel1" name="cyproterone">
+                            <option value="1">oui</option>
+                            <option value="0">non</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="" class="form-group ">
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Flutamide
+                        (EUFLEX):</label>
+                    <div class="controls col-md-2 ">
+                        <select class="form-control" id="sel1" name="flutamide">
+                            <option value="1">oui</option>
+                            <option value="0">non</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="" class="form-group ">
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Nilutamide
+                        (ANANDRON): </label>
+                    <div class="controls col-md-2 ">
+                        <select class="form-control" id="sel1" name="nilutamide">
+                            <option value="1">oui</option>
+                            <option value="0">non</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="" class="form-group ">
+                    <h3>IMMUNOMODULATEURS</h3>
+                </div>
+                <div id="" class="form-group ">
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left">Lénalidomide: </label>
+                    <div class="controls col-md-2 ">
+                        <select class="form-control" id="sel1" name="lenalidomide">
+                            <option value="1">oui</option>
+                            <option value="0">non</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="" class="form-group ">
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left">Pomalidomide: </label>
+                    <div class="controls col-md-2 ">
+                        <select class="form-control" id="sel1" name="pomalidomide">
+                            <option value="1">oui</option>
+                            <option value="0">non</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="" class="form-group ">
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Thalidomide:</label>
+                    <div class="controls col-md-2 ">
+                        <select class="form-control" id="sel1" name="thalidomide">
+                            <option value="1">oui</option>
+                            <option value="0">non</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="" class="form-group ">
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Interféron:</label>
+                    <div class="controls col-md-2 ">
+                        <select class="form-control" id="sel1" name="interferon">
+                            <option value="1">oui</option>
+                            <option value="0">non</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div id="" class="form-group ">
+                    <h3>ANTI-ANGIOGENIQUES</h3>
+                </div>
+                <div id="" class="form-group ">
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left">Anti-VEGF
+                        (BEVACIZUMAB): </label>
+                    <div class="controls col-md-2 ">
+                        <select class="form-control" id="sel1" name="anti_vegf">
+                            <option value="1">oui</option>
+                            <option value="0">non</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="" class="form-group ">
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left">Inhibiteurs des
+                        protéinestyrosine kinases: </label>
+                    <div class="controls col-md-2 ">
+                        <select class="form-control" id="sel1" name="iptk">
+                            <option value="1">oui</option>
+                            <option value="0">non</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="" class="form-group ">
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left">Busulfan: </label>
+                    <div class="controls col-md-2 ">
+                        <select class="form-control" id="sel1" name="busulfan">
+                            <option value="1">oui</option>
+                            <option value="0">non</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="" class="form-group ">
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left">Bleomycine: </label>
+                    <div class="controls col-md-2 ">
+                        <select class="form-control" id="sel1" name="bleomycine">
+                            <option value="1">oui</option>
+                            <option value="0">non</option>
+                        </select>
+                    </div>
+                </div>
+                <hr>
+                <div id="" class="form-group ">
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Corticoïdes:</label>
+                    <div class="controls col-md-2 ">
+                        <select class="form-control" id="sel1" name="corticoides">
+                            <option value="1">oui</option>
+                            <option value="0">non</option>
+                        </select>
+                    </div>
+                </div>
+                <hr>
+                <div id="" class="form-group ">
+                    <h3>Inhibiteurs de proteasome</h3>
+                </div>
+                <div id="" class="form-group ">
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Bortezomib:</label>
+                    <div class="controls col-md-2 ">
+                        <select class="form-control" id="sel1" name="bortezomib">
+                            <option value="1">oui</option>
+                            <option value="0">non</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="" class="form-group ">
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Carflizomib:</label>
+                    <div class="controls col-md-2 ">
+                        <select class="form-control" id="sel1" name="carflizomib">
+                            <option value="1">oui</option>
+                            <option value="0">non</option>
+                        </select>
+                    </div>
+                </div>
+                <hr>
+                <div id="" class="form-group ">
+                    <h3>Greffe de Moelle</h3>
+                </div>
+                <div id="" class="form-group ">
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Autogreffe:</label>
+                    <div class="controls col-md-2 ">
+                        <select class="form-control" id="sel1" name="autogreffe">
+                            <option value="1">oui</option>
+                            <option value="0">non</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="" class="form-group ">
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Allogreffe:</label>
+                    <div class="controls col-md-2 ">
+                        <select class="form-control" id="sel1" name="allogreffe">
+                            <option value="1">oui</option>
+                            <option value="0">non</option>
+                        </select>
+                    </div>
+                </div>
+                <hr>
+                <div id="" class="form-group ">
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Anagrelide:</label>
+                    <div class="controls col-md-2 ">
+                        <select class="form-control" id="sel1" name="anagrelide">
+                            <option value="1">oui</option>
+                            <option value="0">non</option>
+                        </select>
+                    </div>
+                </div>
+
+
+
+                <hr>
+                <div id="" class="form-group ">
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Ruxolitinib:</label>
+                    <div class="controls col-md-2 ">
+                        <select class="form-control" id="sel1" name="ruxolitinib">
+                            <option value="1">oui</option>
+                            <option value="0">non</option>
+                        </select>
+                    </div>
+                </div>
+
+
+
+                <hr>
+                <div id="" class="form-group ">
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Utilisation récente
+                        d'un traitement adjuvant:</label>
+                    <div class="controls col-md-8 ">
+                        <select class="form-control" id="sel1" name="urta">
+                            <option value="EPO">EPO</option>
+                            <option value="G-CSF">G-CSF</option>
+                            <option value="aucun">aucun</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="" class="form-group ">
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left">Cathéter veineux
+                        central:</label>
+                    <div class="controls col-md-8 ">
+                        <select class="form-control" id="sel1" name="catheter_veineux_centrale">
+                            <option value="1">oui</option>
+                            <option value="0">non</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="" class="form-group ">
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left">Facteurs de risque
+                        hémorragique:</label>
+                    <div class="controls col-md-8 ">
+                        <select class="form-control" id="sel1" name="fac_ris_hem">
+                            <option value="Aspirine en cours">Aspirine en cours</option>
+                            <option value="Cirrhose avec varices oesophagiennes">Cirrhose avec varices oesophagiennes
+                            </option>
+                            <option value="Hémorragie récente < 3 mois">Hémorragie récente < 3 mois</option>
+                            <option value="Insuffisance rénale (MDRD < 30ml/min/1.73m²)">Insuffisance rénale (MDRD <
+                                30ml/min/1.73m²)
+                            </option>
+                            <option value="Métastases cérébrales">Métastases cérébrales</option>
+                            <option value="Ulcère gastro-duodénal">Ulcère gastro-duodénal</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="" class="form-group ">
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left">Thromboprophylaxie
+                        depuis le diagnostic du cancer:</label>
+                    <div class="controls col-md-8 ">
+                        <select class="form-control" id="sel1" name="thro_dep_diag_can">
+                            <option value="1">oui</option>
+                            <option value="0">non</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="div_id_password1" class="form-group ">
+                    <label for="" class="control-label col-md-4" style="text-align: left">Date :</label>
+                    <div class="controls col-md-8 ">
+                        <input class="input-md textinput textInput form-control" id="id_password1" name="date_tddc"
+                               placeholder="Create a password" style="margin-bottom: 10px" type="date"/>
+                    </div>
+                </div>
+                <div id="" class="form-group ">
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left">Tt
+                        antithrombotique:</label>
+                    <div class="controls col-md-8 ">
+                        <select class="form-control" id="sel1" name="tt_anti">
+                            <option value="AOD">AOD</option>
+                            <option value="Arixtra">Arixtra</option>
+                            <option value="AVK">AVK</option>
+                            <option value="Fraxiparine">Fraxiparine</option>
+                            <option value="Innohep">Innohep</option>
+                            <option value="Lovenox">Lovenox</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="div_id_password1" class="form-group ">
+                    <label for="" class="control-label col-md-4" style="text-align: left">Date de début du
+                        traitement:</label>
+                    <div class="controls col-md-8 ">
+                        <input class="input-md textinput form-control" name="date_tta" placeholder="Create a password"
+                               style="margin-bottom: 10px" type="date"/>
+                    </div>
+                </div>
+                <div id="div_id_id_p" class="form-group " style="visibility: hidden">
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left"> id_p<span
+                            class="asteriskField">*</span> </label>
+                    <div class="controls col-md-8 ">
+                        <input class="input-md  textInput form-control" id="id1" name="patient_idpatient" placeholder=""
+                               style="margin-bottom: 10px" type="text" value="{{ id }}"/>
+                    </div>
+                </div>
+
+                <div class="col-md-8">
+                    <input class="btn btn-default" type="submit" value="Save" class="default" name="save"/>
+                </div>
+
+
+            </form>
+        </div>
+
+
+    </div>
+
+
+{% endblock %}

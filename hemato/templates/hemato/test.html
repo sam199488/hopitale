@@ -1,0 +1,156 @@
+{% extends 'hemato/base.html' %}
+
+{% block title %}  Hemato DataBase | nouveau patient{% endblock %}
+
+
+{% block sidebar %}
+<ul class="nav nav-sidebar">
+    <li class="active"><a href="#">information generale <span class="sr-only">(current)</span></a></li>
+    <li><a href="#">episodes trombotique</a></li>
+    <li><a href="#">facteur de risques cardiovasculaire</a></li>
+    <li><a href="#">facteur de risques cardiovasculaire</a></li>
+</ul>
+{% endblock %}
+
+
+{% block content %}
+    {% comment %}<h1>Hello sam</h1>
+    <button type="button" class="btn btn-default">click me!</button>{% endcomment %}
+    <h1>ajouter un patient</h1>
+  <div class="container-fluid">
+
+    <div id="signupbox" style=" margin-top:50px" class="mainbox col-md-6  col-sm-8  ">
+
+
+
+
+                    <form  class="form-horizontal" method="post"  action="post">
+                        {% csrf_token %}
+
+
+                        <div id="div_id_username" class="form-group required">
+                            <label for="id_username" class="control-label col-md-4  "> Nom:<span class="asteriskField">*</span> </label>
+                            <div class="controls col-md-8 ">
+                                <input class="input-md  textinput textInput form-control" id="id_username" maxlength="30" name="nompatient" placeholder="nom du patient" style="margin-bottom: 10px" type="text" />
+                            </div>
+                        </div>
+
+
+                        <div id="div_id_email" class="form-group ">
+                            <label for="id-1" class="control-label col-md-4  "> Prenom:<span class="asteriskField">*</span> </label>
+                            <div class="controls col-md-8 ">
+                                <input class="input-md  textInput form-control" id="id1" name="prenompatient" placeholder="prenompatient" style="margin-bottom: 10px" type="text" />
+                            </div>
+                        </div>
+
+
+                        <div id="div_id_password1" class="form-group ">
+                            <label for="id_password1" class="control-label col-md-4  requiredField">Date de naissance<span class="asteriskField">*</span> </label>
+                            <div class="controls col-md-8 ">
+                                <input class="input-md textinput textInput form-control" id="id_password1" name="datenaissance" placeholder="Create a password" style="margin-bottom: 10px" type="date" />
+                            </div>
+                        </div>
+
+
+                        <div id="div_id_password2" class="form-group ">
+                             <label for="id_password2" class="control-label col-md-4  requiredField"> Groupe sanguin<span class="asteriskField">*</span> </label>
+                             <div class="controls col-md-8 ">
+                                <input class="input-md textinput textInput form-control" id="id_password2" name="groupesanguin" placeholder="A, AB+, O ...etc " style="margin-bottom: 10px" type="text" />
+                            </div>
+                        </div>
+
+
+                        <div id="div_id_name" class="form-group ">
+                            <label for="id_name" class="control-label col-md-4  requiredField"> Telephone <span class="asteriskField">*</span> </label>
+                            <div class="controls col-md-8 ">
+                                <input class="input-md textinput textInput form-control" id="id_name" name="telephonepatient" placeholder="numero de telephone" style="margin-bottom: 10px" type="text" />
+                            </div>
+                        </div>
+
+
+                        <div id="div_id_gender" class="form-group ">
+                            <label for="id_gender"  class="control-label col-md-4  requiredField"> sexe<span class="asteriskField">*</span> </label>
+                            <div class="controls col-md-8 "  style="margin-bottom: 10px">
+                                 <label class="radio-inline"> <input type="radio" name="gender" id="id_gender_1" value="M"  style="margin-bottom: 10px">Homme</label>
+                                 <label class="radio-inline"> <input type="radio" name="gender" id="id_gender_2" value="F"  style="margin-bottom: 10px">Femme </label>
+                            </div>
+                        </div>
+
+
+                        <div id="div_id_company" class="form-group ">
+                            <label for="id_company" class="control-label col-md-4  requiredField"> Servicere ference<span class="asteriskField">*</span> </label>
+                            <div class="controls col-md-8 ">
+                                 <input class="input-md textinput textInput form-control" id="id_company" name="servicereference" placeholder="service de reference" style="margin-bottom: 10px" type="text" />
+                            </div>
+                        </div>
+
+
+                        <div id="div_id_catagory" class="form-group ">
+                            <label for="id_catagory" class="control-label col-md-4  requiredField"> Nom de medecin referent<span class="asteriskField">*</span> </label>
+                            <div class="controls col-md-8 ">
+                                 <input class="input-md textinput textInput form-control" id="id_catagory" name="nommedecinreferent" placeholder="skills catagory" style="margin-bottom: 10px" type="text" />
+                            </div>
+                        </div>
+
+
+                        <div id="div_id_number" class="form-group ">
+                             <label for="id_number" class="control-label col-md-4  requiredField"> Telephone de medecin referent<span class="asteriskField">*</span> </label>
+                             <div class="controls col-md-8 ">
+                                 <input class="input-md textinput textInput form-control" id="id_number" name="telephonemedecinreferent" placeholder="provide your number" style="margin-bottom: 10px" type="text" />
+                            </div>
+                        </div>
+<!---------->
+						<div id="Type_consultation" class="form-group ">
+                             <label for="id_number" class="control-label col-md-4  requiredField"> Type consultation<span class="asteriskField">*</span> </label>
+                             <div class="controls col-md-8 ">
+                                 <input class="input-md textinput textInput form-control" id="id_number" name="type_consultation" placeholder="provide your number" style="margin-bottom: 10px" type="text" />
+                            </div>
+                        </div>
+
+						<div id="Date_consultation" class="form-group ">
+                             <label for="id_number" class="control-label col-md-4  requiredField"> Date consultation<span class="asteriskField">*</span> </label>
+                             <div class="controls col-md-8 ">
+                                 <input class="input-md textinput textInput form-control" id="id_number" name="date_consultation" placeholder="provide your number" style="margin-bottom: 10px" type="date" />
+                            </div>
+                        </div>
+
+						<div id="Premiere_consultation" class="form-group ">
+                             <label for="id_number" class="control-label col-md-4  requiredField"> Premiere consultation<span class="asteriskField">*</span> </label>
+                             <div class="controls col-md-8 ">
+                                 <input class="input-md textinput textInput form-control" id="id_number" name="premiere_con" placeholder="provide your number" style="margin-bottom: 10px" type="text" />
+                            </div>
+                        </div>
+
+						<div id="Suivi" class="form-group ">
+                             <label for="id_number" class="control-label col-md-4  requiredField"> Suivi<span class="asteriskField">*</span> </label>
+                             <div class="controls col-md-8 ">
+                                 <input class="input-md textinput textInput form-control" id="id_number" name="suivi" placeholder="provide your number" style="margin-bottom: 10px" type="text" />
+                            </div>
+                        </div>
+
+
+                        <div id="Consentement_eclaire" class="form-group ">
+                            <label for="id_location" class="control-label col-md-4  requiredField">Consentement eclaire<span class="asteriskField">*</span> </label>
+                            <div class="controls col-md-8 ">
+                                <input class="input-md textinput textInput form-control" id="id_location" name="consentement_eclaire" placeholder="Your Pincode and City" style="margin-bottom: 10px" type="text" />
+                            </div>
+                        </div>
+
+                        <input type="submit" value="Save" class="default" name="save" />
+
+
+
+
+
+
+
+                    </form>
+
+
+
+
+    </div>
+</div>
+
+
+{% endblock %}

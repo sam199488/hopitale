@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+
+    <title>{% block title %}Untitled{% endblock %}</title>
+
+    <!-- Bootstrap core CSS -->
+    {% load static %}
+    <link href="{% static '/hemato/css/bootstrap.css' %}" rel="stylesheet">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="{% static '/hemato/assets/css/ie10-viewport-bug-workaround.css' %}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="{% static '/hemato/css/dashboard.css' %}" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="{% static '/hemato/assets/js/ie-emulation-modes-warning.js' %}"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">HEMATO DATABASE</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="{% url 'admin:index' %}">Admin</a></li>
+                <!-- drop down button-->
+                <!--li><a href="#">DR. geroziafas</a></li-->
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                       aria-expanded="false">{{ request.user.username }}<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="{% url 'logout' %}">se deconnecter</a></li>
+                    </ul>
+                </li>
+            </ul>
+            {% comment %}<form class="navbar-form navbar-right">
+            <input type="text" class="form-control" placeholder="Search...">
+          </form>{% endcomment %}
+        </div>
+    </div>
+</nav>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-3 col-md-2 sidebar">
+            {% block sidebar %}
+
+            {% endblock %}
+
+            {% comment %}<ul class="nav nav-sidebar">
+            <li><a href="">Nav item</a></li>
+            <li><a href="">Nav item again</a></li>
+            <li><a href="">One more nav</a></li>
+            <li><a href="">Another nav item</a></li>
+            <li><a href="">More navigation</a></li>
+          </ul>
+          <ul class="nav nav-sidebar">
+            <li><a href="">Nav item again</a></li>
+            <li><a href="">One more nav</a></li>
+            <li><a href="">Another nav item</a></li>
+          </ul>{% endcomment %}
+        </div>
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+
+            {% block content %}
+
+            {% endblock %}
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script type="text/javascript">
+
+    function yesnoCheck1(x) {
+        console.log(document.getElementById('ynCheck' + x).value)
+        if (document.getElementById('ynCheck' + x).value == "non") {
+            console.log("non from if");
+            document.getElementById('field_' + x).style["display"] = 'none';
+            console.log("dsiplay : " + document.getElementById('field_' + x).style["display"]);
+
+        }
+        else {
+            console.log("oui from if");
+            document.getElementById('field_' + x).style["display"] = 'block';
+            console.log("dsiplay : " + document.getElementById('field_' + x).style["display"]);
+        }
+
+
+    }
+
+    function yesnoCheck2(x) {
+        console.log(document.getElementById('ynCheck' + x).value)
+        if (document.getElementById('ynCheck' + x).value == '0') {
+            console.log("non from if");
+            document.getElementById('field_' + x).style["display"] = 'none';
+            console.log("dsiplay : " + document.getElementById('field_' + x).style["display"]);
+
+        }
+        else {
+            console.log("oui from if");
+            document.getElementById('field_' + x).style["display"] = 'block';
+            console.log("dsiplay : " + document.getElementById('field_' + x).style["display"]);
+        }
+
+
+    }
+
+    function yesnoCheck0() {
+        console.log(document.getElementById('ynCheck').value)
+        if (document.getElementById('ynCheck').value == "0") {
+            console.log("non from if");
+            document.getElementById('field_2').style["display"] = 'none';
+            console.log("dsiplay : " + document.getElementById('field_2').style["display"]);
+
+        }
+        else {
+            console.log("oui from if");
+            document.getElementById('field_2').style["display"] = 'block';
+            console.log("dsiplay : " + document.getElementById('field_2').style["display"]);
+        }
+
+
+    }
+    function yesnoCheck01() {
+        console.log(document.getElementById('ynCheck').value)
+        if (document.getElementById('ynCheck').value == "non") {
+            console.log("non from if");
+            document.getElementById('field_2').style["display"] = 'none';
+            console.log("dsiplay : " + document.getElementById('field_2').style["display"]);
+
+        }
+        else {
+            console.log("oui from if");
+            document.getElementById('field_2').style["display"] = 'block';
+            console.log("dsiplay : " + document.getElementById('field_2').style["display"]);
+        }
+
+
+    }
+
+</script>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+<script src="{% static '/hemato/js/bootstrap.min.js' %}"></script>
+<!-- Just to make our placeholder images work. Don't actually copy the next line! -->
+<script src="{% static '/hemato/js/vendor/holder.min.js' %}"></script>
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<script src="{% static '/hemato/js/ie10-viewport-bug-workaround.js' %}"></script>
+</body>
+</html>
+
+
+<ul class="errorlist">
+    <li>recidive
+        <ul class="errorlist">
+            <li>Enter a whole number.</li>
+        </ul>
+    </li>
+    <li>hemoragie
+        <ul class="errorlist">
+            <li>Enter a whole number.</li>
+        </ul>
+    </li>
+</ul>
+
+

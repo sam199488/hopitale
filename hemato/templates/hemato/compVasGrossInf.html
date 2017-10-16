@@ -1,0 +1,830 @@
+{% extends 'hemato/base.html' %}
+
+{% block title %}  Hemato DataBase | nouveau patient{% endblock %}
+
+
+{% block sidebar %}
+    <ul class="nav nav-sidebar">
+        <li><a href="">Informations générales <span class="sr-only">(current)</span></a></li>
+        <li><a href="{% url 'facris' id %}">Facteur de risques cardiovasculaire</a></li>
+        <li><a href="{% url 'epTr' id %}">Episodes trombotique</a></li>
+        <li><a href="{% url 'atcd' id %}">Antecedent chirugicaux</a></li>
+        <li><a href="{% url 'trRec' id %}">Thromboses récidivantes</a></li>
+        <li><a href="{% url 'pathoMaligne' id %}">Thrombose et oncologie</a></li>
+        <li class="active"><a href="{% url 'compVasGI' id %}">Complications vasculaires de la grossesse et
+            infertilité</a></li>
+        <li><a href="{% url 'bilanBio' id %}">Bilan biologique</a></li>
+        <li><a href="{% url 'consulsuivi' id %}">Consultation de suivi</a></li>
+        <li><a href="{% url 'ExamenArret' id %}">Examens à faire à l’arrêt du traitement : Hypercoagulabilité </a></li>
+        <li><a href="{% url 'Recommandation' id %}">Recommandations thérapeutiques – Suivi sous traitement </a></li>
+
+    </ul>
+{% endblock %}
+
+
+{% block content %}
+
+    <div class="container-fluid">
+        <div id="signupbox" style=" margin-top:50px" class="mainbox col-md-8  col-sm-8  ">
+
+            <form class="form-horizontal" method="post">
+                {% csrf_token %}
+                <div id="" class="form-group ">
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Contraception
+                        œstroprogestative (pilule) : </label>
+                    <div class="controls col-md-2 ">
+                        <select class="form-control" onchange="yesnoCheck2('1')" id="ynCheck1" name="contr_oestr">
+                            <option value="0">non</option>
+                            <option value="1">oui</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div id="field_1" style="display:none">
+                    <div id="div_id_password1" class="form-group ">
+                        <label for="" class="control-label col-md-4" style="text-align: left">Combien de temps :</label>
+                        <div class="controls col-md-8 ">
+                            <input class="input-md textinput textInput form-control" id="id_password1" name="duree_co"
+                                   placeholder="" style="margin-bottom: 10px" type="text"/>
+                        </div>
+                    </div>
+                    <div id="div_id_password1" class="form-group ">
+                        <label for="" class="control-label col-md-4" style="text-align: left">Quelle(s) pilule(s)
+                            : </label>
+                        <div class="controls col-md-8 ">
+                            <input class="input-md textinput textInput form-control" id="id_password1" name="pilule_co"
+                                   placeholder="" style="margin-bottom: 10px" type="text"/>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div id="" class="form-group ">
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left">Traitement substitutif
+                        de la ménopause ?: </label>
+                    <div class="controls col-md-2 ">
+                        <select class="form-control" onchange="yesnoCheck2('2')" id="ynCheck2"
+                                name="traitement_sub_men">
+                            <option value="0">non</option>
+                            <option value="1">oui</option>
+
+                        </select>
+                    </div>
+                </div>
+
+                <div id="field_2" style="display:none">
+                    <div id="div_id_password1" class="form-group ">
+                        <label for="" class="control-label col-md-4" style="text-align: left">Lesquels : </label>
+                        <div class="controls col-md-8 ">
+                            <input class="input-md textinput textInput form-control" id="id_password1"
+                                   name="traitement_sub_men_lesquel" placeholder="" style="margin-bottom: 10px"
+                                   type="text"/>
+                        </div>
+                    </div>
+                    <div id="div_id_password1" class="form-group ">
+                        <label for="" class="control-label col-md-4" style="text-align: left">Date :</label>
+                        <div class="controls col-md-8 ">
+                            <input class="input-md textinput textInput form-control" id="id_password1" name="date_tsm"
+                                   placeholder="" style="margin-bottom: 10px" type="date"/>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div id="" class="form-group ">
+                    <h3>Histoire obstétricale :</h3>
+                </div>
+                <div id="" class="form-group ">
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left">Infertilité
+                        primaire: </label>
+                    <div class="controls col-md-2 ">
+                        <select class="form-control" id="sel1" name="infertilit_prim">
+                            <option value="1">oui</option>
+                            <option value="0">non</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="div_id_password1" class="form-group ">
+                    <label for="" class="control-label col-md-4" style="text-align: left">Raison pour une FIV: </label>
+                    <div class="controls col-md-8 ">
+                        <input class="input-md textinput textInput form-control" id="id_password1" name="raison_fiv"
+                               placeholder="" style="margin-bottom: 10px" type="text"/>
+                    </div>
+                </div>
+                <div id="div_id_password1" class="form-group ">
+                    <label for="" class="control-label col-md-4" style="text-align: left">Nombre d’embryons
+                        transférés: </label>
+                    <div class="controls col-md-8 ">
+                        <input class="input-md textinput textInput form-control" id="id_password1"
+                               name="nb_embrayons_trans" placeholder="" style="margin-bottom: 10px" type="text"/>
+                    </div>
+                </div>
+                <div id="" class="form-group ">
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left">Embryons congelés
+                        : </label>
+                    <div class="controls col-md-2 ">
+                        <select class="form-control" id="sel1" name="embr_cong">
+                            <option value="1">oui</option>
+                            <option value="0">non</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="" class="form-group ">
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left">Embryons : </label>
+                    <div class="controls col-md-2 ">
+                        <select class="form-control" id="sel1" name="embrayons">
+                            <option value="1">j2</option>
+                            <option value="0">j5</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="div_id_password1" class="form-group ">
+                    <label for="" class="control-label col-md-4" style="text-align: left">Nombre de FIV avant
+                        grossesse: </label>
+                    <div class="controls col-md-8 ">
+                        <input class="input-md textinput textInput form-control" id="id_password1"
+                               name="nb_fiv_av_gross" placeholder="" style="margin-bottom: 10px" type="text"/>
+                    </div>
+                </div>
+                <div id="" class="form-group ">
+                    <h3>Grossesse n°1 :</h3>
+                </div>
+                <div id="" class="form-group ">
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left">Spontanée : </label>
+                    <div class="controls col-md-2 ">
+                        <select class="form-control" id="sel1" name="spontanee">
+                            <option value="1">oui</option>
+                            <option value="0">non</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="" class="form-group ">
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left">FIV/ICSI : </label>
+                    <div class="controls col-md-2 ">
+                        <select class="form-control" id="sel1" name="fiv_icsi">
+                            <option value="1">oui</option>
+                            <option value="0">non</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="" class="form-group ">
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left">Stimulation CLOMID
+                        : </label>
+                    <div class="controls col-md-2 ">
+                        <select class="form-control" id="sel1" name="stimul_clomid">
+                            <option value="1">oui</option>
+                            <option value="0">non</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="div_id_password1" class="form-group ">
+                    <label for="" class="control-label col-md-4" style="text-align: left">Délai conception : </label>
+                    <div class="controls col-md-8 ">
+                        <input class="input-md textinput textInput form-control" id="id_password1"
+                               name="delai_conception" placeholder="nombre de mois" style="margin-bottom: 10px"
+                               type="text"/>
+                    </div>
+                </div>
+
+                <div id="" class="form-group ">
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left">Ras : </label>
+                    <div class="controls col-md-2 ">
+                        <select class="form-control" id="sel1" name="ras">
+                            <option value="1">oui</option>
+                            <option value="0">non</option>
+                        </select>
+                    </div>
+                </div>
+
+
+                <div id="" class="form-group ">
+                    <div id="" class="controls col-md-6">
+                        <label for="id-1" class="control-label col-md-8  " style="text-align: left">Perte fœtal terme
+                            : </label>
+                        <div class="controls col-md-4 ">
+                            <select class="form-control" id="sel1" name="perte_foetal_terme">
+                                <option value="1">oui</option>
+                                <option value="0">non</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div id="div_id_password1" class="controls col-md-6 ">
+                        <label for="" class="control-label col-md-4" style="text-align: left">Term SA : </label>
+                        <div class="controls col-md-8 ">
+                            <input class="input-md textinput textInput form-control" id="id_password1" name="terme_sa1"
+                                   placeholder="" style="margin-bottom: 10px" type="text"/>
+                        </div>
+                    </div>
+                    <div id="" class="controls col-md-6">
+                        <label for="id-1" class="control-label col-md-8  " style="text-align: left">Diabète
+                            gestationnel: </label>
+                        <div class="controls col-md-4 ">
+                            <select class="form-control" id="sel1" name="diab">
+                                <option value="1">oui</option>
+                                <option value="0">non</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div id="div_id_password1" class="controls col-md-6 ">
+                        <label for="" class="control-label col-md-4" style="text-align: left">Term SA : </label>
+                        <div class="controls col-md-8 ">
+                            <input class="input-md textinput textInput form-control" id="id_password1" name="terme_sa2"
+                                   placeholder="" style="margin-bottom: 10px" type="text"/>
+                        </div>
+                    </div>
+                    <div id="" class="controls col-md-6">
+                        <label for="id-1" class="control-label col-md-8  " style="text-align: left">HTA gravidique
+                            : </label>
+                        <div class="controls col-md-4 ">
+                            <select class="form-control" id="sel1" name="hta">
+                                <option value="1">oui</option>
+                                <option value="0">non</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div id="div_id_password1" class="controls col-md-6 ">
+                        <label for="" class="control-label col-md-4" style="text-align: left">Term SA : </label>
+                        <div class="controls col-md-8 ">
+                            <input class="input-md textinput textInput form-control" id="id_password1" name="terme_sa3"
+                                   placeholder="" style="margin-bottom: 10px" type="text"/>
+                        </div>
+                    </div>
+                    <div id="" class="controls col-md-6">
+                        <label for="id-1" class="control-label col-md-8  " style="text-align: left">RCIU vasculaire
+                            : </label>
+                        <div class="controls col-md-4 ">
+                            <select class="form-control" id="sel1" name="rciu">
+                                <option value="1">oui</option>
+                                <option value="0">non</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div id="div_id_password1" class="controls col-md-6 ">
+                        <label for="" class="control-label col-md-4" style="text-align: left">Term SA : </label>
+                        <div class="controls col-md-8 ">
+                            <input class="input-md textinput textInput form-control" id="id_password1" name="terme_sa4"
+                                   placeholder="" style="margin-bottom: 10px" type="text"/>
+                        </div>
+                    </div>
+                    <div id="" class="controls col-md-6">
+                        <label for="id-1" class="control-label col-md-8  " style="text-align: left">PE : </label>
+                        <div class="controls col-md-4 ">
+                            <select class="form-control" id="sel1" name="pe">
+                                <option value="1">oui</option>
+                                <option value="0">non</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div id="div_id_password1" class="controls col-md-6 ">
+                        <label for="" class="control-label col-md-4" style="text-align: left">Term SA : </label>
+                        <div class="controls col-md-8 ">
+                            <input class="input-md textinput textInput form-control" id="id_password1" name="terme_sa5"
+                                   placeholder="" style="margin-bottom: 10px" type="text"/>
+                        </div>
+                    </div>
+                    <div id="" class="controls col-md-6">
+                        <label for="id-1" class="control-label col-md-8  " style="text-align: left">HELLP : </label>
+                        <div class="controls col-md-4 ">
+                            <select class="form-control" id="sel1" name="hellp">
+                                <option value="1">oui</option>
+                                <option value="0">non</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div id="div_id_password1" class="controls col-md-6 ">
+                        <label for="" class="control-label col-md-4" style="text-align: left">Term SA : </label>
+                        <div class="controls col-md-8 ">
+                            <input class="input-md textinput textInput form-control" id="id_password1" name="terme_sa6"
+                                   placeholder="" style="margin-bottom: 10px" type="text"/>
+                        </div>
+                    </div>
+                    <div id="" class="controls col-md-6">
+                        <label for="id-1" class="control-label col-md-8  " style="text-align: left">HRP : </label>
+                        <div class="controls col-md-4 ">
+                            <select class="form-control" id="sel1" name="hrp">
+                                <option value="1">oui</option>
+                                <option value="0">non</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div id="div_id_password1" class="controls col-md-6 ">
+                        <label for="" class="control-label col-md-4" style="text-align: left">Term SA : </label>
+                        <div class="controls col-md-8 ">
+                            <input class="input-md textinput textInput form-control" id="id_password1" name="terme_sa7"
+                                   placeholder="" style="margin-bottom: 10px" type="text"/>
+                        </div>
+                    </div>
+                </div>
+                <div id="" class="form-group ">
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Thrombose maternelle
+                        pendant GIU : </label>
+                    <div class="controls col-md-4 ">
+                        <select class="form-control" id="sel1" name="thromb_maternelle_pgiu">
+                            <option value="Veineuse">Veineuse</option>
+                            <option value="Artérielle">Artérielle</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div id="" class="form-group ">
+                    <div id="div_id_password1" class="controls col-md-6">
+                        <label for="" class="control-label col-md-4" style="text-align: left">Site:</label>
+                        <div class="controls col-md-8 ">
+                            <input class="input-md textinput textInput form-control" id="id_password1"
+                                   name="thromb_site" placeholder="" style="margin-bottom: 10px" type="text"/>
+                        </div>
+                    </div>
+                    <div id="div_id_password1" class="controls col-md-6 ">
+                        <label for="" class="control-label col-md-4" style="text-align: left">Term SA : </label>
+                        <div class="controls col-md-8 ">
+                            <input class="input-md textinput textInput form-control" id="id_password1" name="term_sa8"
+                                   placeholder="" style="margin-bottom: 10px" type="text"/>
+                        </div>
+                    </div>
+                </div>
+                <div id="div_id_password1" class="form-group">
+                    <label for="" class="control-label col-md-4" style="text-align: left">Apgar 5 min :</label>
+                    <div class="controls col-md-8 ">
+                        <input class="input-md textinput textInput form-control" id="id_password1" name="apgar"
+                               placeholder="" style="margin-bottom: 10px" type="text"/>
+                    </div>
+                </div>
+                <div id="div_id_password1" class="form-group">
+                    <label for="" class="control-label col-md-4" style="text-align: left">Poids naissance :</label>
+                    <div class="controls col-md-8 ">
+                        <input class="input-md textinput textInput form-control" id="id_password1" name="poids_naiss"
+                               placeholder="" style="margin-bottom: 10px" type="text"/>
+                    </div>
+                </div>
+                <div id="div_id_password1" class="form-group">
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Complications
+                        néonatales : </label>
+                    <div class="controls col-md-4 ">
+                        <select class="form-control" onchange="yesnoCheck2('3')" id="ynCheck3" name="complication_neo">
+                            <option value="0">non</option>
+                            <option value="1">oui</option>
+                        </select>
+                    </div>
+                </div>
+
+
+                <div id="field_3" style="display:none">
+                    <div id="div_id_password1" class="form-group">
+                        <label for="" class="control-label col-md-4" style="text-align: left">Lesquelles :</label>
+                        <div class="controls col-md-8 ">
+                            <input class="input-md textinput textInput form-control" id="id_password1"
+                                   name="complication_neo_lesquel" placeholder="" style="margin-bottom: 10px"
+                                   type="text"/>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div id="div_id_password1" class="form-group">
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Traitement pendant GIU
+                        : </label>
+                    <div class="controls col-md-4 ">
+                        <select class="form-control" id="sel1" name="traitement_pgiu">
+                            <option value="1">oui</option>
+                            <option value="0">non</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="div_id_password1" class="form-group">
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Si oui : Début avant
+                        grossesse : </label>
+                    <div class="controls col-md-4 ">
+                        <select class="form-control" id="sel1" name="tpgiu_avgross">
+                            <option value="1">oui</option>
+                            <option value="0">non</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="div_id_password1" class="form-group">
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Aspirine
+                        : </label>
+                    <div class="controls col-md-4 ">
+                        <select class="form-control" onchange="yesnoCheck2('4')" id="ynCheck4" name="aspirine">
+                            <option value="0">non</option>
+                            <option value="1">oui</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div id="field_4" style="display:none">
+                    <div id="div_id_password1" class="form-group">
+                        <label for="" class="control-label col-md-4" style="text-align: left">Dose :</label>
+                        <div class="controls col-md-8 ">
+                            <input class="input-md textinput textInput form-control" id="id_password1"
+                                   name="aspirine_dose"
+                                   placeholder="" style="margin-bottom: 10px" type="text"/>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="div_id_password1" class="form-group">
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left"> HBPM : </label>
+                    <div class="controls col-md-4 ">
+                        <select class="form-control" onchange="yesnoCheck2('5')" id="ynCheck5" name="hbpm">
+                            <option value="1">non</option>
+                            <option value="2">Lovenox</option>
+                            <option value="3">Innohep</option>
+                            <option value="4">Fraxiparine</option>
+                            <option value="5">Arixtra</option>
+                            <option value="6">Autre</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div id="field_5" style="display:none">
+                    <div id="div_id_password1" class="form-group">
+                        <label for="" class="control-label col-md-4" style="text-align: left">Dose :</label>
+                        <div class="controls col-md-8 ">
+                            <input class="input-md textinput textInput form-control" id="id_password1" name="hbpm_dose"
+                                   placeholder="" style="margin-bottom: 10px" type="text"/>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="div_id_password1" class="form-group">
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Iso : </label>
+                    <div class="controls col-md-4 ">
+                        <select class="form-control" onchange="yesnoCheck2('6')" id="ynCheck6" name="iso">
+                            <option value="0">non</option>
+                            <option value="1">oui</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="field_6" style="display:none">
+                    <div id="div_id_password1" class="form-group">
+                        <label for="" class="control-label col-md-4" style="text-align: left">Dose :</label>
+                        <div class="controls col-md-8 ">
+                            <input class="input-md textinput textInput form-control" id="id_password1" name="iso_dose"
+                                   placeholder="" style="margin-bottom: 10px" type="text"/>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="div_id_password1" class="form-group">
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Curatif : </label>
+                    <div class="controls col-md-4 ">
+                        <select class="form-control" onchange="yesnoCheck2('7')" id="ynCheck7" name="curatif">
+                            <option value="0">non</option>
+                            <option value="1">oui</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div id="field_7" style="display:none">
+                    <div id="div_id_password1" class="form-group">
+                        <label for="" class="control-label col-md-4" style="text-align: left">Dose :</label>
+                        <div class="controls col-md-8 ">
+                            <input class="input-md textinput textInput form-control" id="id_password1"
+                                   name="curatif_dose"
+                                   placeholder="" style="margin-bottom: 10px" type="text"/>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div id="div_id_password1" class="form-group">
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Uvedose : </label>
+                    <div class="controls col-md-4 ">
+                        <select class="form-control" onchange="yesnoCheck2('8')" id="ynCheck8" name="uvedose">
+                            <option value="0">non</option>
+                            <option value="1">oui</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div id="field_8" style="display:none">
+                    <div id="div_id_password1" class="form-group">
+                        <label for="" class="control-label col-md-4" style="text-align: left">Dose :</label>
+                        <div class="controls col-md-8 ">
+                            <input class="input-md textinput textInput form-control" id="id_password1"
+                                   name="uvedose_dose"
+                                   placeholder="" style="margin-bottom: 10px" type="text"/>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div id="div_id_password1" class="form-group">
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Prednisone : </label>
+                    <div class="controls col-md-4 ">
+                        <select class="form-control" onchange="yesnoCheck2('9')" id="ynCheck9" name="prednisone">
+                            <option value="0">non</option>
+                            <option value="1">oui</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div id="field_9" style="display:none">
+                    <div id="div_id_password1" class="form-group">
+                        <label for="" class="control-label col-md-4" style="text-align: left">Dose :</label>
+                        <div class="controls col-md-8 ">
+                            <input class="input-md textinput textInput form-control" id="id_password1"
+                                   name="prednisone_dose"
+                                   placeholder="" style="margin-bottom: 10px" type="text"/>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div id="div_id_password1" class="form-group">
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Progestérone : </label>
+                    <div class="controls col-md-4 ">
+                        <select class="form-control" onchange="yesnoCheck2('10')" id="ynCheck10" name="progsterion">
+                            <option value="0">non</option>
+                            <option value="1">oui</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div id="field_10" style="display:none">
+                    <div id="div_id_password1" class="form-group">
+                        <label for="" class="control-label col-md-4" style="text-align: left">Dose :</label>
+                        <div class="controls col-md-8 ">
+                            <input class="input-md textinput textInput form-control" id="id_password1"
+                                   name="progsterion_dose"
+                                   placeholder="" style="margin-bottom: 10px" type="text"/>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div id="div_id_password1" class="form-group">
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Hydroxychloroquine
+                        : </label>
+                    <div class="controls col-md-4 ">
+                        <select class="form-control" onchange="yesnoCheck2('11')" id="ynCheck11"
+                                name="hydroxychloroquine">
+                            <option value="0">non</option>
+                            <option value="1">oui</option>
+                        </select>
+                    </div>
+                </div>
+
+
+                <div id="field_11" style="display:none">
+                    <div id="div_id_password1" class="form-group">
+                        <label for="" class="control-label col-md-4" style="text-align: left">Dose :</label>
+                        <div class="controls col-md-8 ">
+                            <input class="input-md textinput textInput form-control" id="id_password1"
+                                   name="hydroxychloroquine_dose"
+                                   placeholder="" style="margin-bottom: 10px" type="text"/>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div id="" class="form-group ">
+                    <h3>Placenta grossesse 1:</h3>
+                </div>
+                <div id="div_id_password1" class="form-group">
+                    <label for="" class="control-label col-md-4" style="text-align: left">Poids :</label>
+                    <div class="controls col-md-8 ">
+                        <input class="input-md textinput textInput form-control" id="id_password1"
+                               name="plac_gross_poids" placeholder="en gramme" style="margin-bottom: 10px" type="text"/>
+                    </div>
+                </div>
+                <div id="div_id_password1" class="form-group">
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Hématome décidual base
+                        : </label>
+                    <div class="controls col-md-4 ">
+                        <select class="form-control" id="sel1" name="hem_dec_base">
+                            <option value="1">oui</option>
+                            <option value="0">non</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="div_id_password1" class="form-group">
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left"> NIDF: </label>
+                    <div class="controls col-md-4 ">
+                        <select class="form-control" id="sel1" name="nidf">
+                            <option value="1">oui</option>
+                            <option value="0">non</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="div_id_password1" class="form-group">
+                    <label for="" class="control-label col-md-4" style="text-align: left">Siège NIDF :</label>
+                    <div class="controls col-md-8 ">
+                        <input class="input-md textinput textInput form-control" id="id_password1" name="siege_nidf"
+                               placeholder="" style="margin-bottom: 10px" type="text"/>
+                    </div>
+                </div>
+                <div id="div_id_password1" class="form-group">
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Infarctus: </label>
+                    <div class="controls col-md-4 ">
+                        <select class="form-control" onchange="yesnoCheck2('12')" id="ynCheck12" name="infarctus">
+                            <option value="0">non</option>
+                            <option value="1">oui</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div id="field_12" style="display:none">
+                    <div id="div_id_password1" class="form-group">
+                        <label for="" class="control-label col-md-4" style="text-align: left">Signe infarctus :</label>
+                        <div class="controls col-md-8 ">
+                            <input class="input-md textinput textInput form-control" id="id_password1"
+                                   name="signe_infractus" placeholder="" style="margin-bottom: 10px" type="text"/>
+                        </div>
+                    </div>
+                    <div id="div_id_password1" class="form-group">
+                        <label for="" class="control-label col-md-4" style="text-align: left">Nombre infarctus :</label>
+                        <div class="controls col-md-8 ">
+                            <input class="input-md textinput textInput form-control" id="id_password1"
+                                   name="nb_infractus"
+                                   placeholder="" style="margin-bottom: 10px" type="text"/>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div id="div_id_password1" class="form-group">
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Thrombose
+                        artérielle: </label>
+                    <div class="controls col-md-4 ">
+                        <select class="form-control" id="sel1" name="thromb_art">
+                            <option value="1">oui</option>
+                            <option value="0">non</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="div_id_password1" class="form-group">
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left">
+                        Chorioamniotite: </label>
+                    <div class="controls col-md-4 ">
+                        <select class="form-control" id="sel1" name="chorioamniotite">
+                            <option value="1">oui</option>
+                            <option value="0">non</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="div_id_password1" class="form-group">
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Villites: </label>
+                    <div class="controls col-md-4 ">
+                        <select class="form-control" id="sel1" name="villites">
+                            <option value="1">oui</option>
+                            <option value="0">non</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="div_id_password1" class="form-group">
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Intervillites: </label>
+                    <div class="controls col-md-4 ">
+                        <select class="form-control" id="sel1" name="intervillites">
+                            <option value="1">oui</option>
+                            <option value="0">non</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="div_id_password1" class="form-group">
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Vasculopathie
+                        thrombotique : </label>
+                    <div class="controls col-md-4 ">
+                        <select class="form-control" id="sel1" name="vasculopathie_throm">
+                            <option value="1">oui</option>
+                            <option value="0">non</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="div_id_password1" class="form-group">
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Caryotype du fœtus
+                        : </label>
+                    <div class="controls col-md-4 ">
+                        <select class="form-control" id="sel1" name="caryotype_foetus">
+                            <option value="1">oui</option>
+                            <option value="0">non</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="div_id_password1" class="form-group">
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Malformation du fœtus
+                        : </label>
+                    <div class="controls col-md-4 ">
+                        <select class="form-control" id="sel1" name="malformation_foetus">
+                            <option value="1">oui</option>
+                            <option value="0">non</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="" class="form-group ">
+                    <h3>Post partum :</h3>
+                </div>
+
+                <div id="div_id_password1" class="form-group">
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left">Maladie auto-immune
+                        : </label>
+                    <div class="controls col-md-4 ">
+                        <select class="form-control" id="sel1" name="maladie_autoimmune">
+                            <option value="1">oui</option>
+                            <option value="0">non</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="div_id_password1" class="form-group">
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left">Laquelle : </label>
+                    <div class="controls col-md-4 ">
+                        <select class="form-control" id="sel1" name="maladie_autoimmune_lesquel">
+                            <option value="Thyroïdite">Thyroïdite</option>
+                            <option value="Lupus">Lupus</option>
+                            <option value="SAPL">SAPL</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="div_id_password1" class="form-group">
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left">Thrombose
+                        Artérielle: </label>
+                    <div class="controls col-md-4 ">
+                        <select class="form-control" onchange="yesnoCheck2('13')" id="ynCheck13" name="thrombose_art">
+                            <option value="0">non</option>
+                            <option value="1">oui</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div id="field_13" style="display:none">
+                    <div id="div_id_password1" class="form-group">
+                        <label for="" class="control-label col-md-4" style="text-align: left">Date :</label>
+                        <div class="controls col-md-8 ">
+                            <input class="input-md textinput textInput form-control" id="id_password1" name="date_ta"
+                                   placeholder="" style="margin-bottom: 10px" type="date"/>
+                        </div>
+                    </div>
+                    <div id="div_id_password1" class="form-group">
+                        <label for="" class="control-label col-md-4" style="text-align: left">Nombre :</label>
+                        <div class="controls col-md-8 ">
+                            <input class="input-md textinput textInput form-control" id="id_password1" name="nb_ta"
+                                   placeholder="" style="margin-bottom: 10px" type="text"/>
+                        </div>
+                    </div>
+                    <div id="div_id_password1" class="form-group">
+                        <label for="" class="control-label col-md-4" style="text-align: left">Site :</label>
+                        <div class="controls col-md-8 ">
+                            <input class="input-md textinput textInput form-control" id="id_password1" name="site_ta"
+                                   placeholder="" style="margin-bottom: 10px" type="text"/>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div id="div_id_password1" class="form-group">
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left">Thrombose Veineuse
+                        : </label>
+                    <div class="controls col-md-4 ">
+                        <select class="form-control" onchange="yesnoCheck2('14')" id="ynCheck14" name="thrombose_veineuse">
+                            <option value="0">non</option>
+                            <option value="1">oui</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div id="field_14" style="display:none">
+                    <div id="div_id_password1" class="form-group">
+                        <label for="" class="control-label col-md-4" style="text-align: left">Date :</label>
+                        <div class="controls col-md-8 ">
+                            <input class="input-md textinput textInput form-control" id="id_password1" name="date_tv"
+                                   placeholder="" style="margin-bottom: 10px" type="date"/>
+                        </div>
+                    </div>
+                    <div id="div_id_password1" class="form-group">
+                        <label for="" class="control-label col-md-4" style="text-align: left">Nombre :</label>
+                        <div class="controls col-md-8 ">
+                            <input class="input-md textinput textInput form-control" id="id_password1" name="nb_tv"
+                                   placeholder="" style="margin-bottom: 10px" type="text"/>
+                        </div>
+                    </div>
+                    <div id="div_id_password1" class="form-group">
+                        <label for="" class="control-label col-md-4" style="text-align: left">Site :</label>
+                        <div class="controls col-md-8 ">
+                            <input class="input-md textinput textInput form-control" id="id_password1" name="site_tv"
+                                   placeholder="" style="margin-bottom: 10px" type="text"/>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div id="div_id_id_p" class="form-group " style="visibility: hidden">
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left"> id_p<span
+                            class="asteriskField">*</span> </label>
+                    <div class="controls col-md-8 ">
+                        <input class="input-md  textInput form-control" id="id1" name="patient_idpatient" placeholder=""
+                               style="margin-bottom: 10px" type="text" value="{{ id }}"/>
+                    </div>
+                </div>
+
+                <div class="col-md-8">
+                    <input class="btn btn-default" type="submit" value="Save" class="default" name="save"/>
+                </div>
+
+
+            </form>
+        </div>
+
+    </div>
+
+
+{% endblock %}

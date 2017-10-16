@@ -1,0 +1,43 @@
+{% extends 'hemato/base.html' %}
+
+{% block title %}  Hemato DataBase | nouveau patient{% endblock %}
+
+
+{% block sidebar %}
+    <ul class="nav nav-sidebar">
+        <li><a href="">Informations générales <span class="sr-only">(current)</span></a></li>
+        <li><a href="{% url 'facris' id %}">Facteur de risques cardiovasculaire</a></li>
+        <li><a href="{% url 'epTr' id %}">Episodes trombotique</a></li>
+        <li><a href="{% url 'atcd' id %}">Antecedent chirugicaux</a></li>
+        <li><a href="{% url 'trRec' id %}">Thromboses récidivantes</a></li>
+        <li class="active"><a href="{% url 'pathoMaligne' id %}">Thrombose et oncologie</a></li>
+        <li><a href="{% url 'compVasGI' id %}">Complications vasculaires de la grossesse et infertilité</a></li>
+        <li><a href="{% url 'bilanBio' id %}">Bilan biologique</a></li>
+        <li><a href="{% url 'consulsuivi' id %}">Consultation de suivi</a></li>
+        <li><a href="{% url 'ExamenArret' id %}">Examens à faire à l’arrêt du traitement : Hypercoagulabilité </a></li>
+        <li><a href="{% url 'Recommandation' id %}">Recommandations thérapeutiques – Suivi sous traitement </a></li>
+
+    </ul>
+{% endblock %}
+
+
+{% block content %}
+    {% comment %}<h1>Hello sam</h1>
+    <button type="button" class="btn btn-default">click me!</button>{% endcomment %}
+    <div class="container-fluid">
+        <input type="button" class="btn btn-info" value=" ajouter un cancer solide "
+               onclick="location.href = '{% url 'CancerSolide' id %}';"><BR><BR>
+        <input type="button" class="btn btn-info" value=" ajouter une Hémopathies du tissu lymphoïde "
+               onclick="location.href = '{% url 'HemoTissu' id %}';"><BR><BR>
+        <input type="button" class="btn btn-info" value=" ajouter un Syndromes myéloprolifératifs "
+               onclick="location.href = '{% url 'SyndroMyelo' id %}';"><BR><BR>
+        <input type="button" class="btn btn-info" value="Traitement anticancéreux en cours"
+               onclick="location.href = '{% url 'TraitementAnt' id %}';"><BR><BR>
+        <input type="button" class="btn btn-info" value="Myélome Multiple"
+               onclick="location.href = '{% url 'myelMulti' id %}';"><BR><BR>
+
+
+    </div>
+
+
+{% endblock %}

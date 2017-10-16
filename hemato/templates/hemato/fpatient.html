@@ -1,0 +1,199 @@
+{% extends 'hemato/base.html' %}
+
+{% block title %}  Hemato DataBase | nouveau patient{% endblock %}
+
+
+{% block sidebar %}
+    <ul class="nav nav-sidebar">
+        <li class="active"><a href="">Informations générales <span class="sr-only">(current)</span></a></li>
+        <li><a href="">Facteur de risques cardiovasculaire</a></li>
+        <li><a href="">Episodes trombotique</a></li>
+        <li><a href="">Antecedent chirugicaux</a></li>
+        <li><a href="">Thromboses récidivantes</a></li>
+        <li><a href="">Thrombose et oncologie</a></li>
+        <li><a href="">Complications vasculaires de la grossesse et infertilité</a></li>
+        <li><a href="">Bilan biologique</a></li>
+        <li><a href="">Consultation de suivi </a></li>
+        <li><a href="">Examens à faire à l’arrêt du traitement : Hypercoagulabilité </a></li>
+        <li><a href="">Recommandations thérapeutiques – Suivi sous traitement </a></li>
+
+    </ul>
+{% endblock %}
+
+
+{% block content %}
+    {% comment %}<h1>Hello sam</h1>
+    <button type="button" class="btn btn-default">click me!</button>{% endcomment %}
+    <h1>Informations generales</h1>
+    <div class="container-fluid">
+
+        <div id="signupbox" style=" margin-top:50px" class="mainbox col-md-6  col-sm-8  ">
+
+
+            <form class="form-horizontal" method="post" >
+                {% csrf_token %}
+
+
+                <div id="div_id_username" class="form-group required">
+                    <label for="id_username" class="control-label col-md-4  "> Nom:
+                    </label>
+                    <div class="controls col-md-8 ">
+                        <input class="input-md  textinput textInput form-control" id="id_username" maxlength="30"
+                               name="nompatient" placeholder="nom du patient" style="margin-bottom: 10px" type="text"/>
+                    </div>
+                </div>
+
+
+                <div id="div_id_email" class="form-group ">
+                    <label for="id-1" class="control-label col-md-4  "> Prenom:
+                    </label>
+                    <div class="controls col-md-8 ">
+                        <input class="input-md  textInput form-control" id="id1" name="prenompatient"
+                               placeholder="prenompatient" style="margin-bottom: 10px" type="text"/>
+                    </div>
+                </div>
+
+                <div id="div_id_email" class="form-group ">
+                    <label for="id-1" class="control-label col-md-4  "> Ipp:
+                    </label>
+                    <div class="controls col-md-8 ">
+                        <input class="input-md  textInput form-control" id="id1" name="ipp"
+                               placeholder="ipp" style="margin-bottom: 10px" type="text"/>
+                    </div>
+                </div>
+
+
+                <div id="div_id_password1" class="form-group ">
+                    <label for="id_password1" class="control-label col-md-4  requiredField">Date de naissance :</label>
+                    <div class="controls col-md-8 ">
+                        <input class="input-md textinput textInput form-control" id="id_password1" name="datenaissance"
+                               placeholder="Create a password" style="margin-bottom: 10px" type="date"/>
+                    </div>
+                </div>
+
+
+                <div id="div_id_password2" class="form-group ">
+                    <label for="id_password2" class="control-label col-md-4  requiredField"> Groupe sanguin :</label>
+                    <div class="controls col-md-8 ">
+                        <input class="input-md textinput textInput form-control" id="id_password2" name="groupesanguin"
+                               placeholder="A, AB+, O ...etc " style="margin-bottom: 10px" type="text"/>
+                    </div>
+                </div>
+
+
+                <div id="div_id_name" class="form-group ">
+                    <label for="id_name" class="control-label col-md-4  requiredField"> Telephone : </label>
+                    <div class="controls col-md-8 ">
+                        <input class="input-md textinput textInput form-control" id="id_name" name="telephonepatient"
+                               placeholder="numero de telephone" style="margin-bottom: 10px" type="text"/>
+                    </div>
+                </div>
+
+
+                <div id="div_id_gender" class="form-group ">
+                    <label for="id_gender" class="control-label col-md-4  requiredField"> Sexe :</label>
+                    <div class="controls col-md-8 " style="margin-bottom: 10px">
+                        <select class="form-control" id="sel1" name="sex">
+                            <option value="1">Homme</option>
+                            <option value="0">Femme</option>
+                        </select>
+                    </div>
+                </div>
+
+
+                <div id="div_id_company" class="form-group ">
+                    <label for="id_company" class="control-label col-md-4  requiredField"> Service de reference :</label>
+                    <div class="controls col-md-8 ">
+                        <input class="input-md textinput textInput form-control" id="id_company" name="servicereference"
+                               placeholder="service de reference" style="margin-bottom: 10px" type="text"/>
+                    </div>
+                </div>
+
+
+                <div id="div_id_catagory" class="form-group ">
+                    <label for="id_catagory" class="control-label col-md-4  requiredField"> Nom de medecin referent :</label>
+                    <div class="controls col-md-8 ">
+                        <input class="input-md textinput textInput form-control" id="id_catagory"
+                               name="nommedecinreferent" placeholder="nom" style="margin-bottom: 10px" type="text"/>
+                    </div>
+                </div>
+
+
+                <div id="div_id_number" class="form-group ">
+                    <label for="id_number" class="control-label col-md-4  requiredField"> Telephone de medecin referent :</label>
+                    <div class="controls col-md-8 ">
+                        <input class="input-md textinput textInput form-control" id="id_number"
+                               name="telephonemedecinreferent" placeholder="tel" style="margin-bottom: 10px"
+                               type="text"/>
+                    </div>
+                </div>
+                <!---------->
+                <div id="Type_consultation" class="form-group ">
+                    <label for="id_number" class="control-label col-md-4  requiredField"> Type consultation :</label>
+                    <div class="controls col-md-8 ">
+                        {% comment %}<input class="input-md textinput textInput form-control" id="id_number" name="type_consultation" placeholder="provide your number" style="margin-bottom: 10px" type="text" />
+                                 <label for="sel1">Select list (select one):</label>{% endcomment %}
+                        <select class="form-control" id="sel1" name="type_consultation">
+                            <option value="CoTON">CoTON</option>
+                            <option value="CoVaG">CoVaG</option>
+                            <option value="CoIH">CoIH</option>
+                            <option value="CoThrombo">CoThrombo</option>
+                            <option value="CoTA">CoTA</option>
+                            <option value="idiopathique">idiopathique</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div id="Date_consultation" class="form-group ">
+                    <label for="id_number" class="control-label col-md-4  requiredField"> Date consultation :</label>
+                    <div class="controls col-md-8 ">
+                        <input class="input-md textinput textInput form-control" id="id_number" name="date_consultation"
+                               placeholder="provide your number" style="margin-bottom: 10px" type="date"/>
+                    </div>
+                </div>
+
+                <div id="Premiere_consultation" class="form-group ">
+                    <label for="id_number" class="control-label col-md-4  requiredField"> Premiere consultation :</label>
+                    <div class="controls col-md-8 ">
+                        {% comment %}<input class="input-md textinput textInput form-control" id="id_number" name="premiere_con" placeholder="provide your number" style="margin-bottom: 10px" type="text" />{% endcomment %}
+                        <select class="form-control" id="sel1" name="premiere_con">
+                            <option value="1">oui</option>
+                            <option value="0">non</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div id="Suivi" class="form-group ">
+                    <label for="id_number" class="control-label col-md-4  requiredField"> Suivi :</label>
+                    <div class="controls col-md-8 ">
+                        {% comment %}<input class="input-md textinput textInput form-control" id="id_number" name="suivi" placeholder="provide your number" style="margin-bottom: 10px" type="text" />{% endcomment %}
+                        <select class="form-control" id="sel1" name="suivi">
+                            <option value="1">oui</option>
+                            <option value="0">non</option>
+                        </select>
+                    </div>
+                </div>
+
+
+                <div id="Consentement_eclaire" class="form-group ">
+                    <label for="id_location" class="control-label col-md-4  requiredField">Consentement eclaire :</label>
+                    <div class="controls col-md-8 ">
+                        {% comment %}<input class="input-md textinput textInput form-control" id="id_location" name="consentement_eclaire" placeholder="Your Pincode and City" style="margin-bottom: 10px" type="text" />{% endcomment %}
+                        <select class="form-control" id="sel1" name="consentement_eclaire">
+                            <option value="1">oui</option>
+                            <option value="0">non</option>
+                        </select>
+                    </div>
+                </div>
+
+                <input type="submit" value="Save" class="btn btn-primary"/>
+
+
+            </form>
+
+
+        </div>
+    </div>
+
+
+{% endblock %}

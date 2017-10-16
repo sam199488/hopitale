@@ -1,0 +1,377 @@
+{% extends 'hemato/base.html' %}
+
+{% block title %}  Hemato DataBase {% endblock %}
+
+
+{% block sidebar %}
+    <ul class="nav nav-sidebar">
+        <li><a href="">Informations générales <span class="sr-only">(current)</span></a></li>
+        <li class="active"><a href="{% url 'facris' id %}">Facteur de risques cardiovasculaire</a></li>
+        <li><a href="{% url 'epTr' id %}">Episodes trombotique</a></li>
+        <li><a href="{% url 'atcd' id %}">Antecedent chirugicaux</a></li>
+        <li><a href="{% url 'trRec' id %}">Thromboses récidivantes</a></li>
+        <li><a href="{% url 'pathoMaligne' id %}">Thrombose et oncologie</a></li>
+        <li><a href="{% url 'compVasGI' id %}">Complications vasculaires de la grossesse et
+            infertilité</a></li>
+        <li><a href="">Bilan biologique</a></li>
+        <li><a href="{% url 'consulsuivi' id %}">Consultation de suivi</a></li>
+        <li><a href="{% url 'ExamenArret' id %}">Examens à faire à l’arrêt du traitement : Hypercoagulabilité </a></li>
+        <li><a href="{% url 'Recommandation' id %}">Recommandations thérapeutiques – Suivi sous traitement </a></li>
+
+    </ul>
+{% endblock %}
+
+
+{% block content %}
+    <script type="text/javascript">
+
+        function computeBMI() {
+
+            // user inputs
+            var height = Number(document.getElementById("taille1").value);
+            var weight = Number(document.getElementById("poids1").value);
+
+            console.log(document.getElementById("taille1").value);
+            console.log(weight);
+
+
+            //Perform calculation
+
+            //        var BMI = weight /Math.pow(height, 2)*10000;
+            //var BMI = Math.round(weight / Math.pow(height, 2) * 10000);
+            var BMI = weight / Math.pow(height, 2) * 10000;
+
+            //Display result of calculation
+            document.getElementById("bmi1").value = Math.round(BMI * 10) / 10;
+
+            console.log(BMI);
+
+
+        }
+    </script>
+    <div class="container-fluid">
+
+        <div id="signupbox" style=" margin-top:50px" class="mainbox col-md-6  col-sm-8  ">
+
+            <form class="form-horizontal" method="post">
+                {% csrf_token %}
+
+                <div class="row">
+
+                    <div class="col-md-6">
+                        <div id="poids" class="form-group required">
+                            <label for="poids" class="control-label col-md-5  " style="text-align: left"> Poids
+                                :</label>
+                            <div class="controls col-md-7 ">
+                                <input class="input-md  textinput textInput form-control" id="poids1" maxlength="30"
+                                       name="poids" placeholder="Kg" style="margin-bottom: 10px" type="text"/>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-6">
+                        <div id="taille" class="form-group required">
+                            <label for="taille" class="control-label col-md-4  " style="text-align: left"> Taille
+                                :</label>
+                            <div class="controls col-md-8 ">
+                                <input class="input-md  textinput textInput form-control" id="taille1" maxlength="30"
+                                       name="taille" placeholder="cm" style="margin-bottom: 10px" type="text"/>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-6">
+                        <div id="bmi" class="form-group required">
+                            <label for="bmi" class="control-label col-md-5  " style="text-align: left"> BMI :</label>
+                            <div class="controls col-md-7 ">
+                                <input class="input-md  textinput textInput form-control" id="bmi1" maxlength="30"
+                                       name="bmi" placeholder="" style="margin-bottom: 10px" type="text"/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <input class="btn btn-default" value="computeBMI" onclick="computeBMI();">
+                    </div>
+
+
+                </div>
+
+
+                <div id="div_id_atcd_infractus_myocard" class="form-group required">
+                    <label for="id_username" class="control-label col-md-4  " style="text-align: left"> ATCD d'infractus
+                        du myocarde: </label>
+                    <div class="controls col-md-8 ">
+                        <select class="form-control" id="sel1" name="atcd_infractus_myocard">
+                            <option value="1">oui</option>
+                            <option value="0">non</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div id="div_atcd_familiaux_mtev" class="form-group required">
+                    <label for="id_username" class="control-label col-md-4  " style="text-align: left"> ATCD familiaux
+                        de mtev: </label>
+                    <div class="controls col-md-8 ">
+                        <select class="form-control" id="sel1" name=" atcd_familiaux_mtev">
+                            <option value="1">oui</option>
+                            <option value="0">non</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div id="div_id_atcd_personnels_mtev" class="form-group required">
+                    <label for="id_username" class="control-label col-md-4  " style="text-align: left"> ATCD personnels
+                        de mtev: </label>
+                    <div class="controls col-md-8 ">
+                        <select class="form-control" id="sel1" name="atcd_personnels_mtev">
+                            <option value="1">oui</option>
+                            <option value="0">non</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div id="div_id_avc_ischemique" class="form-group required">
+                    <label for="id_username" class="control-label col-md-4  " style="text-align: left"> AVC
+                        ischémique: </label>
+                    <div class="controls col-md-8 ">
+                        <select class="form-control" id="sel1" name="avc_ischemique">
+                            <option value="1">oui</option>
+                            <option value="0">non</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div id="div_id_arteriopathie_mi" class="form-group required">
+                    <label for="id_username" class="control-label col-md-4  " style="text-align: left"> Artériopathie
+                        des MI: </label>
+                    <div class="controls col-md-8 ">
+                        <select class="form-control" id="sel1" name="arteriopathie_mi">
+                            <option value="1">oui</option>
+                            <option value="0">non</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div id="div_id_coronaropathie" class="form-group required">
+                    <label for="id_username" class="control-label col-md-4  " style="text-align: left"> Coronaropathie
+                        :</label>
+                    <div class="controls col-md-8 ">
+                        <select class="form-control" id="sel1" name="coronaropathie">
+                            <option value="1">oui</option>
+                            <option value="0">non</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div id="div_id_diabete" class="form-group required">
+                    <label for="id_username" class="control-label col-md-4  " style="text-align: left"> Diabète
+                        :</label>
+                    <div class="controls col-md-8 ">
+                        <select class="form-control" id="sel1" name="diabete">
+                            <option value="1">oui</option>
+                            <option value="0">non</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div id="div_id_hta" class="form-group required">
+                    <label for="id_username" class="control-label col-md-4  " style="text-align: left"> HTA :</label>
+                    <div class="controls col-md-8 ">
+                        <select class="form-control" id="sel1" name="hta">
+                            <option value="1">oui</option>
+                            <option value="0">non</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div id="div_id_hyperlipidemie" class="form-group required">
+                    <label for="id_username" class="control-label col-md-4  " style="text-align: left"> Hyperlipidémie
+                        :</label>
+                    <div class="controls col-md-8 ">
+                        <select class="form-control" id="sel1" name="hyperlipid_mie">
+                            <option value="1">oui</option>
+                            <option value="0">non</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div id="div_id_hypo_albuminemie" class="form-group required">
+                    <label for="id_username" class="control-label col-md-4  " style="text-align: left"> Hypo albuminémie
+                        (< 20g\L0) : </label>
+                    <div class="controls col-md-8 ">
+                        <select class="form-control" id="sel1" name="hypo_albuminemie">
+                            <option value="1">oui</option>
+                            <option value="0">non</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div id="div_id_insuffisance_cardiaque" class="form-group required">
+                    <label for="id_username" class="control-label col-md-4  " style="text-align: left"> Insuffisance
+                        cardiaque : </label>
+                    <div class="controls col-md-8 ">
+                        <select class="form-control" id="sel1" name="insuffisance_cardiaque">
+                            <option value="1">oui</option>
+                            <option value="0">non</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div id="div_id_pilule" class="form-group required">
+                    <label for="id_username" class="control-label col-md-4  " style="text-align: left"> Pilule :</label>
+                    <div class="controls col-md-8 ">
+                        <select class="form-control" id="sel1" name="pilule">
+                            <option value="1">CO</option>
+                            <option value="0">THS</option>
+                            <option value="2">non</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div id="div_id_stent_coronaore" class="form-group required">
+                    <label for="id_username" class="control-label col-md-4  " style="text-align: left"> Stent coronaire
+                        : </label>
+                    <div class="controls col-md-8 ">
+                        <select class="form-control" id="sel1" name="stent_coronaore">
+                            <option value="1">oui</option>
+                            <option value="0">non</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div id="div_id_trouble_rythme_cardiaque" class="form-group required">
+                    <label for="id_username" class="control-label col-md-4  " style="text-align: left"> Troubles du
+                        rythme cardiaque: </label>
+                    <div class="controls col-md-8 ">
+                        <select class="form-control" id="sel1" name="trouble_rythme_cardiaque">
+                            <option value="1">oui</option>
+                            <option value="0">non</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div id="div_id_tabac" class="form-group required">
+                    <label for="id_username" class="control-label col-md-4  " style="text-align: left"> Tabac :</label>
+                    <div class="controls col-md-8 ">
+                        <select class="form-control" id="sel1" name="tabac">
+                            <option value="1">oui</option>
+                            <option value="0">non</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="div_id_varices" class="form-group required">
+                    <label for="id_username" class="control-label col-md-4  " style="text-align: left"> Varices
+                        :</label>
+                    <div class="controls col-md-8 ">
+                        <select class="form-control" id="sel1" name="varices">
+                            <option value="1">oui</option>
+                            <option value="0">non</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div id="div_id_maladie_auto_immune" class="form-group ">
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Maladie
+                        auto-immune: </label>
+                    <div class="controls col-md-8 ">
+                        <select class="form-control" id="sel1" name="maladie_auto_immune">
+                            <option value="aucun">aucun</option>
+                            <option value="Lupus">Lupus</option>
+                            <option value="Maladie de Behcet">Maladie de Behcet</option>
+                            <option value="SAPL">SAPL</option>
+                            <option value="Thyroidite">Thyroidite</option>
+                            <option value="autre">autre</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div id="div_id_maladie_inflamatoire_c_i" class="form-group ">
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Maladie inflammatoire
+                        chronique de l'intestin: </label>
+                    <div class="controls col-md-8 ">
+                        <select class="form-control" id="sel1" name="maladie_inflamatoire_c_i">
+                            <option value="aucun">aucun</option>
+                            <option value="Maladie de Crohn">Maladie de Crohn</option>
+                            <option value="Restocolite hémorragique">Restocolite hémorragique</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div id="div_id_syndrome_drepanocytaire_majeur" class="form-group ">
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Syndrome drépanocytaire
+                        majeur : </label>
+                    <div class="controls col-md-8 ">
+                        <input class="input-md  textInput form-control" id="id1" name="syndrome_drepanocytaire_majeur"
+                               placeholder="" style="margin-bottom: 10px" type="text"/>
+                    </div>
+                </div>
+
+                <div id="div_id_autre_hemoglobinopathie" class="form-group ">
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Autre hémoglobinopathie
+                        : </label>
+                    <div class="controls col-md-8 ">
+                        <input class="input-md  textInput form-control" id="id1" name="autre_hemoglobinopathie"
+                               placeholder="" style="margin-bottom: 10px" type="text"/>
+                    </div>
+                </div>
+
+
+
+
+                <div id="" class="form-group required">
+                    <label for="id_username" class="control-label col-md-4  " style="text-align: left"> VIH :</label>
+                    <div class="controls col-md-8 ">
+                        <select class="form-control" onchange="yesnoCheck1('1')" id="ynCheck1" name="vih">
+                            <option value="0" >non</option>
+                            <option value="1" >oui</option>
+
+                        </select>
+                    </div>
+                </div>
+                <div id="field_1" style="display:none">
+
+                    <div id="div_id_vih_cd4" class="form-group ">
+                        <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Nombre de cellules
+                            cd4
+                            : </label>
+                        <div class="controls col-md-8 ">
+                            <input class="input-md  textInput form-control" id="id1" name="vih_cd4" placeholder=""
+                                   style="margin-bottom: 10px" type="text"/>
+                        </div>
+                    </div>
+
+                    <div id="div_id_vih_cv" class="form-group ">
+                        <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Charge virale
+                            :</label>
+                        <div class="controls col-md-8 ">
+                            <input class="input-md  textInput form-control" id="id1" name="vih_cv" placeholder=""
+                                   style="margin-bottom: 10px" type="text"/>
+                        </div>
+                    </div>
+
+
+                </div>
+
+
+                <div id="div_id_id_p" class="form-group " style="visibility: hidden">
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left"> id_p </label>
+                    <div class="controls col-md-8 ">
+                        <input class="input-md  textInput form-control" id="id1" name="patient_idpatient" placeholder=""
+                               style="margin-bottom: 10px" type="text" value="{{ id }}"/>
+                    </div>
+                </div>
+
+                <input class="btn btn-default" type="submit" value="Save" class="btn btn-primary" name="save"/>
+
+
+            </form>
+
+
+        </div>
+    </div>
+
+
+{% endblock %}

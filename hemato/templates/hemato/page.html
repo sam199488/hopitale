@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<htmllang="en">
+<head>
+    <script>
+        {% if messages %}
+            {% for message in messages %}
+                alert('{{message}}');
+            {% endfor %}
+        {% endif %}
+    </script>
+</head>
+<body>
+{{ form.as_p }}
+</body>
+</html>
