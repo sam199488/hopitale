@@ -17,6 +17,8 @@ from django.conf.urls import url, include
 from django.contrib import admin
 
 
+
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls, name='admin'),
     url(r'^hemato/', include('hemato.urls')),
@@ -24,3 +26,10 @@ urlpatterns = [
     url(r'^accounts/', include('django.contrib.auth.urls')),
 
 ]
+
+
+#heroko "static files problem"
+from hopitale import settings
+urlpatterns += urlpatterns('',
+        (r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_ROOT}),
+    )
