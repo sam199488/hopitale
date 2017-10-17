@@ -29,7 +29,7 @@ urlpatterns = [
 
 
 #heroko "static files problem"
-from hopitale import settings
-urlpatterns += urlpatterns('',
-        (r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_ROOT}),
-    )
+#from hopitale import settings
+#urlpatterns += urlpatterns('',
+#        (r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_ROOT}),
+#    )

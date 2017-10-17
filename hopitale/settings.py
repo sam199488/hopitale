@@ -78,14 +78,13 @@ WSGI_APPLICATION = 'hopitale.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': '2483028_hemato',
-        'USER': '2483028_hemato',
-        'PASSWORD': 'hematodb1',
-        'HOST': 'fdb15.awardspace.net',   # Or an IP Address that your DB is hosted on
+        'NAME': 'heroku_c5e49214c3f2350',
+        'USER': 'b3d0817a1e6204',
+        'PASSWORD': 'da0a434e',
+        'HOST': 'eu-cdbr-west-01.cleardb.com',   # Or an IP Address that your DB is hosted on
         'PORT': '3306',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
@@ -132,7 +131,7 @@ LOGIN_REDIRECT_URL = '/hemato/'
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
-TEMPLATE_DIRS = (
-    os.path.join(BASE_DIR,  'templates'),
-    # Add to this list all the locations containing your static files
-)
+#TEMPLATE_DIRS = (
+#    os.path.join(BASE_DIR,  'templates'),
+#    # Add to this list all the locations containing your static files
+#)
