@@ -21,8 +21,8 @@ from django.contrib import admin
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls, name='admin'),
-    url(r'^hemato/', include('hemato.urls')),
-    #url(r'^', include('hemato.urls')),
+    #url(r'^hemato/', include('hemato.urls')),
+    url(r'^', include('hemato.urls')),
     url(r'^accounts/', include('django.contrib.auth.urls')),
 
 ]
