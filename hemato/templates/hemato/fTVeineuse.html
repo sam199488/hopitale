@@ -9,7 +9,7 @@
         <li><a href="{% url 'facris' id %}">Facteur de risques cardiovasculaire</a></li>
         <li class="active"><a href="{% url 'epTr' id %}">Episodes trombotique</a></li>
         <li><a href="{% url 'atcd' id %}">Antecedent chirugicaux</a></li>
-        <li><a href="{% url 'trRec' id %}">Thromboses récidivantes</a></li>
+        <li><a href="{% url 'trRec' id %}">Antécédent thrombotiques</a></li>
         <li><a href="{% url 'pathoMaligne' id %}">Thrombose et oncologie</a></li>
         <li><a href="{% url 'compVasGI' id %}">Complications vasculaires de la grossesse et infertilité</a></li>
         <li><a href="{% url 'bilanBio' id %}">Bilan biologique</a></li>
@@ -22,8 +22,6 @@
 
 
 {% block content %}
-    {% comment %}<h1>Hello sam</h1>
-    <button type="button" class="btn btn-default">click me!</button>{% endcomment %}
     <h1>Thrombose veineuse</h1>
     <div class="container-fluid">
 
@@ -31,32 +29,99 @@
 
             <form class="form-horizontal" method="post">
                 {% csrf_token %}
+                <script type="text/javascript">
+                    l = ["","","",""];
+                    local = "";
+                    function un(x){
+                        var ele = document.getElementsByName(x);
+                        for(var i=0;i<ele.length;i++)
+                            ele[i].checked = false;
+                    }
+                    function selectElement(){
+                        un('1');
+                        un('2');
+                        un('3');
+                        document.getElementById('tvp').style["display"] = 'none';
+                        document.getElementById('ep').style["display"] = 'none';
+                        document.getElementById('tlr').style["display"] = 'none';
+                        var e = document.getElementById("lis");
+                        var index = e.options[e.selectedIndex].value;
+                        document.getElementById(index).style["display"] = 'block';
+                        l = [index,"","",""];
+                        document.getElementById('loca').value = l.join(" ");
+                    }
+                    function selectSubElement(x) {
+                        l[x] = document.querySelector('input[name=\"'+x+'\"]:checked').value;
+                        //console.log(document.querySelector('input[name=\"'+x+'\"]:checked').value)
+                        //console.log(l)
+                        document.getElementById('loca').value = l.join(" ");
+                    }
+                </script>
                 <div id="" class="form-group ">
-                    <label for="id-1" class="control-label col-md-4  " style="text-align: left">Localisation Thrombose
-                        veineuse:</label>
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Localisation Thrombose veineuse:</label>
                     <div class="controls col-md-8 ">
-                        <select class="form-control" id="sel1" name="localisation">
-                            <option value="1">EP asymptomatique</option>
-                            <option value="2">EP massive</option>
-                            <option value="3">EP symptomatique</option>
-                            <option value="4">Thrombose de localisation rare</option>
-                            <option value="5">Thrombose du cathéter central</option>
-                            <option value="6">Thrombose veine cave inf.</option>
-                            <option value="7">Thrombose veine cave sup.</option>
-                            <option value="8">Thrombose veines iliaques</option>
-                            <option value="9">Thrombose veine jugulaire</option>
-                            <option value="10">TVP distale D</option>
-                            <option value="11">TVP distale G</option>
-                            <option value="12">TVP proximale MI D</option>
-                            <option value="13">TVP proximale MI G</option>
-                            <option value="15">TVP distale et EP asymptomatique</option>
-                            <option value="16">TVP proximale et EP asymtomatique</option>
-                            <option value="17">TVP proximale et EP symtomatique</option>
-                            <option value="18">TVP distale et EP symptomatique</option>
-                            <option value="14">TVS</option>
+                        <select class="form-control" id="lis" name="conditions" onchange="selectElement()">
+                            <option value=""></option>
+                            <option value="tvp">thrombose veineuse profonde</option>
+                            <option value="ep">embolie pulmonaire</option>
+                            <option value="tlr">thrombose localisation rare</option>
                         </select>
                     </div>
                 </div>
+
+                <div id="" class="form-group " >
+                    <div id="tvp" class="controls col-md-8 " style="display:none">
+                        <fieldset id="1" onchange="selectSubElement(1)">
+                            <input type="radio" name="1" value="Droite"> Droite
+                            <input type="radio" name="1" value="Gauche"> Gauche<br>
+                        </fieldset>
+                        <fieldset id="2" onchange="selectSubElement(2)">
+                            <input type="radio" name="2" value="Distale">  Distale
+                            <input type="radio" name="2" value="Proximale"> Proximale<br>
+                        </fieldset>
+                        <fieldset id="3"onchange="selectSubElement(3)">
+                            <input type="radio" name="3" value="Symptomatique">  Symptomatique
+                            <input type="radio" name="3" value="Asymptomatique"> Asymptomatique<br>
+                        </fieldset>
+                        <hr>
+                    </div>
+
+                    <div id="ep" class="controls col-md-10 " style="display:none">
+                        <fieldset id="1" onchange="selectSubElement(1)">
+                            <input type="radio" name="1" value="gauche">  gauche
+                            <input type="radio" name="1" value="Droite"> Droite
+                            <input type="radio" name="1" value="Bilatirlale"> Bilatirlale<br>
+                        </fieldset>
+                        <fieldset id="2" onchange="selectSubElement(2)">
+                            <input type="radio" name="2" value="Lobaire"> Lobaire
+                            <input type="radio" name="2" value="Segmentaire"> Segmentaire<br>
+                            <input type="radio" name="2" value="Sousegmentaire"> Sousegmentaire<br>
+                        </fieldset>
+                        <fieldset id="3" onchange="selectSubElement(3)">
+                            <input type="radio" name="3" value="Symptomatique">  Symptomatique
+                            <input type="radio" name="3" value="Asymptomatique"> Asymptomatique<br>
+                        </fieldset>
+                        <hr>
+                    </div>
+                    <div id="tlr" class="controls col-md-8 " style="display:none">
+                        <fieldset id="1" onchange="selectSubElement(1)">
+                            <input type="radio" name="1" value="Celebrale"> Celebrale
+                            <input type="radio" name="1" value="mesenterique"> mesenterique
+                            <input type="radio" name="1" value="Portale"> Portale<br>
+                        </fieldset>
+                        <hr>
+                    </div>
+                </div>
+                <div id="" class="form-group " >
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left"></label>
+                    <div class="controls col-md-8 ">
+                        <input class="input-md  textInput form-control" id="loca" name="localisation" placeholder=""
+                               style="margin-bottom: 10px" type="text"/>
+                    </div>
+                </div>
+
+
+
 
                 <div id="" class="form-group ">
                     <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Date du diagnostic
@@ -68,8 +133,7 @@
                 </div>
 
                 <div id="" class="form-group ">
-                    <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Conditions de
-                        découverte :</label>
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Conditions de découverte :</label>
                     <div class="controls col-md-8 ">
                         <select class="form-control" id="sel1" name="conditions">
                             <option value="0">Decouverte fortuite</option>
@@ -78,26 +142,90 @@
                     </div>
                 </div>
                 <div id="" class="form-group ">
-                    <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Facteur declanchant
-                        :</label>
+                    <h3>Facteur declanchant :</h3>
+                </div>
+                <div id="" class="form-group ">
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Activité physique intense</label>
                     <div class="controls col-md-8 ">
-                        <select class="form-control" id="sel1" name="facteur_declanchant">
-                            <option value="13">Aucun</option>
-                            <option value="1">Activité physique intense</option>
-                            <option value="2">Alitement prolongé suite à une maladie</option>
-                            <option value="3">Cancer</option>
-                            <option value="4">Chirurgie sous anesthésie générale</option>
-                            <option value="5">Dépression</option>
-                            <option value="6">Grossesse</option>
-                            <option value="7">Hospitalisation pour une affection médicale aiguë</option>
-                            <option value="8">Immobilisation sous plâtre</option>
-                            <option value="9">Immobilisation sous plâtre</option>
-                            <option value="10">Stress psychologique intense</option>
-                            <option value="11">Voyage en avion > 4 heures</option>
-                            <option value="12">Voyage en voiture > 6 heures</option>
-                        </select>
+                        <input type="radio" name="fc_ActivitePhysiqueIntense" value="1"> oui<br>
+                        <input type="radio" name="fc_ActivitePhysiqueIntense" value="0" checked="checked"> non<br>
                     </div>
                 </div>
+                <div id="" class="form-group ">
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Alitement prolongé suite à une maladie</label>
+                    <div class="controls col-md-8 ">
+                        <input type="radio" name="fc_AlitementProlonge" value="1"> oui<br>
+                        <input type="radio" name="fc_AlitementProlonge" value="0" checked="checked"> non<br>
+                    </div>
+                </div>
+                <div id="" class="form-group ">
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Cancer </label>
+                    <div class="controls col-md-8 ">
+                        <input type="radio" name="fc_Cancer" value="1"> oui<br>
+                        <input type="radio" name="fc_Cancer" value="0" checked="checked"> non<br>
+                    </div>
+                </div>
+
+
+                <div id="" class="form-group ">
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Chirurgie sous anesthésie générale </label>
+                    <div class="controls col-md-8 ">
+                        <input type="radio" name="fc_ChirurgieAnesthésieGenerale" value="1"> oui<br>
+                        <input type="radio" name="fc_ChirurgieAnesthésieGenerale" value="0" checked="checked"> non<br>
+                    </div>
+                </div>
+                <div id="" class="form-group ">
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Dépression </label>
+                    <div class="controls col-md-8 ">
+                        <input type="radio" name="fc_Depression" value="1"> oui<br>
+                        <input type="radio" name="fc_Depression" value="0" checked="checked"> non<br>
+                    </div>
+                </div>
+                <div id="" class="form-group ">
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Grossesse </label>
+                    <div class="controls col-md-8 ">
+                        <input type="radio" name="fc_Grossesse" value="1"> oui<br>
+                        <input type="radio" name="fc_Grossesse" value="0" checked="checked"> non<br>
+                    </div>
+                </div>
+
+                <div id="" class="form-group ">
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Hospitalisation pour une affection médicale aiguë</label>
+                    <div class="controls col-md-8 ">
+                        <input type="radio" name="fc_HospitalisationAffectionMedicaleAigue" value="1"> oui<br>
+                        <input type="radio" name="fc_HospitalisationAffectionMedicaleAigue" value="0" checked="checked"> non<br>
+                    </div>
+                </div>
+                <div id="" class="form-group ">
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Immobilisation sous plâtre</label>
+                    <div class="controls col-md-8 ">
+                        <input type="radio" name="fc_ImmobilisationPlatre" value="1"> oui<br>
+                        <input type="radio" name="fc_ImmobilisationPlatre" value="0" checked="checked"> non<br>
+                    </div>
+                </div>
+                <div id="" class="form-group ">
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Stress psychologique intense</label>
+                    <div class="controls col-md-8 ">
+                        <input type="radio" name="fc_StressPsychologiqueIntense" value="1"> oui<br>
+                        <input type="radio" name="fc_StressPsychologiqueIntense" value="0" checked="checked"> non<br>
+                    </div>
+                </div>
+
+                <div id="" class="form-group ">
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Voyage en avion > 4 heures </label>
+                    <div class="controls col-md-8 ">
+                        <input type="radio" name="fc_VoyageAvion" value="1"> oui<br>
+                        <input type="radio" name="fc_VoyageAvion" value="0" checked="checked"> non<br>
+                    </div>
+                </div>
+                <div id="" class="form-group ">
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Voyage en voiture > 6 heures</label>
+                    <div class="controls col-md-8 ">
+                        <input type="radio" name="fc_VoyageVoiture" value="1"> oui<br>
+                        <input type="radio" name="fc_VoyageVoiture" value="0" checked="checked"> non<br>
+                    </div>
+                </div>
+                <hr>
 
 
                 <div id="" class="form-group ">
@@ -151,10 +279,14 @@
                     </div>
                 </div>
                 <div id="" class="form-group ">
-                    <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Durée: </label>
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Durée prévue: </label>
                     <div class="controls col-md-8 ">
-                        <input class="input-md  textInput form-control" id="id1" name="duree_traitement"
-                               placeholder="mois" style="margin-bottom: 10px" type="text"/>
+                        <select class="form-control" ="duree_traitement">
+                        <option value="1mois" id="">1 mois</option>
+                        <option value="3mois" id="">3 mois</option>
+                        <option value="6mois" id="">6 mois</option>
+                        <option value="indefini" id="">indefini</option>
+                        </select>
                     </div>
                 </div>
 

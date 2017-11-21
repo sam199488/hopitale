@@ -38,7 +38,7 @@
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a class="navbar-brand" href="#">HEMATO DATABASE</a>
+            <a class="navbar-brand" href="{% url 'index' %}">HEMATO DATABASE</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
@@ -93,6 +93,8 @@
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
 <script type="text/javascript">
+
+
 
     function yesnoCheck1(x) {
         console.log(document.getElementById('ynCheck' + x).value)

@@ -11,8 +11,8 @@ class AtcdCher(models.Model):
     n3 = models.TextField(blank=True, null=True)
     anne3 = models.DateField(blank=True, null=True)
     commentaires = models.TextField(blank=True, null=True)
-    is_compli_throm = models.IntegerField(blank=True, null=True)
-    compli_throm = models.TextField(blank=True, null=True)
+    is_compli_throm = models.IntegerField(blank=True, null=True) #deleted
+    compli_throm = models.TextField(blank=True, null=True) #deleted
     atcd_fam = models.IntegerField(blank=True, null=True)
     photo = models.TextField(blank=True, null=True)
     patient_idpatient = models.ForeignKey('Patient', models.DO_NOTHING, db_column='patient_idpatient')
@@ -29,7 +29,7 @@ class BilanBiologique(models.Model):
     neutrophiles = models.IntegerField(blank=True, null=True)
     hct = models.IntegerField(blank=True, null=True)
     globules_blancs = models.FloatField(blank=True, null=True)
-    anomalies_formule = models.IntegerField(blank=True, null=True)
+    anomalies_formule = models.IntegerField(blank=True, null=True)#deleted
     hb = models.FloatField(blank=True, null=True)
     reticulocytes = models.FloatField(blank=True, null=True)
     plaquettes = models.FloatField(blank=True, null=True)
@@ -55,18 +55,18 @@ class BilanBiologique(models.Model):
     antithrombine = models.FloatField(blank=True, null=True)
     antithrombine_ag = models.FloatField(blank=True, null=True)
     antithrombine_date = models.DateField(blank=True, null=True)
-    antithrombine_controle = models.FloatField(blank=True, null=True)
-    antithrombine_controle_date = models.DateField(blank=True, null=True)
+    antithrombine_controle = models.FloatField(blank=True, null=True) #deleted
+    antithrombine_controle_date = models.DateField(blank=True, null=True) #deleted
     protein_s = models.FloatField(blank=True, null=True)
     protein_s_ag = models.FloatField(blank=True, null=True)
     protein_s_date = models.DateField(blank=True, null=True)
-    protein_s_controle = models.FloatField(blank=True, null=True)
-    protein_s_controle_date = models.DateField(blank=True, null=True)
+    protein_s_controle = models.FloatField(blank=True, null=True) #deleted
+    protein_s_controle_date = models.DateField(blank=True, null=True) #deleted
     protein_c = models.FloatField(blank=True, null=True)
     protein_c_ag = models.FloatField(blank=True, null=True)
     protein_c_date = models.DateField(blank=True, null=True)
-    protein_c_controle = models.FloatField(blank=True, null=True)
-    protein_c_controle_date = models.DateField(blank=True, null=True)
+    protein_c_controle = models.FloatField(blank=True, null=True) #deleted
+    protein_c_controle_date = models.DateField(blank=True, null=True) #deleted
     f_v_leiden = models.CharField(max_length=45, blank=True, null=True)
     fiig20210a = models.CharField(max_length=45, blank=True, null=True)
     ppl_clotting_time = models.FloatField(blank=True, null=True)
@@ -374,6 +374,7 @@ class Patient(models.Model):
     datenaissance = models.DateField(blank=True, null=True)
     groupesanguin = models.CharField(max_length=5, blank=True, null=True)
     telephonepatient = models.CharField(max_length=15, blank=True, null=True)
+    hopitale = models.IntegerField(blank=True, null=True) #1 tenon #2 st antoine #3 pitie salpetriere
     servicereference = models.CharField(max_length=45, blank=True, null=True)
     nommedecinreferent = models.CharField(max_length=45, blank=True, null=True)
     prenommedcinreferent = models.CharField(max_length=45, blank=True, null=True)
@@ -553,7 +554,20 @@ class TromboseVeineuse(models.Model):
     localisation = models.CharField(max_length=45, blank=True, null=True)
     date_diagnostique = models.DateField(blank=True, null=True)
     conditions = models.CharField(max_length=45, blank=True, null=True)
-    facteur_declanchant = models.CharField(max_length=45, blank=True, null=True)
+    #facteur declanchant
+    fc_ActivitePhysiqueIntense = models.IntegerField(blank=True, null=True)  # Activité physique intense
+    fc_AlitementProlonge = models.IntegerField(blank=True, null=True)  # Alitement prolongé suite à une maladie
+    fc_Cancer = models.IntegerField(blank=True, null=True)  # Cancer
+    fc_ChirurgieAnesthésieGenerale = models.IntegerField(blank=True, null=True)  # Chirurgie sous anesthésie générale
+    fc_Depression = models.IntegerField(blank=True, null=True)  # Dépression
+    fc_Grossesse = models.IntegerField(blank=True, null=True)  # Grossesse
+    fc_HospitalisationAffectionMedicaleAigue = models.IntegerField(blank=True, null=True)  # Hospitalisation pour une affection médicale aiguë
+    fc_ImmobilisationPlatre = models.IntegerField(blank=True, null=True)  # Immobilisation sous plâtre
+    fc_StressPsychologiqueIntense = models.IntegerField(blank=True, null=True)  # Stress psychologique intense
+    fc_VoyageAvion = models.IntegerField(blank=True, null=True)  # Voyage en avion > 4 heures
+    fc_VoyageVoiture = models.IntegerField(blank=True, null=True)  # Voyage en voiture > 6 heures
+
+
     imagerie_diagnostique = models.CharField(max_length=45, blank=True, null=True)
     changement_traitemnt = models.CharField(max_length=45, blank=True, null=True) #
     traitemnt_precedent = models.CharField(max_length=45, blank=True, null=True) #

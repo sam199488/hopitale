@@ -9,7 +9,7 @@
         <li><a href="{% url 'facris' id %}">Facteur de risques cardiovasculaire</a></li>
         <li><a href="{% url 'epTr' id %}">Episodes trombotique</a></li>
         <li class="active"><a href="{% url 'atcd' id %}">Antecedent chirugicaux</a></li>
-        <li><a href="{% url 'trRec' id %}">Thromboses récidivantes</a></li>
+        <li><a href="{% url 'trRec' id %}">Antécédent thrombotiques</a></li>
         <li><a href="{% url 'pathoMaligne' id %}">Thrombose et oncologie</a></li>
         <li><a href="{% url 'compVasGI' id %}">Complications vasculaires de la grossesse etinfertilité</a></li>
         <li><a href="{% url 'bilanBio' id %}">Bilan biologique</a></li>
@@ -100,26 +100,6 @@
                         </div>
                     </div>
 
-                    <div id="" class="form-group ">
-                        <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Complication
-                            thrombotique : </label>
-                        <div class="controls col-md-8 ">
-                            <select class="form-control" onchange="yesnoCheck2('1')" id="ynCheck1" name="is_compli_throm">
-                                <option value="0">non</option>
-                                <option value="1">oui</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div id="field_1" style="display:none">
-                        <div id="" class="form-group ">
-                            <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Lesquelles
-                                : </label>
-                            <div class="controls col-md-8 ">
-                                <input class="input-md  textInput form-control" id="id1" name="compli_throm"
-                                       placeholder="" style="margin-bottom: 10px" type="text"/>
-                            </div>
-                        </div>
-                    </div>
 
 
                     <div id="div_id_id_p" class="form-group " style="visibility: hidden">

@@ -89,8 +89,12 @@ class Ajoutp(LoginRequiredMixin, TemplateView):
         form = PatientForm(request.POST)
         print(form.errors)
         if form.is_valid():
+            jj = ""+str(form.cleaned_data['hopitale'])+form.cleaned_data['nompatient'][:3]+form.cleaned_data['prenompatient'][:3]+form.cleaned_data['datenaissance'].strftime('%d%m%Y')
 
-            p = form.save()
+            p = form.save(commit=False)
+            p.nompatient = jj
+            p.prenompatient = jj
+            p.save()
             response = {}
             response['id'] = p.pk
             return HttpResponseRedirect(reverse('facris', kwargs={'slug': p.pk}))
