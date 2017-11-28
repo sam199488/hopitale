@@ -368,7 +368,7 @@ class PathologieMalain(models.Model):
 
 class Patient(models.Model):
     idpatient = models.AutoField(primary_key=True)
-    ipp = models.IntegerField(blank=True, null=True)
+    ipp = models.CharField(max_length=45)
     nompatient = models.CharField(max_length=45)
     prenompatient = models.CharField(max_length=45)
     datenaissance = models.DateField(blank=True, null=True)
