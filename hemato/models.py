@@ -26,10 +26,23 @@ class AtcdCher(models.Model):
 class BilanBiologique(models.Model):
     idbilan_biologique = models.AutoField(primary_key=True)
     date = models.DateField(blank=True, null=True)
+
+    actvite_antixa_hbpm = models.IntegerField(blank=True, null=True)
+    actvite_antixa_fondaparinux = models.IntegerField(blank=True, null=True)
+    actvite_antixa_rivaroxaban = models.IntegerField(blank=True, null=True)
+    actvite_antixa_apixaban = models.IntegerField(blank=True, null=True)
+    actvite_antixa_dabigatran = models.IntegerField(blank=True, null=True)
+    actvite_antixa_edoxaban = models.IntegerField(blank=True, null=True)
+    actvite_antixa_hnf = models.IntegerField(blank=True, null=True)
+
+    aspi_test  = models.CharField(max_length=100, blank=True, null=True)
+    adp_test  = models.CharField(max_length=100, blank=True, null=True)
+    trap_test  = models.CharField(max_length=100, blank=True, null=True)
+    vasp_test  = models.CharField(max_length=100, blank=True, null=True)
+
     neutrophiles = models.IntegerField(blank=True, null=True)
     hct = models.IntegerField(blank=True, null=True)
     globules_blancs = models.FloatField(blank=True, null=True)
-    anomalies_formule = models.IntegerField(blank=True, null=True)#deleted
     hb = models.FloatField(blank=True, null=True)
     reticulocytes = models.FloatField(blank=True, null=True)
     plaquettes = models.FloatField(blank=True, null=True)
@@ -49,22 +62,19 @@ class BilanBiologique(models.Model):
     c3 = models.FloatField(blank=True, null=True)
     c4 = models.FloatField(blank=True, null=True)
     ch50 = models.FloatField(blank=True, null=True)
-    tq = models.FloatField(blank=True, null=True)
+    tp = models.FloatField(blank=True, null=True)
     tca = models.CharField(max_length=45, blank=True, null=True)
     fibrinogene = models.FloatField(blank=True, null=True)
     antithrombine = models.FloatField(blank=True, null=True)
     antithrombine_ag = models.FloatField(blank=True, null=True)
-    antithrombine_date = models.DateField(blank=True, null=True)
     antithrombine_controle = models.FloatField(blank=True, null=True) #deleted
     antithrombine_controle_date = models.DateField(blank=True, null=True) #deleted
     protein_s = models.FloatField(blank=True, null=True)
     protein_s_ag = models.FloatField(blank=True, null=True)
-    protein_s_date = models.DateField(blank=True, null=True)
     protein_s_controle = models.FloatField(blank=True, null=True) #deleted
     protein_s_controle_date = models.DateField(blank=True, null=True) #deleted
     protein_c = models.FloatField(blank=True, null=True)
     protein_c_ag = models.FloatField(blank=True, null=True)
-    protein_c_date = models.DateField(blank=True, null=True)
     protein_c_controle = models.FloatField(blank=True, null=True) #deleted
     protein_c_controle_date = models.DateField(blank=True, null=True) #deleted
     f_v_leiden = models.CharField(max_length=45, blank=True, null=True)
@@ -78,7 +88,7 @@ class BilanBiologique(models.Model):
     ct = models.FloatField(blank=True, null=True)
     cft = models.FloatField(blank=True, null=True)
     alpha = models.FloatField(blank=True, null=True)
-    ma = models.FloatField(blank=True, null=True)
+    ma = models.FloatField(blank=True, null=True) #now it is named MCF
     fviii = models.FloatField(blank=True, null=True)
     fvw = models.FloatField(blank=True, null=True)
     thromboincode = models.TextField(max_length=500, blank = True, null = True)
@@ -86,7 +96,6 @@ class BilanBiologique(models.Model):
     jak2_exon12 = models.CharField(max_length=45, blank=True, null=True)
     mpl = models.CharField(max_length=45, blank=True, null=True)
     calr2 = models.CharField(max_length=45, blank=True, null=True)
-    sapl = models.IntegerField(blank=True, null=True)
     acc_la = models.IntegerField(blank=True, null=True)
     acl_lgg = models.FloatField(blank=True, null=True)
     acl_lgm = models.FloatField(blank=True, null=True)
@@ -113,6 +122,20 @@ class BilanBiologique(models.Model):
     antitpo = models.IntegerField(blank=True, null=True)
     antithyroglobuline = models.IntegerField(blank=True, null=True)
     antitransglutaminases = models.IntegerField(blank=True, null=True)
+
+    #thromboincode can take 3 values 1 = Absence  2 = Hétérozygote   3 = Homozygote
+    thromboincode_f12 = models.IntegerField(blank=True, null=True)
+    thromboincode_abo_rs8176719 = models.IntegerField(blank=True, null=True)
+    thromboincode_abo_rs7853989 = models.IntegerField(blank=True, null=True)
+    thromboincode_abo_rs8176743 = models.IntegerField(blank=True, null=True)
+    thromboincode_abo_rs8176750 = models.IntegerField(blank=True, null=True)
+    thromboincode_f13 = models.IntegerField(blank=True, null=True)
+    thromboincode_f5 = models.IntegerField(blank=True, null=True)
+    thromboincode_serpin_c1 = models.IntegerField(blank=True, null=True)
+
+
+
+
     patient_idpatient = models.ForeignKey('Patient', models.DO_NOTHING, db_column='patient_idpatient')
 
     class Meta:
@@ -127,9 +150,9 @@ class ConsultationSuivi(models.Model):
     traitemnt_antithrom_enCours = models.IntegerField(blank=True, null=True)
     tae_lequel = models.CharField(max_length=100, blank=True, null=True)
     episode_throm = models.IntegerField(blank=True, null=True)
-    episode_throm_lequel = models.CharField(max_length=100, blank=True, null=True)
     episode_hemo = models.IntegerField(blank=True, null=True)
     episode_hemo_lequel = models.CharField(max_length=100, blank=True, null=True)
+    gravite_hemoragie = models.CharField(max_length=100, blank=True, null=True)
     date_souvenue = models.DateField(blank=True, null=True)
     compli_traitement_anticoagulant = models.CharField(max_length=200, blank=True, null=True)
     manifNouvPatho = models.CharField(max_length=200, blank=True, null=True)
@@ -566,6 +589,8 @@ class TromboseVeineuse(models.Model):
     fc_StressPsychologiqueIntense = models.IntegerField(blank=True, null=True)  # Stress psychologique intense
     fc_VoyageAvion = models.IntegerField(blank=True, null=True)  # Voyage en avion > 4 heures
     fc_VoyageVoiture = models.IntegerField(blank=True, null=True)  # Voyage en voiture > 6 heures
+    fc_pellule_oestroprogestatif = models.IntegerField(blank=True, null=True)
+    fc_traitement_hormonal_substituf = models.IntegerField(blank=True, null=True)
 
 
     imagerie_diagnostique = models.CharField(max_length=45, blank=True, null=True)

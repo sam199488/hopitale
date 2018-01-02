@@ -6,10 +6,10 @@
 {% block sidebar %}
     <ul class="nav nav-sidebar">
         <li><a href="">Informations générales <span class="sr-only">(current)</span></a></li>
-        <li><a href="{% url 'facris' id %}">Facteur de risques cardiovasculaire</a></li>
-        <li><a href="{% url 'epTr' id %}">Episodes trombotique</a></li>
-        <li><a href="{% url 'atcd' id %}">Antecedent chirugicaux</a></li>
-        <li><a href="{% url 'trRec' id %}">Antécédent thrombotiques</a></li>
+        <li><a href="{% url 'facris' id %}">Facteur de risque cardiovasculaire</a></li>
+        <li><a href="{% url 'epTr' id %}">Episodes thrombotique</a></li>
+        <li><a href="{% url 'atcd' id %}">Antecedents chirugicaux</a></li>
+        <li><a href="{% url 'trRec' id %}">Antécédents thrombotiques</a></li>
         <li><a href="{% url 'pathoMaligne' id %}">Thrombose et oncologie</a></li>
         <li><a href="{% url 'compVasGI' id %}">Complications vasculaires de la grossesse et infertilité</a></li>
         <li><a href="{% url 'bilanBio' id %}">Bilan biologique</a></li>
@@ -40,7 +40,7 @@
                 <div id="" class="form-group ">
                     <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Traitement
                         antithrombotique en cours: </label>
-                    <div class="controls col-md-2 ">
+                    <div class="controls col-md-8 ">
                         <select class="form-control" onchange="yesnoCheck2('1')" id="ynCheck1" name="site_initiale">
                             <option value="0">non</option>
                             <option value="1">oui</option>
@@ -72,8 +72,8 @@
 
                 <div id="" class="form-group ">
                     <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Episode
-                        thrombotique: </label>
-                    <div class="controls col-md-2 ">
+                        thrombotique depuis la consultaion precedente : </label>
+                    <div class="controls col-md-8 ">
                         <select class="form-control" onchange="yesnoCheck2('2')" id="ynCheck2" name="site_initiale">
                             <option value="0">non</option>
                             <option value="1">oui</option>
@@ -82,19 +82,15 @@
                 </div>
                 <div id="field_2" style="display:none">
                     <div class="form-group ">
-                        <label for="" class="control-label col-md-4" style="text-align: left">Lequel:</label>
-                        <div class="controls col-md-8 ">
-                            <input class="input-md textinput textInput form-control" id="id_password1" name="date"
-                                   placeholder="" style="margin-bottom: 10px" type="text"/>
-                        </div>
+                        <a target="_blank" href="{% url 'epTr' id %}">ajouter thrombose veineuse</a>
                     </div>
                 </div>
 
 
                 <div id="" class="form-group ">
-                    <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Episode hemoragique
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Episode hemoragique depuis la consultaion precedente
                         : </label>
-                    <div class="controls col-md-2 ">
+                    <div class="controls col-md-8 ">
                         <select class="form-control" onchange="yesnoCheck2('10')" id="ynCheck10" name="site_initiale">
                             <option value="0">non</option>
                             <option value="1">oui</option>
@@ -104,6 +100,7 @@
 
 
                 <div id="field_10" style="display:none">
+
                     <div id="div_id_password1" class="form-group ">
                         <label for="" class="control-label col-md-4" style="text-align: left">Date de survenue :</label>
                         <div class="controls col-md-8 ">
@@ -111,6 +108,16 @@
                                    placeholder="" style="margin-bottom: 10px" type="date"/>
                         </div>
                     </div>
+
+                    <div id="" class="form-group ">
+                        <div class="controls col-md-8 ">
+                            <select class="form-control"  id="" name="gravite_hemoragie">
+                                <option value="1">majeur</option>
+                                <option value="0">mineur</option>
+                            </select>
+                        </div>
+                    </div>
+
                 </div>
 
 
@@ -133,7 +140,7 @@
                 <div id="" class="form-group ">
                     <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Grossesse en cours
                         : </label>
-                    <div class="controls col-md-2 ">
+                    <div class="controls col-md-8 ">
                         <select class="form-control" id="sel1" name="site_initiale">
                             <option value="1">oui</option>
                             <option value="0">non</option>

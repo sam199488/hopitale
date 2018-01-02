@@ -6,10 +6,10 @@
 {% block sidebar %}
     <ul class="nav nav-sidebar">
         <li><a href="">Informations générales <span class="sr-only">(current)</span></a></li>
-        <li><a href="{% url 'facris' id %}">Facteur de risques cardiovasculaire</a></li>
-        <li><a href="{% url 'epTr' id %}">Episodes trombotique</a></li>
-        <li><a href="{% url 'atcd' id %}">Antecedent chirugicaux</a></li>
-        <li><a href="{% url 'trRec' id %}">Antécédent thrombotiques</a></li>
+        <li><a href="{% url 'facris' id %}">Facteur de risque cardiovasculaire</a></li>
+        <li><a href="{% url 'epTr' id %}">Episodes thrombotique</a></li>
+        <li><a href="{% url 'atcd' id %}">Antecedents chirugicaux</a></li>
+        <li><a href="{% url 'trRec' id %}">Antécédents thrombotiques</a></li>
         <li><a href="{% url 'pathoMaligne' id %}">Thrombose et oncologie</a></li>
         <li class="active"><a href="{% url 'compVasGI' id %}">Complications vasculaires de la grossesse et
             infertilité</a></li>
@@ -29,66 +29,7 @@
 
             <form class="form-horizontal" method="post">
                 {% csrf_token %}
-                <div id="" class="form-group ">
-                    <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Contraception
-                        œstroprogestative (pilule) : </label>
-                    <div class="controls col-md-2 ">
-                        <select class="form-control" onchange="yesnoCheck2('1')" id="ynCheck1" name="contr_oestr">
-                            <option value="0">non</option>
-                            <option value="1">oui</option>
-                        </select>
-                    </div>
-                </div>
 
-                <div id="field_1" style="display:none">
-                    <div id="div_id_password1" class="form-group ">
-                        <label for="" class="control-label col-md-4" style="text-align: left">Combien de temps :</label>
-                        <div class="controls col-md-8 ">
-                            <input class="input-md textinput textInput form-control" id="id_password1" name="duree_co"
-                                   placeholder="" style="margin-bottom: 10px" type="text"/>
-                        </div>
-                    </div>
-                    <div id="div_id_password1" class="form-group ">
-                        <label for="" class="control-label col-md-4" style="text-align: left">Quelle(s) pilule(s)
-                            : </label>
-                        <div class="controls col-md-8 ">
-                            <input class="input-md textinput textInput form-control" id="id_password1" name="pilule_co"
-                                   placeholder="" style="margin-bottom: 10px" type="text"/>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div id="" class="form-group ">
-                    <label for="id-1" class="control-label col-md-4  " style="text-align: left">Traitement substitutif
-                        de la ménopause ?: </label>
-                    <div class="controls col-md-2 ">
-                        <select class="form-control" onchange="yesnoCheck2('2')" id="ynCheck2"
-                                name="traitement_sub_men">
-                            <option value="0">non</option>
-                            <option value="1">oui</option>
-
-                        </select>
-                    </div>
-                </div>
-
-                <div id="field_2" style="display:none">
-                    <div id="div_id_password1" class="form-group ">
-                        <label for="" class="control-label col-md-4" style="text-align: left">Lesquels : </label>
-                        <div class="controls col-md-8 ">
-                            <input class="input-md textinput textInput form-control" id="id_password1"
-                                   name="traitement_sub_men_lesquel" placeholder="" style="margin-bottom: 10px"
-                                   type="text"/>
-                        </div>
-                    </div>
-                    <div id="div_id_password1" class="form-group ">
-                        <label for="" class="control-label col-md-4" style="text-align: left">Date :</label>
-                        <div class="controls col-md-8 ">
-                            <input class="input-md textinput textInput form-control" id="id_password1" name="date_tsm"
-                                   placeholder="" style="margin-bottom: 10px" type="date"/>
-                        </div>
-                    </div>
-                </div>
 
 
                 <div id="" class="form-group ">
