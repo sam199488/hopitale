@@ -365,7 +365,7 @@ class BilanBiologique(LoginRequiredMixin, TemplateView):
             p = form.save()
             response = {}
             response['id'] = p.patient_idpatient.pk
-            return HttpResponseRedirect(reverse('Recommandation', kwargs={'slug': response['id']}))
+            return HttpResponseRedirect(reverse('consulsuivi', kwargs={'slug': response['id']}))
         else:
             messages.error(request, "Error")
             return render(request, 'hemato/page.html', {'form': PathologieMalainForm()})
@@ -389,7 +389,7 @@ class Recommandation(LoginRequiredMixin, TemplateView):
             messages.error(request, "Error")
             return render(request, 'hemato/page.html', {'form': PathologieMalainForm()})
 
-class ExamenArret(LoginRequiredMixin, TemplateView):
+class ExamenArret(LoginRequiredMixin, TemplateView):#deleted
     def get(self, request, slug):
         response = {}
         response['id'] = self.kwargs['slug']
@@ -418,7 +418,7 @@ class ConsultationSuivi(LoginRequiredMixin, TemplateView):
             p = form.save()
             response = {}
             response['id'] = p.patient_idpatient.pk
-            return HttpResponseRedirect(reverse('ExamenArret', kwargs={'slug': response['id']}))
+            return HttpResponseRedirect(reverse('bilanBio', kwargs={'slug': response['id']}))
         else:
             messages.error(request, "Error")
             return render(request, 'hemato/page.html', {'form': PathologieMalainForm()})
