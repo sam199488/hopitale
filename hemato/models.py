@@ -132,6 +132,10 @@ class BilanBiologique(models.Model):
     thromboincode_f13 = models.IntegerField(blank=True, null=True)
     thromboincode_f5 = models.IntegerField(blank=True, null=True)
     thromboincode_serpin_c1 = models.IntegerField(blank=True, null=True)
+    thromboincode_f12_prothrombin = models.IntegerField(blank=True, null=True)
+    thromboincode_f5_HongKong = models.IntegerField(blank=True, null=True)
+    thromboincode_f5_Cambridge = models.IntegerField(blank=True, null=True)
+    thromboincode_f5_leiden = models.IntegerField(blank=True, null=True)
 
 
 
