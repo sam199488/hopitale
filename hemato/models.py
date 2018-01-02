@@ -531,6 +531,8 @@ class TromboseArteriel(models.Model):
     localisation = models.CharField(max_length=45, blank=True, null=True)
     date_diagnostic = models.DateField(blank=True, null=True)
     imagerie_diagnostique = models.CharField(max_length=45, blank=True, null=True)
+    commentaire_imagerie = models.CharField(max_length=100, blank=True, null=True)
+
     changement_traitemnt = models.CharField(max_length=45, blank=True, null=True) #
     traitemnt_precedent = models.CharField(max_length=45, blank=True, null=True) #
     dose_prec = models.FloatField(blank=True, null=True) #
@@ -598,6 +600,7 @@ class TromboseVeineuse(models.Model):
 
 
     imagerie_diagnostique = models.CharField(max_length=45, blank=True, null=True)
+    commentaire_imagerie = models.CharField(max_length=100, blank=True, null=True)
     changement_traitemnt = models.CharField(max_length=45, blank=True, null=True) #
     traitemnt_precedent = models.CharField(max_length=45, blank=True, null=True) #
     dose_prec = models.FloatField(blank=True, null=True) #
