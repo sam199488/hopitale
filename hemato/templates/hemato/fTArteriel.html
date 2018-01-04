@@ -14,8 +14,6 @@
         <li><a href="{% url 'compVasGI' id %}">Complications vasculaires de la grossesse et infertilité</a></li>
         <li><a href="{% url 'bilanBio' id %}">Bilan biologique</a></li>
         <li><a href="{% url 'consulsuivi' id %}">Consultation de suivi</a></li>
-         
-
     </ul>
 {% endblock %}
 
@@ -75,22 +73,50 @@
                     </div>
                 </div>
 
+                <h4>Traitement antithrombotique : </h4>
+
+
                 <div id="" class="form-group ">
                     <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Traitement
-                        antithrombotique : </label>
+                        anticoagulant : </label>
                     <div class="controls col-md-8 ">
-                        <select class="form-control" id="sel1" name="traitement_antithrombotique">
-                            <option value="1">Arixtra</option>
-                            <option value="2">lexiana</option>
-                            <option value="3">AVK</option>
-                            <option value="4">heparine non fractionel</option>
-                            <option value="5">arganova</option>
-                            <option value="6">Eliquis</option>
-                            <option value="7">Xarelto</option>
-                            <option value="8">Fragmine</option>
-                            <option value="9">Innohep</option>
-                            <option value="10">Lovenox</option>
-                            <option value="11">Pradaxa</option>
+                        <select class="form-control" id="sel1" name="Traitement_anticoagulant">
+                            <option value="1">rivaroxaban</option>
+                            <option value="2">apixaban</option>
+                            <option value="3">dabigatran</option>
+                            <option value="4">edoxaban</option>
+                            <option value="5">fondaparinux</option>
+                            <option value="6">heparine non-fractionnée</option>
+                            <option value="7">dalteparine</option>
+                            <option value="8">tinzaparine</option>
+                            <option value="9">enoxaparine</option>
+                            <option value="10">argatrobane</option>
+                            <option value="11">acénocoumarol</option>
+                            <option value="12">fluidione</option>
+                            <option value="13">warfarine</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="" class="form-group ">
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Dose : </label>
+                    <div class="controls col-md-8 ">
+                        <input class="input-md  textInput form-control" id="id1" name="dose_traitement_anticoagulant" placeholder=""
+                               style="margin-bottom: 10px" type="text"/>
+                    </div>
+                </div>
+
+                <div id="" class="form-group ">
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Traitement
+                        antiplaquetaire  : </label>
+                    <div class="controls col-md-8 ">
+                        <select class="form-control" id="sel1" name="traitement_antiplaquetaire">
+                            <option value="0">aucun</option>
+                            <option value="1">aspirin</option>
+                            <option value="2">clopidogrel</option>
+                            <option value="3">prasugrel</option>
+                            <option value="4">ticagrelor</option>
+                            <option value="5">anti GPIIbIIIa</option>
+                            <option value="6">dipyridamole</option>
                         </select>
                     </div>
                 </div>
@@ -98,7 +124,7 @@
                 <div id="" class="form-group ">
                     <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Dose : </label>
                     <div class="controls col-md-8 ">
-                        <input class="input-md  textInput form-control" id="id1" name="dose" placeholder=""
+                        <input class="input-md  textInput form-control" id="id1" name="dose_traitement_antiplaquetaire" placeholder=""
                                style="margin-bottom: 10px" type="text"/>
                     </div>
                 </div>

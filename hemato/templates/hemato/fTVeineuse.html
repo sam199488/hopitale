@@ -45,9 +45,10 @@
                         document.getElementById('tlr').style["display"] = 'none';
                         var e = document.getElementById("lis");
                         var index = e.options[e.selectedIndex].value;
-                        document.getElementById(index).style["display"] = 'block';
+
                         l = [index,"","",""];
                         document.getElementById('loca').value = l.join(" ");
+                        document.getElementById(index).style["display"] = 'block';
                     }
                     function selectSubElement(x) {
                         l[x] = document.querySelector('input[name=\"'+x+'\"]:checked').value;
@@ -64,6 +65,8 @@
                             <option value="tvp">thrombose veineuse profonde</option>
                             <option value="ep">embolie pulmonaire</option>
                             <option value="tlr">thrombose localisation rare</option>
+                            <option value="tvs">thrombose localisation specefique</option>
+
                         </select>
                     </div>
                 </div>
@@ -225,14 +228,14 @@
                     </div>
                 </div>
                 <div id="" class="form-group ">
-                    <label for="id-1" class="control-label col-md-4  " style="text-align: left"> pellule Oestroprogestatif</label>
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Pellule oestroprogestatif</label>
                     <div class="controls col-md-8 ">
                         <input type="radio" name="fc_pellule_oestroprogestatif" value="1"> oui<br>
                         <input type="radio" name="fc_pellule_oestroprogestatif" value="0" checked="checked"> non<br>
                     </div>
                 </div>
                 <div id="" class="form-group ">
-                    <label for="id-1" class="control-label col-md-4  " style="text-align: left"> traitement hormonal substituf</label>
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Traitement hormonal substituf</label>
                     <div class="controls col-md-8 ">
                         <input type="radio" name="fc_traitement_hormonal_substituf" value="1"> oui<br>
                         <input type="radio" name="fc_traitement_hormonal_substituf" value="0" checked="checked"> non<br>
@@ -264,20 +267,22 @@
 
                 <div id="" class="form-group ">
                     <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Traitement
-                        antithrombotique : </label>
+                        anticoagulant : </label>
                     <div class="controls col-md-8 ">
-                        <select class="form-control" id="sel1" name="traitement_antithrombotique">
-                            <option value="1">Arixtra</option>
-                            <option value="2">lexiana</option>
-                            <option value="3">AVK</option>
-                            <option value="4">heparine non fractionel</option>
-                            <option value="5">arganova</option>
-                            <option value="6">Eliquis</option>
-                            <option value="7">Xarelto</option>
-                            <option value="8">Fragmine</option>
-                            <option value="9">Innohep</option>
-                            <option value="10">Lovenox</option>
-                            <option value="11">Pradaxa</option>
+                        <select class="form-control" id="sel1" name="traitement_anticoagulant">
+                            <option value="1">rivaroxaban</option>
+                            <option value="2">apixaban</option>
+                            <option value="3">dabigatran</option>
+                            <option value="4">edoxaban</option>
+                            <option value="5">fondaparinux</option>
+                            <option value="6">heparine non-fractionnée</option>
+                            <option value="7">dalteparine</option>
+                            <option value="8">tinzaparine</option>
+                            <option value="9">enoxaparine</option>
+                            <option value="10">argatrobane</option>
+                            <option value="11">acénocoumarol</option>
+                            <option value="12">fluidione</option>
+                            <option value="13">warfarine</option>
                         </select>
                     </div>
                 </div>

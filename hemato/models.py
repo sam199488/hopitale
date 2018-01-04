@@ -219,20 +219,11 @@ class Episodes(models.Model):
     artere = models.CharField(max_length=45, blank=True, null=True)
     facteur_declenchants = models.CharField(max_length=45, blank=True, null=True)
     duree = models.IntegerField(blank=True, null=True)
-    type_trait = models.CharField(max_length=45, blank=True, null=True)
+    traitement_anticoagulant = models.CharField(max_length=45, blank=True, null=True)
+    traitement_antiplaquetaire = models.CharField(max_length=45, blank=True, null=True)
     #added ..
     aucun = models.IntegerField(blank=True, null=True)
-    tamt_arret_depuis = models.IntegerField(blank=True, null=True)
-    antiagregants_plaq = models.CharField(max_length=20, blank=True, null=True)
-    dernier_val_antxa = models.IntegerField(blank=True, null=True)
-    date_dva = models.DateField(blank=True, null=True)
-    heparine = models.IntegerField(blank=True, null=True)
-    avk = models.IntegerField(blank=True, null=True)
-    dernier_inr = models.CharField(max_length=45, blank=True, null=True)
-    date_di = models.DateField(blank=True, null=True)
-    aod = models.IntegerField(blank=True, null=True)
-    comp_trait = models.IntegerField(blank=True, null=True)
-
+    commentaire = models.CharField(max_length=500, blank=True, null=True)
 
     patient_idpatient = models.ForeignKey('Patient', models.DO_NOTHING, db_column='patient_idpatient')
 
@@ -259,7 +250,7 @@ class FacteurResique(models.Model):
     hyperlipid_mie = models.IntegerField(db_column='hyperlipid\xe9mie', blank=True, null=True)  # Field renamed to remove unsuitable characters.
     hypo_albuminemie = models.IntegerField(blank=True, null=True)
     insuffisance_cardiaque = models.IntegerField(blank=True, null=True)
-    pilule = models.CharField(max_length=3, blank=True, null=True)
+    traitement_hormonal = models.CharField(max_length=3, blank=True, null=True)
     stent_coronaore = models.IntegerField(blank=True, null=True)
     trouble_rythme_cardiaque = models.IntegerField(blank=True, null=True)
     tabac = models.IntegerField(blank=True, null=True)
@@ -296,10 +287,10 @@ class GrossessInfertilite(models.Model):
     embrayons = models.IntegerField(blank=True, null=True)
     nb_fiv_av_gross = models.IntegerField(blank=True, null=True)
     spontanee = models.IntegerField(blank=True, null=True)
-    fiv_icsi = models.IntegerField(blank=True, null=True)
+    fiv_icsi = models.CharField(max_length=45, blank=True, null=True)
     stimul_clomid = models.IntegerField(blank=True, null=True)
     delai_conception = models.IntegerField(blank=True, null=True)
-    ras = models.IntegerField(blank=True, null=True)
+    complication_grossess = models.IntegerField(blank=True, null=True)
     perte_foetal_terme = models.IntegerField(blank=True, null=True)
     terme_sa1 = models.CharField(max_length=45, blank=True, null=True)
     diab = models.IntegerField(blank=True, null=True)
@@ -317,7 +308,6 @@ class GrossessInfertilite(models.Model):
     thromb_maternelle_pgiu = models.CharField(max_length=45, blank=True, null=True)
     thromb_site = models.CharField(max_length=45, blank=True, null=True)
     term_sa8 = models.CharField(max_length=45, blank=True, null=True)
-    apgar = models.CharField(max_length=45, blank=True, null=True)
     poids_naiss = models.IntegerField(blank=True, null=True)
     complication_neo = models.IntegerField(blank=True, null=True)
     complication_neo_lesquel = models.CharField(max_length=45, blank=True, null=True) #KO
@@ -330,8 +320,6 @@ class GrossessInfertilite(models.Model):
     hbpm_dose = models.IntegerField(blank=True, null=True)
     iso = models.IntegerField(blank=True, null=True)
     iso_dose = models.IntegerField(blank=True, null=True)
-    curatif = models.IntegerField(blank=True, null=True)
-    curatif_dose = models.IntegerField(blank=True, null=True)
     uvedose = models.IntegerField(blank=True, null=True)
     uvedose_dose = models.IntegerField(blank=True, null=True)
     prednisone = models.IntegerField(blank=True, null=True)
@@ -357,16 +345,6 @@ class GrossessInfertilite(models.Model):
     vasculopathie_throm = models.IntegerField(blank=True, null=True)
     caryotype_foetus = models.IntegerField(blank=True, null=True)
     malformation_foetus = models.IntegerField(blank=True, null=True)
-    maladie_autoimmune = models.IntegerField(blank=True, null=True)
-    maladie_autoimmune_lesquel = models.CharField(max_length=45, blank=True, null=True)
-    thrombose_art = models.IntegerField(blank=True, null=True)
-    date_ta = models.DateField(blank=True, null=True)
-    nb_ta = models.IntegerField(blank=True, null=True)
-    site_ta = models.CharField(max_length=45, blank=True, null=True)
-    thrombose_veineuse = models.IntegerField(blank=True, null=True)
-    date_tv = models.DateField(blank=True, null=True)
-    nb_tv = models.IntegerField(blank=True, null=True)
-    site_tv = models.CharField(max_length=45, blank=True, null=True)
     patient_idpatient = models.ForeignKey('Patient', models.DO_NOTHING, db_column='patient_idpatient')
 
     class Meta:
@@ -385,6 +363,12 @@ class PathologieMalain(models.Model):
     score_ecog = models.IntegerField(blank=True, null=True)
     indice_perf_ocog = models.CharField(max_length=45, blank=True, null=True)
     pathologie_malaincol = models.CharField(max_length=45, blank=True, null=True)
+    date_diagnostic = models.DateField(blank=True, null=True)
+    classsification_oms_2016 = models.CharField(max_length=100, blank=True, null=True)
+    caryotype = models.CharField(max_length=100, blank=True, null=True)
+    biologie_moleculaire = models.CharField(max_length=100, blank=True, null=True)
+    civd = models.IntegerField(blank=True, null=True)
+
     patient_idpatient = models.ForeignKey('Patient', models.DO_NOTHING, db_column='patient_idpatient')
 
     class Meta:
@@ -536,13 +520,15 @@ class TromboseArteriel(models.Model):
     changement_traitemnt = models.CharField(max_length=45, blank=True, null=True) #
     traitemnt_precedent = models.CharField(max_length=45, blank=True, null=True) #
     dose_prec = models.FloatField(blank=True, null=True) #
-    traitement_antithrombotique = models.CharField(max_length=45, blank=True, null=True)
-    dose = models.FloatField(blank=True, null=True)
+    traitement_anticoagulant = models.CharField(max_length=45, blank=True, null=True)
+    traitement_antiplaquetaire = models.CharField(max_length=45, blank=True, null=True)
+    dose_traitement_anticoagulant = models.FloatField(blank=True, null=True)
+    dose_traitement_antiplaquetaire = models.FloatField(blank=True, null=True)
     date_init_traitement = models.DateField(blank=True, null=True)
     duree_traitement = models.IntegerField(blank=True, null=True)
 
     recidive = models.IntegerField(blank=True, null=True)
-    recdtat_date = models.DateField(blank=True, null=True)
+    recdtat_dsate = models.DateField(blank=True, null=True)
     recdtat_type = models.CharField(max_length=45, blank=True, null=True)
     recdtat_localisation = models.CharField(max_length=10000, blank=True, null=True)
     hemoragie = models.IntegerField(blank=True, null=True)
@@ -604,7 +590,7 @@ class TromboseVeineuse(models.Model):
     changement_traitemnt = models.CharField(max_length=45, blank=True, null=True) #
     traitemnt_precedent = models.CharField(max_length=45, blank=True, null=True) #
     dose_prec = models.FloatField(blank=True, null=True) #
-    traitement_antithrombotique = models.CharField(max_length=45, blank=True, null=True)
+    traitement_anticoagulant = models.CharField(max_length=45, blank=True, null=True)
     dose = models.FloatField(blank=True, null=True)
     date_init_traitement = models.DateField(blank=True, null=True)
     duree_traitement = models.IntegerField(blank=True, null=True)
@@ -646,6 +632,9 @@ class VillaltaSyndrome(models.Model):
         db_table = 'villalta_syndrome'
         unique_together = (('idvillalta_syndrome', 'patient_idpatient'),)
 
+
+
+
 class MyelomeMultiple(models.Model):
     idmyelome_multiple = models.AutoField(primary_key=True)
     type_ig = models.CharField(max_length=45,blank=True,null=True)
@@ -665,4 +654,25 @@ class MyelomeMultiple(models.Model):
         unique_together = (('idmyelome_multiple', 'patient_idpatient'),)
 
 
+
+
+class HemopathiesLigneeMyeloide(models.Model):
+    idhemopathies_lignee_myeloide = models.AutoField(primary_key=True)
+    site_initiale = models.CharField(max_length=100,blank=True,null=True)
+    date_diagnostic = models.DateField(blank=True, null=True)
+    classsification_oms_2016 = models.CharField(max_length=100,blank=True,null=True)
+    caryotype = models.CharField(max_length=100,blank=True,null=True)
+    biologie_moleculaire = models.CharField(max_length=100,blank=True,null=True)
+    civd = models.IntegerField(blank=True, null=True)
+    statut_evolutif = models.CharField(max_length=45, blank=True, null=True)
+    temp_ecoule = models.CharField(max_length=45, blank=True, null=True)
+    score_ecog = models.IntegerField(blank=True, null=True)
+    indice_perf_ocog = models.CharField(max_length=45, blank=True, null=True)
+    pathologie_malaincol = models.CharField(max_length=45, blank=True, null=True)
+    patient_idpatient = models.ForeignKey('Patient', models.DO_NOTHING, db_column='patient_idpatient')
+
+    class Meta:
+        managed = True
+        db_table = 'Hemopathies lignee myeloide'
+        unique_together = (('idhemopathies_lignee_myeloide', 'patient_idpatient'),)
 

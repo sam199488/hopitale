@@ -85,5 +85,10 @@ class MyelomeMultipleForm(ModelForm):
         model = MyelomeMultiple
         fields = '__all__'
 
+HemopathiesLigneeMyeloide
 
+class HemopathiesLigneeMyeloideForm(ModelForm):
+    class Meta:
+        model = HemopathiesLigneeMyeloide
+        fields = '__all__'
 

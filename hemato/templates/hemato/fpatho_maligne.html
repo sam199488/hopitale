@@ -14,7 +14,7 @@
         <li><a href="{% url 'compVasGI' id %}">Complications vasculaires de la grossesse et infertilité</a></li>
         <li><a href="{% url 'bilanBio' id %}">Bilan biologique</a></li>
         <li><a href="{% url 'consulsuivi' id %}">Consultation de suivi</a></li>
-         
+
 
     </ul>
 {% endblock %}
@@ -30,11 +30,12 @@
                onclick="location.href = '{% url 'HemoTissu' id %}';"><BR><BR>
         <input type="button" class="btn btn-info" value=" ajouter un Syndromes myéloprolifératifs "
                onclick="location.href = '{% url 'SyndroMyelo' id %}';"><BR><BR>
-        <input type="button" class="btn btn-info" value="Traitement anticancéreux en cours"
-               onclick="location.href = '{% url 'TraitementAnt' id %}';"><BR><BR>
         <input type="button" class="btn btn-info" value="Myélome Multiple"
                onclick="location.href = '{% url 'myelMulti' id %}';"><BR><BR>
-
+        <input type="button" class="btn btn-info" value="Hémopathies de lignée myéloïde"
+               onclick="location.href = '{% url 'HemoLigMye' id %}';"><BR><BR>
+        <input type="button" class="btn btn-info" value="Traitement anticancéreux en cours"
+               onclick="location.href = '{% url 'TraitementAnt' id %}';"><BR><BR>
 
     </div>
 

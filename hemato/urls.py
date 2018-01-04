@@ -40,7 +40,8 @@ urlpatterns = [
     #url(r'^login/', views.Login.as_view(), name='login') deja exist!!
     url(r'^16/(?P<slug>[0-9]+)/', views.ExamenArret.as_view(), name='ExamenArret'), #Examens à faire à l’arrêt du traitement : Hypercoagulabilité ?
     url(r'^17/(?P<slug>[0-9]+)/', views.Recommandation.as_view(), name='Recommandation'), #Recommandations thérapeutiques – Suivi sous traitement
-    url(r'^18/(?P<slug>[0-9]+)/', views.MyelomeMultiple.as_view(), name='myelMulti') #myelome multiple (patho malgine)
+    url(r'^18/(?P<slug>[0-9]+)/', views.MyelomeMultiple.as_view(), name='myelMulti'), #myelome multiple (patho malgine)
+    url(r'^19/(?P<slug>[0-9]+)/', views.HemopathiesLigneeMyeloide.as_view(), name='HemoLigMye')  # Hemopathies Lignee Myeloide (patho malgine)
 
 
 ]

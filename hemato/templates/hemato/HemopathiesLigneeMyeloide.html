@@ -14,7 +14,7 @@
         <li><a href="{% url 'compVasGI' id %}">Complications vasculaires de la grossesse etinfertilité</a></li>
         <li><a href="{% url 'bilanBio' id %}">Bilan biologique</a></li>
         <li><a href="{% url 'consulsuivi' id %}">Consultation de suivi</a></li>
-         
+
     </ul>
 {% endblock %}
 
@@ -25,39 +25,46 @@
 
             <form class="form-horizontal" method="post">
                 {% csrf_token %}
-                <div id="div_id_id_p" class="form-group " style="visibility: hidden">
-                    <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Caractère<span
-                            class="asteriskField">*</span> </label>
-                    <div class="controls col-md-8 ">
-                        <input class="input-md  textInput form-control" id="id1" name="caractere" placeholder=""
-                               style="margin-bottom: 10px" type="text" value="Hémopathies tissu lymphoïde"/>
-                    </div>
-                </div>
+
                 <div id="" class="form-group ">
-                    <label for="id-1" class="control-label col-md-4  " style="text-align: left">Site initial: </label>
+                    <label for="id-1" class="control-label col-md-4 " style="text-align: left">Site initial: </label>
                     <div class="controls col-md-8 ">
                         <select class="form-control" id="sel1" name="site_initiale">
-                            <option value="Amylose">Amylose</option>
-                            <option value="Gammapathie monoclonale">Gammapathie monoclonale</option>
-                            <option value="Lymphome Hodgkin">Lymphome Hodgkin</option>
-                            <option value="Lymphome non Hodgkin B">Lymphome non Hodgkin B</option>
-                            <option value="Lymphome non Hodgkin T">Lymphome non Hodgkin T</option>
-                            <option value="Maladie de Waldenström">Maladie de Waldenström</option>
-                            <option value="Myélome multiple symptomatique">Myélome multiple symptomatique</option>
-                            <option value="Myélome multiple asymptomatique">Myélome multiple asymptomatique</option>
-                            <option value="Plasmocytome">Plasmocytome</option>
+                            <option value="Leucémie aigüe myéloïde">Leucémie aigüe myéloïde</option>
+                            <option value="Syndrome myélodysplasique">Syndrome myélodysplasique</option>
+                            <option value="Syndrome myélodysplasique-myéloproliferatif">Syndrome myélodysplasique-myéloproliferatif</option>
                         </select>
                     </div>
                 </div>
                 <div id="" class="form-group ">
-                    <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Stade : </label>
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Date de diagnostic : </label>
                     <div class="controls col-md-8 ">
-                        <select class="form-control" id="sel1" name="stade">
-                            <option value="1">I</option>
-                            <option value="2">II</option>
-                            <option value="3">III</option>
-                            <option value="4">IV</option>
-                        </select>
+                        <input class="input-md  textInput form-control" id="id1" name="date_diagnostic" placeholder="" style="margin-bottom: 10px" type="date"/>
+                    </div>
+                </div>
+                <div id="" class="form-group ">
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Classsification OMS 2016 : </label>
+                    <div class="controls col-md-8 ">
+                        <input class="input-md  textInput form-control" id="id1" name="classsification_oms_2016" placeholder="" style="margin-bottom: 10px" type="text"/>
+                    </div>
+                </div>
+                <div id="" class="form-group ">
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Caryotype : </label>
+                    <div class="controls col-md-8 ">
+                        <input class="input-md  textInput form-control" id="id1" name="caryotype" placeholder="" style="margin-bottom: 10px" type="text"/>
+                    </div>
+                </div>
+                <div id="" class="form-group ">
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Biologie moléculaire : </label>
+                    <div class="controls col-md-8 ">
+                        <input class="input-md  textInput form-control" id="id1" name="biologie_moleculaire" placeholder="" style="margin-bottom: 10px" type="text"/>
+                    </div>
+                </div>
+
+                <div id="" class="form-group ">
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left"> CIVD : </label>
+                    <div class="controls col-md-8 ">
+                        <input class="input-md  textInput form-control" id="id1" name="civd" placeholder="" style="margin-bottom: 10px" type="text"/>
                     </div>
                 </div>
                 <div id="" class="form-group ">
@@ -112,45 +119,6 @@
                                 temps
                             </option>
                         </select>
-                    </div>
-                </div>
-
-
-
-
-
-
-
-
-                <div id="" class="form-group ">
-                    <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Date de diagnostic : </label>
-                    <div class="controls col-md-8 ">
-                        <input class="input-md  textInput form-control" id="id1" name="date_diagnostic" placeholder="" style="margin-bottom: 10px" type="date"/>
-                    </div>
-                </div>
-                <div id="" class="form-group ">
-                    <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Classsification OMS 2016 : </label>
-                    <div class="controls col-md-8 ">
-                        <input class="input-md  textInput form-control" id="id1" name="classsification_oms_2016" placeholder="" style="margin-bottom: 10px" type="text"/>
-                    </div>
-                </div>
-                <div id="" class="form-group ">
-                    <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Caryotype : </label>
-                    <div class="controls col-md-8 ">
-                        <input class="input-md  textInput form-control" id="id1" name="caryotype" placeholder="" style="margin-bottom: 10px" type="text"/>
-                    </div>
-                </div>
-                <div id="" class="form-group ">
-                    <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Biologie moléculaire : </label>
-                    <div class="controls col-md-8 ">
-                        <input class="input-md  textInput form-control" id="id1" name="biologie_moleculaire" placeholder="" style="margin-bottom: 10px" type="text"/>
-                    </div>
-                </div>
-
-                <div id="" class="form-group ">
-                    <label for="id-1" class="control-label col-md-4  " style="text-align: left"> CIVD : </label>
-                    <div class="controls col-md-8 ">
-                        <input class="input-md  textInput form-control" id="id1" name="civd" placeholder="" style="margin-bottom: 10px" type="text"/>
                     </div>
                 </div>
 

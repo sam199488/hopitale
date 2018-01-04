@@ -39,27 +39,99 @@
                 </div>
 
 
-                <div id="" class="form-group ">
-                    <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Veine : </label>
-                    <div class="controls col-md-8 ">
-                        <select class="form-control" id="sel1" name="veine">
 
-                            <option value="15"></option>
-                            <option value="1">EP asymptomatique</option>
-                            <option value="2">EP massive</option>
-                            <option value="3">EP symptomatique</option>
-                            <option value="4">Thrombose de localisation rare</option>
-                            <option value="5">Thrombose du cathéter central</option>
-                            <option value="6">Thrombose veine cave inf.</option>
-                            <option value="7">Thrombose veine cave sup.</option>
-                            <option value="8">Thrombose veines iliaques</option>
-                            <option value="9">Thrombose veine jugulaire</option>
-                            <option value="10">TVP distale D</option>
-                            <option value="11">TVP distale G</option>
-                            <option value="12">TVP proximale MI D</option>
-                            <option value="13">TVP proximale MI G</option>
-                            <option value="14">TVS</option>
+
+                <script type="text/javascript">
+                    l = ["","","",""];
+                    local = "";
+                    function un(x){
+                        var ele = document.getElementsByName(x);
+                        for(var i=0;i<ele.length;i++)
+                            ele[i].checked = false;
+                    }
+                    function selectElement(){
+                        un('1');
+                        un('2');
+                        un('3');
+                        document.getElementById('tvp').style["display"] = 'none';
+                        document.getElementById('ep').style["display"] = 'none';
+                        document.getElementById('tlr').style["display"] = 'none';
+                        var e = document.getElementById("lis");
+                        var index = e.options[e.selectedIndex].value;
+
+                        l = [index,"","",""];
+                        document.getElementById('loca').value = l.join(" ");
+                        document.getElementById(index).style["display"] = 'block';
+                    }
+                    function selectSubElement(x) {
+                        l[x] = document.querySelector('input[name=\"'+x+'\"]:checked').value;
+                        //console.log(document.querySelector('input[name=\"'+x+'\"]:checked').value)
+                        //console.log(l)
+                        document.getElementById('loca').value = l.join(" ");
+                    }
+                </script>
+                <div id="" class="form-group ">
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left"> veine:</label>
+                    <div class="controls col-md-8 ">
+                        <select class="form-control" id="lis" name="conditions" onchange="selectElement()">
+                            <option value=""></option>
+                            <option value="tvp">thrombose veineuse profonde</option>
+                            <option value="ep">embolie pulmonaire</option>
+                            <option value="tlr">thrombose localisation rare</option>
+                            <option value="tvs">thrombose localisation specefique</option>
+
                         </select>
+                    </div>
+                </div>
+
+                <div id="" class="form-group " >
+                    <div id="tvp" class="controls col-md-8 " style="display:none">
+                        <fieldset id="1" onchange="selectSubElement(1)">
+                            <input type="radio" name="1" value="Droite"> Droite
+                            <input type="radio" name="1" value="Gauche"> Gauche<br>
+                        </fieldset>
+                        <fieldset id="2" onchange="selectSubElement(2)">
+                            <input type="radio" name="2" value="Distale">  Distale
+                            <input type="radio" name="2" value="Proximale"> Proximale<br>
+                        </fieldset>
+                        <fieldset id="3"onchange="selectSubElement(3)">
+                            <input type="radio" name="3" value="Symptomatique">  Symptomatique
+                            <input type="radio" name="3" value="Asymptomatique"> Asymptomatique<br>
+                        </fieldset>
+                        <hr>
+                    </div>
+
+                    <div id="ep" class="controls col-md-10 " style="display:none">
+                        <fieldset id="1" onchange="selectSubElement(1)">
+                            <input type="radio" name="1" value="gauche">  gauche
+                            <input type="radio" name="1" value="Droite"> Droite
+                            <input type="radio" name="1" value="Bilatirlale"> Bilatirlale<br>
+                        </fieldset>
+                        <fieldset id="2" onchange="selectSubElement(2)">
+                            <input type="radio" name="2" value="Lobaire"> Lobaire
+                            <input type="radio" name="2" value="Segmentaire"> Segmentaire<br>
+                            <input type="radio" name="2" value="Sousegmentaire"> Sousegmentaire<br>
+                        </fieldset>
+                        <fieldset id="3" onchange="selectSubElement(3)">
+                            <input type="radio" name="3" value="Symptomatique">  Symptomatique
+                            <input type="radio" name="3" value="Asymptomatique"> Asymptomatique<br>
+                        </fieldset>
+                        <hr>
+                    </div>
+                    <div id="tlr" class="controls col-md-8 " style="display:none">
+                        <fieldset id="1" onchange="selectSubElement(1)">
+                            <input type="radio" name="1" value="Celebrale"> Celebrale
+                            <input type="radio" name="1" value="mesenterique"> mesenterique
+                            <input type="radio" name="1" value="Portale"> Portale<br>
+                        </fieldset>
+                        <hr>
+                    </div>
+                </div>
+                <div id="" class="form-group " >
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left"></label>
+                    <div class="controls col-md-8 ">
+                        <input class="input-md  textInput form-control" id="loca" name="veine" placeholder=""
+                               style="margin-bottom: 10px" type="text"/>
                     </div>
                 </div>
 
@@ -104,25 +176,45 @@
                 </div>
 
                 <div id="" class="form-group ">
-                    <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Type de traitement
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left"> traitement
                         anticoagulant : </label>
                     <div class="controls col-md-8 ">
-                        <select class="form-control" id="sel1" name="type_trait">
-                            <option value="1">ARIXTRA</option>
-                            <option value="2">AVK</option>
-                            <option value="3">ELIQUIS®</option>
-                            <option value="4">FRAGMINE®</option>
-                            <option value="5">INNOHEP®</option>
-                            <option value="6">LOVENOX®</option>
-                            <option value="7">PRADAXA®</option>
-                            <option value="8">XARELTO®</option>
-                            <option value="9">Autre</option>
+                        <select class="form-control" id="sel1" name="traitement_anticoagulant">
+                            <option value="0">aucun</option>
+                            <option value="1">rivaroxaban</option>
+                            <option value="2">apixaban</option>
+                            <option value="3">dabigatran</option>
+                            <option value="4">edoxaban</option>
+                            <option value="5">fondaparinux</option>
+                            <option value="6">heparine non-fractionnée</option>
+                            <option value="7">dalteparine</option>
+                            <option value="8">tinzaparine</option>
+                            <option value="9">enoxaparine</option>
+                            <option value="10">argatrobane</option>
+                            <option value="11">acénocoumarol</option>
+                            <option value="12">fluidione</option>
+                            <option value="13">warfarine</option>
                         </select>
                     </div>
                 </div>
-                <h3> Traitement anticoagulant au moment de la thrombose </h3>
+
                 <div id="" class="form-group ">
-                    <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Aucun: </label>
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Traitement antiplaquetaire  : </label>
+                    <div class="controls col-md-8 ">
+                        <select class="form-control" id="sel1" name="traitement_antiplaquetaire">
+                            <option value="0">aucun</option>
+                            <option value="1">aspirin</option>
+                            <option value="2">clopidogrel</option>
+                            <option value="3">prasugrel</option>
+                            <option value="4">ticagrelor</option>
+                            <option value="5">anti GPIIbIIIa</option>
+                            <option value="6">dipyridamole</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div id="" class="form-group ">
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Traitement anticoagulant au moment de la thrombose: </label>
                     <div class="controls col-md-8 ">
                         <select class="form-control" id="sel1" name="aucun">
                             <option value="1">oui</option>
@@ -131,102 +223,15 @@
                     </div>
                 </div>
 
-                <div id="" class="form-group ">
-                    <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Arret depuis : </label>
+                <div id="" class="form-group " >
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left">Commentaire</label>
                     <div class="controls col-md-8 ">
-                        <input class="input-md  textInput form-control" id="id1" name="tamt_arret_depuis" placeholder=""
+                        <input class="input-md  textInput form-control" id="loca" name="commentaire" placeholder=""
                                style="margin-bottom: 10px" type="text"/>
                     </div>
                 </div>
 
-                <div id="" class="form-group ">
-                    <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Antiagrégants
-                        plaquettaires : </label>
-                    <div class="controls col-md-8 ">
-                        <select class="form-control" id="sel1" name="antiagregants_plaq">
-                            <option value="1">Aspirine</option>
-                            <option value="2">ASPEGIC®</option>
-                            <option value="3">BRILIQUE®</option>
-                            <option value="4">EFIENT®</option>
-                            <option value="5">KARDEGIC®</option>
-                            <option value="6">PLAVIX®</option>
-                        </select>
-                    </div>
-                </div>
 
-
-                <div id="" class="form-group ">
-                    <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Heparine: </label>
-                    <div class="controls col-md-8 ">
-                        <select class="form-control" id="sel1" name="heparine">
-                            <option value="1">non</option>
-                            <option value="2">HBPM</option>
-                            <option value="3">HNF</option>
-                        </select>
-                    </div>
-                </div>
-                <div id="" class="form-group ">
-                    <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Dernière valeur anti-Xa
-                        : </label>
-                    <div class="controls col-md-8 ">
-                        <input class="input-md  textInput form-control" id="id1" name="dernier_val_antxa" placeholder=""
-                               style="margin-bottom: 10px" type="text"/>
-                    </div>
-                </div>
-                <div id="" class="form-group ">
-                    <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Date de dernière valeur anti-Xa: </label>
-                    <div class="controls col-md-8 ">
-                        <input class="input-md  textInput form-control" id="id1" name="date_dva" placeholder=""
-                               style="margin-bottom: 10px" type="date"/>
-                    </div>
-                </div>
-
-
-                <div id="" class="form-group ">
-                    <label for="id-1" class="control-label col-md-4  " style="text-align: left"> AVK: </label>
-                    <div class="controls col-md-8 ">
-                        <select class="form-control" id="sel1" name="avk">
-                            <option value="1">oui</option>
-                            <option value="0">non</option>
-                        </select>
-                    </div>
-                </div>
-                <div id="" class="form-group ">
-                    <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Dernière INR : </label>
-                    <div class="controls col-md-8 ">
-                        <input class="input-md  textInput form-control" id="id1" name="dernier_inr" placeholder=""
-                               style="margin-bottom: 10px" type="text"/>
-                    </div>
-                </div>
-                <div id="" class="form-group ">
-                    <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Date dernière INR : </label>
-                    <div class="controls col-md-8 ">
-                        <input class="input-md  textInput form-control" id="id1" name="date_di" placeholder=""
-                               style="margin-bottom: 10px" type="date"/>
-                    </div>
-                </div>
-                <div id="" class="form-group ">
-                    <label for="id-1" class="control-label col-md-4  " style="text-align: left"> AOD: </label>
-                    <div class="controls col-md-8 ">
-                        <select class="form-control" id="sel1" name="aod">
-                            <option value="1">non</option>
-                            <option value="2">Xarelto</option>
-                            <option value="3">Pradaxa</option>
-                            <option value="4">Eliquis</option>
-                            <option value="5">Lixiana</option>
-                        </select>
-                    </div>
-                </div>
-                <div id="" class="form-group ">
-                    <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Compliance au
-                        traitement : </label>
-                    <div class="controls col-md-8 ">
-                        <select class="form-control" id="sel1" name="comp_trait">
-                            <option value="1">oui</option>
-                            <option value="0">non</option>
-                        </select>
-                    </div>
-                </div>
 
                 <div id="div_id_id_p" class="form-group " style="visibility: hidden">
                     <label for="id-1" class="control-label col-md-4  " style="text-align: left"> id_p<span

@@ -5,6 +5,8 @@ from django.shortcuts import get_object_or_404, render
 #from .forms import PersonForm
 from django.urls import reverse
 from django.views import View
+from requests.api import request
+
 from .forms import *
 from .models import *
 from django.shortcuts import redirect
@@ -442,3 +444,21 @@ class Dossier(LoginRequiredMixin, TemplateView):
         response = {}
         #response['id'] = self.kwargs['slug']
         return render(request, 'hemato/recherche.html', response)
+
+
+class HemopathiesLigneeMyeloide(LoginRequiredMixin, TemplateView):
+    def get(self, request, slug):
+        response = {}
+        response['id'] = self.kwargs['slug']
+        return render(request, 'hemato/HemopathiesLigneeMyeloide.html', response)
+    def post(self, request, slug):
+        form = HemopathiesLigneeMyeloideForm(request.POST)
+        print(form.errors)
+        if form.is_valid():
+            p = form.save()
+            response = {}
+            response['id'] = p.patient_idpatient.pk
+            return HttpResponseRedirect(reverse('pathoMaligne', kwargs={'slug': response['id']}))
+        else:
+            messages.error(request, "Error")
+            return render(request, 'hemato/page.html', {'form': PathologieMalainForm()})
