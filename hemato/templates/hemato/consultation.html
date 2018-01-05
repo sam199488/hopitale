@@ -52,18 +52,19 @@
                         <label for="id-1" class="control-label col-md-4  " style="text-align: left">Lequel:</label>
                         <div class="controls col-md-8 ">
                             <select class="form-control" id="sel1" name="traitemnt_precedent">
-                                <option value="12"></option>
-                                <option value="1">Arixtra</option>
-                                <option value="2">lexiana</option>
-                                <option value="3">AVK</option>
-                                <option value="4">heparine non fractionel</option>
-                                <option value="5">arganova</option>
-                                <option value="6">Eliquis</option>
-                                <option value="7">Xarelto</option>
-                                <option value="8">Fragmine</option>
-                                <option value="9">Innohep</option>
-                                <option value="10">Lovenox</option>
-                                <option value="11">Pradaxa</option>
+                                <option value="1">Rivaroxaban</option>
+                                <option value="2">Apixaban</option>
+                                <option value="3">Dabigatran</option>
+                                <option value="4">Edoxaban</option>
+                                <option value="5">Fondaparinux</option>
+                                <option value="6">Heparine non-fractionnée</option>
+                                <option value="7">Dalteparine</option>
+                                <option value="8">Tinzaparine</option>
+                                <option value="9">Enoxaparine</option>
+                                <option value="10">Argatroban</option>
+                                <option value="11">Acénocoumarol</option>
+                                <option value="12">Fluindione</option>
+                                <option value="13">Warfarine</option>
                             </select>
                         </div>
                     </div>
@@ -71,7 +72,7 @@
 
                 <div id="" class="form-group ">
                     <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Episode
-                        thrombotique depuis la consultaion precedente : </label>
+                        thrombotique depuis la consultation precedente : </label>
                     <div class="controls col-md-8 ">
                         <select class="form-control" onchange="yesnoCheck2('2')" id="ynCheck2" name="site_initiale">
                             <option value="0">non</option>
@@ -81,13 +82,13 @@
                 </div>
                 <div id="field_2" style="display:none">
                     <div class="form-group ">
-                        <a target="_blank" href="{% url 'epTr' id %}">ajouter thrombose veineuse</a>
+                        <a target="_blank" href="{% url 'epTr' id %}">ajouter une thrombose veineuse</a>
                     </div>
                 </div>
 
 
                 <div id="" class="form-group ">
-                    <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Episode hemoragique depuis la consultaion precedente
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Episode hémorragique depuis la consultation precedente
                         : </label>
                     <div class="controls col-md-8 ">
                         <select class="form-control" onchange="yesnoCheck2('10')" id="ynCheck10" name="site_initiale">

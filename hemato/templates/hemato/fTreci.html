@@ -71,14 +71,14 @@
                     }
                 </script>
                 <div id="" class="form-group ">
-                    <label for="id-1" class="control-label col-md-4  " style="text-align: left"> veine:</label>
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Veine:</label>
                     <div class="controls col-md-8 ">
                         <select class="form-control" id="lis" name="conditions" onchange="selectElement()">
                             <option value=""></option>
-                            <option value="tvp">thrombose veineuse profonde</option>
-                            <option value="ep">embolie pulmonaire</option>
-                            <option value="tlr">thrombose localisation rare</option>
-                            <option value="tvs">thrombose localisation specefique</option>
+                            <option value="tvp">Thrombose veineuse profonde</option>
+                            <option value="ep">Embolie pulmonaire</option>
+                            <option value="tlr">Thrombose localisation rare</option>
+                            <option value="tvs">Thrombose veineuse superficielle</option>
 
                         </select>
                     </div>
@@ -149,14 +149,106 @@
                     </div>
                 </div>
 
+
+                 <div id="" class="form-group ">
+                    <h3>Facteur declanchant :</h3>
+                </div>
                 <div id="" class="form-group ">
-                    <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Facteur(s)
-                        déclenchant(s) : </label>
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Activité physique intense</label>
                     <div class="controls col-md-8 ">
-                        <input class="input-md  textInput form-control" id="id1" name="facteur_declenchants"
-                               placeholder="1er" style="margin-bottom: 10px" type="text"/>
+                        <input type="radio" name="fc_ActivitePhysiqueIntense" value="1"> oui<br>
+                        <input type="radio" name="fc_ActivitePhysiqueIntense" value="0" checked="checked"> non<br>
                     </div>
                 </div>
+                <div id="" class="form-group ">
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Alitement prolongé suite à une maladie</label>
+                    <div class="controls col-md-8 ">
+                        <input type="radio" name="fc_AlitementProlonge" value="1"> oui<br>
+                        <input type="radio" name="fc_AlitementProlonge" value="0" checked="checked"> non<br>
+                    </div>
+                </div>
+                <div id="" class="form-group ">
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Cancer </label>
+                    <div class="controls col-md-8 ">
+                        <input type="radio" name="fc_Cancer" value="1"> oui<br>
+                        <input type="radio" name="fc_Cancer" value="0" checked="checked"> non<br>
+                    </div>
+                </div>
+
+
+                <div id="" class="form-group ">
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Chirurgie sous anesthésie générale </label>
+                    <div class="controls col-md-8 ">
+                        <input type="radio" name="fc_ChirurgieAnesthésieGenerale" value="1"> oui<br>
+                        <input type="radio" name="fc_ChirurgieAnesthésieGenerale" value="0" checked="checked"> non<br>
+                    </div>
+                </div>
+                <div id="" class="form-group ">
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Traumatisme </label>
+                    <div class="controls col-md-8 ">
+                        <input type="radio" name="fc_Traumatisme" value="1"> oui<br>
+                        <input type="radio" name="fc_Traumatisme" value="0" checked="checked"> non<br>
+                    </div>
+                </div>
+                <div id="" class="form-group ">
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Grossesse </label>
+                    <div class="controls col-md-8 ">
+                        <input type="radio" name="fc_Grossesse" value="1"> oui<br>
+                        <input type="radio" name="fc_Grossesse" value="0" checked="checked"> non<br>
+                    </div>
+                </div>
+
+                <div id="" class="form-group ">
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Hospitalisation pour une affection médicale aiguë</label>
+                    <div class="controls col-md-8 ">
+                        <input type="radio" name="fc_HospitalisationAffectionMedicaleAigue" value="1"> oui<br>
+                        <input type="radio" name="fc_HospitalisationAffectionMedicaleAigue" value="0" checked="checked"> non<br>
+                    </div>
+                </div>
+                <div id="" class="form-group ">
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Immobilisation sous plâtre</label>
+                    <div class="controls col-md-8 ">
+                        <input type="radio" name="fc_ImmobilisationPlatre" value="1"> oui<br>
+                        <input type="radio" name="fc_ImmobilisationPlatre" value="0" checked="checked"> non<br>
+                    </div>
+                </div>
+                <div id="" class="form-group ">
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Stress psychologique intense</label>
+                    <div class="controls col-md-8 ">
+                        <input type="radio" name="fc_StressPsychologiqueIntense" value="1"> oui<br>
+                        <input type="radio" name="fc_StressPsychologiqueIntense" value="0" checked="checked"> non<br>
+                    </div>
+                </div>
+
+                <div id="" class="form-group ">
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Voyage en avion > 4 heures </label>
+                    <div class="controls col-md-8 ">
+                        <input type="radio" name="fc_VoyageAvion" value="1"> oui<br>
+                        <input type="radio" name="fc_VoyageAvion" value="0" checked="checked"> non<br>
+                    </div>
+                </div>
+                <div id="" class="form-group ">
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Voyage en voiture > 6 heures</label>
+                    <div class="controls col-md-8 ">
+                        <input type="radio" name="fc_VoyageVoiture" value="1"> oui<br>
+                        <input type="radio" name="fc_VoyageVoiture" value="0" checked="checked"> non<br>
+                    </div>
+                </div>
+                <div id="" class="form-group ">
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Pillule oestroprogestative</label>
+                    <div class="controls col-md-8 ">
+                        <input type="radio" name="fc_pellule_oestroprogestatif" value="1"> oui<br>
+                        <input type="radio" name="fc_pellule_oestroprogestatif" value="0" checked="checked"> non<br>
+                    </div>
+                </div>
+                <div id="" class="form-group ">
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Traitement hormonal substitutif</label>
+                    <div class="controls col-md-8 ">
+                        <input type="radio" name="fc_traitement_hormonal_substituf" value="1"> oui<br>
+                        <input type="radio" name="fc_traitement_hormonal_substituf" value="0" checked="checked"> non<br>
+                    </div>
+                </div>
+                <hr>
 
                 <div id="" class="form-group ">
                     <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Durée du traitement
@@ -176,7 +268,7 @@
                 </div>
 
                 <div id="" class="form-group ">
-                    <label for="id-1" class="control-label col-md-4  " style="text-align: left"> traitement
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Traitement
                         anticoagulant : </label>
                     <div class="controls col-md-8 ">
                         <select class="form-control" id="sel1" name="traitement_anticoagulant">

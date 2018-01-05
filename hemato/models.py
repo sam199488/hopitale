@@ -46,7 +46,6 @@ class BilanBiologique(models.Model):
     hb = models.FloatField(blank=True, null=True)
     reticulocytes = models.FloatField(blank=True, null=True)
     plaquettes = models.FloatField(blank=True, null=True)
-    creatine = models.FloatField(blank=True, null=True)
     clairance_creatinine_cockcroft = models.FloatField(blank=True, null=True)
     mdrd = models.FloatField(db_column='MDRD', blank=True, null=True)  # Field name made lowercase.
     asat = models.FloatField(blank=True, null=True)
@@ -217,7 +216,22 @@ class Episodes(models.Model):
     date = models.DateField(blank=True, null=True)
     veine = models.CharField(max_length=45, blank=True, null=True)
     artere = models.CharField(max_length=45, blank=True, null=True)
-    facteur_declenchants = models.CharField(max_length=45, blank=True, null=True)
+
+    #facteur declanchant
+    fc_ActivitePhysiqueIntense = models.IntegerField(blank=True, null=True)  # Activité physique intense
+    fc_AlitementProlonge = models.IntegerField(blank=True, null=True)  # Alitement prolongé suite à une maladie
+    fc_Cancer = models.IntegerField(blank=True, null=True)  # Cancer
+    fc_ChirurgieAnesthésieGenerale = models.IntegerField(blank=True, null=True)  # Chirurgie sous anesthésie générale
+    fc_Traumatisme = models.IntegerField(blank=True, null=True)  # Dépression
+    fc_Grossesse = models.IntegerField(blank=True, null=True)  # Grossesse
+    fc_HospitalisationAffectionMedicaleAigue = models.IntegerField(blank=True, null=True)  # Hospitalisation pour une affection médicale aiguë
+    fc_ImmobilisationPlatre = models.IntegerField(blank=True, null=True)  # Immobilisation sous plâtre
+    fc_StressPsychologiqueIntense = models.IntegerField(blank=True, null=True)  # Stress psychologique intense
+    fc_VoyageAvion = models.IntegerField(blank=True, null=True)  # Voyage en avion > 4 heures
+    fc_VoyageVoiture = models.IntegerField(blank=True, null=True)  # Voyage en voiture > 6 heures
+    fc_pellule_oestroprogestatif = models.IntegerField(blank=True, null=True)
+    fc_traitement_hormonal_substituf = models.IntegerField(blank=True, null=True)
+
     duree = models.IntegerField(blank=True, null=True)
     traitement_anticoagulant = models.CharField(max_length=45, blank=True, null=True)
     traitement_antiplaquetaire = models.CharField(max_length=45, blank=True, null=True)
@@ -247,7 +261,7 @@ class FacteurResique(models.Model):
     coronaropathie = models.IntegerField(blank=True, null=True)
     diabete = models.IntegerField(blank=True, null=True)
     hta = models.IntegerField(db_column='HTA', blank=True, null=True)  # Field name made lowercase.
-    hyperlipid_mie = models.IntegerField(db_column='hyperlipid\xe9mie', blank=True, null=True)  # Field renamed to remove unsuitable characters.
+    dyslipidemie = models.IntegerField(db_column='hyperlipid\xe9mie', blank=True, null=True)  # Field renamed to remove unsuitable characters.
     hypo_albuminemie = models.IntegerField(blank=True, null=True)
     insuffisance_cardiaque = models.IntegerField(blank=True, null=True)
     traitement_hormonal = models.CharField(max_length=3, blank=True, null=True)
@@ -318,7 +332,6 @@ class GrossessInfertilite(models.Model):
     aspirine_dose = models.IntegerField(blank=True, null=True)
     hbpm = models.IntegerField(blank=True, null=True)
     hbpm_dose = models.IntegerField(blank=True, null=True)
-    iso = models.IntegerField(blank=True, null=True)
     iso_dose = models.IntegerField(blank=True, null=True)
     uvedose = models.IntegerField(blank=True, null=True)
     uvedose_dose = models.IntegerField(blank=True, null=True)
@@ -593,7 +606,7 @@ class TromboseVeineuse(models.Model):
     fc_AlitementProlonge = models.IntegerField(blank=True, null=True)  # Alitement prolongé suite à une maladie
     fc_Cancer = models.IntegerField(blank=True, null=True)  # Cancer
     fc_ChirurgieAnesthésieGenerale = models.IntegerField(blank=True, null=True)  # Chirurgie sous anesthésie générale
-    fc_Depression = models.IntegerField(blank=True, null=True)  # Dépression
+    fc_Traumatisme = models.IntegerField(blank=True, null=True)  # Dépression
     fc_Grossesse = models.IntegerField(blank=True, null=True)  # Grossesse
     fc_HospitalisationAffectionMedicaleAigue = models.IntegerField(blank=True, null=True)  # Hospitalisation pour une affection médicale aiguë
     fc_ImmobilisationPlatre = models.IntegerField(blank=True, null=True)  # Immobilisation sous plâtre

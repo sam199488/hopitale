@@ -92,7 +92,7 @@
                     </div>
 
                     <div class="col-md-3">
-                        <input class="btn btn-default" value="computeBMI" onclick="computeBMI();">
+                        <input class="btn btn-default" value="calculer BMI" onclick="computeBMI();">
                     </div>
 
 
@@ -109,10 +109,51 @@
                         </select>
                     </div>
                 </div>
+                <div id="div_id_stent_coronaore" class="form-group required">
+                    <label for="id_username" class="control-label col-md-4  " style="text-align: left"> Stent coronaire
+                        : </label>
+                    <div class="controls col-md-8 ">
+                        <select class="form-control" id="sel1" name="stent_coronaore">
+                            <option value="1">oui</option>
+                            <option value="0">non</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="div_id_coronaropathie" class="form-group required">
+                    <label for="id_username" class="control-label col-md-4  " style="text-align: left"> Coronaropathie
+                        :</label>
+                    <div class="controls col-md-8 ">
+                        <select class="form-control" id="sel1" name="coronaropathie">
+                            <option value="1">oui</option>
+                            <option value="0">non</option>
+                        </select>
+                    </div>
+                </div>
+                 <div id="div_id_insuffisance_cardiaque" class="form-group required">
+                    <label for="id_username" class="control-label col-md-4  " style="text-align: left"> Insuffisance
+                        cardiaque : </label>
+                    <div class="controls col-md-8 ">
+                        <select class="form-control" id="sel1" name="insuffisance_cardiaque">
+                            <option value="1">oui</option>
+                            <option value="0">non</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div id="div_id_trouble_rythme_cardiaque" class="form-group required">
+                    <label for="id_username" class="control-label col-md-4  " style="text-align: left"> Troubles du
+                        rythme cardiaque: </label>
+                    <div class="controls col-md-8 ">
+                        <select class="form-control" id="sel1" name="trouble_rythme_cardiaque">
+                            <option value="1">oui</option>
+                            <option value="0">non</option>
+                        </select>
+                    </div>
+                </div>
 
                 <div id="div_atcd_familiaux_mtev" class="form-group required">
                     <label for="id_username" class="control-label col-md-4  " style="text-align: left"> ATCD familiaux
-                        de mtev: </label>
+                        de MTEV: </label>
                     <div class="controls col-md-8 ">
                         <select class="form-control" id="sel1" name=" atcd_familiaux_mtev">
                             <option value="1">oui</option>
@@ -123,7 +164,7 @@
 
                 <div id="div_id_atcd_personnels_mtev" class="form-group required">
                     <label for="id_username" class="control-label col-md-4  " style="text-align: left"> ATCD personnels
-                        de mtev: </label>
+                        de MTEV: </label>
                     <div class="controls col-md-8 ">
                         <select class="form-control" id="sel1" name="atcd_personnels_mtev">
                             <option value="1">oui</option>
@@ -154,16 +195,6 @@
                     </div>
                 </div>
 
-                <div id="div_id_coronaropathie" class="form-group required">
-                    <label for="id_username" class="control-label col-md-4  " style="text-align: left"> Coronaropathie
-                        :</label>
-                    <div class="controls col-md-8 ">
-                        <select class="form-control" id="sel1" name="coronaropathie">
-                            <option value="1">oui</option>
-                            <option value="0">non</option>
-                        </select>
-                    </div>
-                </div>
 
                 <div id="div_id_diabete" class="form-group required">
                     <label for="id_username" class="control-label col-md-4  " style="text-align: left"> Diabète
@@ -187,10 +218,10 @@
                 </div>
 
                 <div id="div_id_hyperlipidemie" class="form-group required">
-                    <label for="id_username" class="control-label col-md-4  " style="text-align: left"> Hyperlipidémie
+                    <label for="id_username" class="control-label col-md-4  " style="text-align: left"> Dyslipidémie
                         :</label>
                     <div class="controls col-md-8 ">
-                        <select class="form-control" id="sel1" name="hyperlipid_mie">
+                        <select class="form-control" id="sel1" name="dyslipidemie">
                             <option value="1">oui</option>
                             <option value="0">non</option>
                         </select>
@@ -198,7 +229,7 @@
                 </div>
 
                 <div id="div_id_hypo_albuminemie" class="form-group required">
-                    <label for="id_username" class="control-label col-md-4  " style="text-align: left"> Hypo albuminémie
+                    <label for="id_username" class="control-label col-md-4  " style="text-align: left"> Hypoalbuminémie
                         (< 20g\L0) : </label>
                     <div class="controls col-md-8 ">
                         <select class="form-control" id="sel1" name="hypo_albuminemie">
@@ -208,16 +239,7 @@
                     </div>
                 </div>
 
-                <div id="div_id_insuffisance_cardiaque" class="form-group required">
-                    <label for="id_username" class="control-label col-md-4  " style="text-align: left"> Insuffisance
-                        cardiaque : </label>
-                    <div class="controls col-md-8 ">
-                        <select class="form-control" id="sel1" name="insuffisance_cardiaque">
-                            <option value="1">oui</option>
-                            <option value="0">non</option>
-                        </select>
-                    </div>
-                </div>
+
 
                 <div id="div_id_pilule" class="form-group required">
                     <label for="id_username" class="control-label col-md-4  " style="text-align: left"> Traitement hormonal :</label>
@@ -230,27 +252,9 @@
                     </div>
                 </div>
 
-                <div id="div_id_stent_coronaore" class="form-group required">
-                    <label for="id_username" class="control-label col-md-4  " style="text-align: left"> Stent coronaire
-                        : </label>
-                    <div class="controls col-md-8 ">
-                        <select class="form-control" id="sel1" name="stent_coronaore">
-                            <option value="1">oui</option>
-                            <option value="0">non</option>
-                        </select>
-                    </div>
-                </div>
 
-                <div id="div_id_trouble_rythme_cardiaque" class="form-group required">
-                    <label for="id_username" class="control-label col-md-4  " style="text-align: left"> Troubles du
-                        rythme cardiaque: </label>
-                    <div class="controls col-md-8 ">
-                        <select class="form-control" id="sel1" name="trouble_rythme_cardiaque">
-                            <option value="1">oui</option>
-                            <option value="0">non</option>
-                        </select>
-                    </div>
-                </div>
+
+
 
                 <div id="div_id_tabac" class="form-group required">
                     <label for="id_username" class="control-label col-md-4  " style="text-align: left"> Tabac :</label>

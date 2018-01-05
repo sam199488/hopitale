@@ -7,8 +7,8 @@
     <ul class="nav nav-sidebar">
         <li><a href="">Informations générales <span class="sr-only">(current)</span></a></li>
         <li><a href="{% url 'facris' id %}">Facteur de risque cardiovasculaire</a></li>
-        <li><a href="{% url 'epTr' id %}">Episodes thrombotique</a></li>
-        <li><a href="{% url 'atcd' id %}">Antecedents chirugicaux</a></li>
+        <li><a href="{% url 'epTr' id %}">Episodes thrombotiques</a></li>
+        <li><a href="{% url 'atcd' id %}">Antecedents chirurgicaux</a></li>
         <li><a href="{% url 'trRec' id %}">Antécédents thrombotiques</a></li>
         <li ><a href="{% url 'pathoMaligne' id %}">Thrombose et oncologie</a></li>
         <li><a href="{% url 'compVasGI' id %}">Complications vasculaires de la grossesse et infertilité</a></li>
@@ -39,47 +39,48 @@
 
 
                 <div id="div_id_password1" class="form-group ">
-                    <label for="" class="control-label col-md-4" style="text-align: left">Activite Anti-Xa HBPM :</label>
+                    <label for="" class="control-label col-md-4" style="text-align: left">Activité Anti-Xa HBPM :</label>
                     <div class="controls col-md-8 ">
                         <input class="input-md textinput textInput form-control" id="" name="actvite_antixa_hbpm" placeholder="" style="margin-bottom: 10px" type="text" />
                     </div>
                 </div>
                 <div id="div_id_password1" class="form-group ">
-                    <label for="" class="control-label col-md-4" style="text-align: left">Activite Anti-Xa Fondaparinux :</label>
+                    <label for="" class="control-label col-md-4" style="text-align: left">Activité Anti-Xa HNF :</label>
+                    <div class="controls col-md-8 ">
+                        <input class="input-md textinput textInput form-control" id="" name="actvite_antixa_hnf" placeholder="" style="margin-bottom: 10px" type="text" />
+                    </div>
+                </div>
+                <div id="div_id_password1" class="form-group ">
+                    <label for="" class="control-label col-md-4" style="text-align: left">Activité Anti-Xa Fondaparinux :</label>
                     <div class="controls col-md-8 ">
                         <input class="input-md textinput textInput form-control" id="" name="actvite_antixa_fondaparinux" placeholder="" style="margin-bottom: 10px" type="text" />
                     </div>
                 </div>
                 <div id="div_id_password1" class="form-group ">
-                    <label for="" class="control-label col-md-4" style="text-align: left">Activite Anti-Xa Rivaroxaban :</label>
+                    <label for="" class="control-label col-md-4" style="text-align: left">Activité Anti-Xa Rivaroxaban :</label>
                     <div class="controls col-md-8 ">
                         <input class="input-md textinput textInput form-control" id="" name="actvite_antixa_rivaroxaban" placeholder="" style="margin-bottom: 10px" type="text" />
                     </div>
                 </div>
                 <div id="div_id_password1" class="form-group ">
-                    <label for="" class="control-label col-md-4" style="text-align: left">Activite Anti-Xa Apixaban :</label>
+                    <label for="" class="control-label col-md-4" style="text-align: left">Activité Anti-Xa Apixaban :</label>
                     <div class="controls col-md-8 ">
                         <input class="input-md textinput textInput form-control" id="" name="actvite_antixa_apixaban" placeholder="" style="margin-bottom: 10px" type="text" />
                     </div>
                 </div>
                 <div id="div_id_password1" class="form-group ">
-                    <label for="" class="control-label col-md-4" style="text-align: left">Activite Anti-IIa Dabigatran :</label>
-                    <div class="controls col-md-8 ">
-                        <input class="input-md textinput textInput form-control" id="" name="actvite_antixa_dabigatran" placeholder="" style="margin-bottom: 10px" type="text" />
-                    </div>
-                </div>
-                <div id="div_id_password1" class="form-group ">
-                    <label for="" class="control-label col-md-4" style="text-align: left">Activite Anti-Xa Edoxaban :</label>
+                    <label for="" class="control-label col-md-4" style="text-align: left">Activité Anti-Xa Edoxaban :</label>
                     <div class="controls col-md-8 ">
                         <input class="input-md textinput textInput form-control" id="" name="actvite_antixa_edoxaban" placeholder="" style="margin-bottom: 10px" type="text" />
                     </div>
                 </div>
                 <div id="div_id_password1" class="form-group ">
-                    <label for="" class="control-label col-md-4" style="text-align: left">Activite Anti-Xa HNF :</label>
+                    <label for="" class="control-label col-md-4" style="text-align: left">Activité Anti-IIa Dabigatran :</label>
                     <div class="controls col-md-8 ">
-                        <input class="input-md textinput textInput form-control" id="" name="actvite_antixa_hnf" placeholder="" style="margin-bottom: 10px" type="text" />
+                        <input class="input-md textinput textInput form-control" id="" name="actvite_antixa_dabigatran" placeholder="" style="margin-bottom: 10px" type="text" />
                     </div>
                 </div>
+
 
 
 
@@ -177,12 +178,7 @@
                 <div id="" class="form-group ">
                     <h3>Bilan Biochimique :</h3>
                 </div>
-                <div  class="form-group ">
-                    <label for="" class="control-label col-md-4" style="text-align: left">Créatinine:</label>
-                    <div class="controls col-md-8 ">
-                        <input class="input-md textinput textInput form-control" id="id_password1" name="creatine" placeholder=" " style="margin-bottom: 10px" type="text" />
-                    </div>
-                </div>
+
                 <div  class="form-group ">
                     <label for="" class="control-label col-md-4" style="text-align: left">Clairance de créatinine cockcroft :</label>
                     <div class="controls col-md-8 ">
@@ -295,7 +291,7 @@
                     </div>
                 </div>
                 <div  class="form-group ">
-                    <label for="" class="control-label col-md-4" style="text-align: left">Fibrinogène   :</label>
+                    <label for="" class="control-label col-md-4" style="text-align: left">Fibrinogène :</label>
                     <div class="controls col-md-8 ">
                         <input class="input-md textinput textInput form-control" id="id_password1" name="fibrinogene" placeholder="g/L" style="margin-bottom: 10px" type="text" />
                     </div>
@@ -308,7 +304,7 @@
                     </div>
                 </div>
                 <div  class="form-group ">
-                    <label for="" class="control-label col-md-4" style="text-align: left">Antithrombine antigéne  :</label>
+                    <label for="" class="control-label col-md-4" style="text-align: left">Antithrombine antigène  :</label>
                     <div class="controls col-md-8 ">
                         <input class="input-md textinput textInput form-control" id="id_password1" name="antithrombine_ag" placeholder="%" style="margin-bottom: 10px" type="text" />
                     </div>
@@ -321,7 +317,7 @@
                     </div>
                 </div>
                 <div  class="form-group ">
-                    <label for="" class="control-label col-md-4" style="text-align: left">Protéine S antigéne :</label>
+                    <label for="" class="control-label col-md-4" style="text-align: left">Protéine S antigène :</label>
                     <div class="controls col-md-8 ">
                         <input class="input-md textinput textInput form-control" id="id_password1" name="protein_s_ag" placeholder="%" style="margin-bottom: 10px" type="text" />
                     </div>
@@ -333,7 +329,7 @@
                     </div>
                 </div>
                 <div  class="form-group ">
-                    <label for="" class="control-label col-md-4" style="text-align: left">Protéine C antigéne :</label>
+                    <label for="" class="control-label col-md-4" style="text-align: left">Protéine C antigène :</label>
                     <div class="controls col-md-8 ">
                         <input class="input-md textinput textInput form-control" id="id_password1" name="protein_c_ag" placeholder="%" style="margin-bottom: 10px" type="text" />
                     </div>
@@ -448,7 +444,7 @@
                     </div>
                 </div>
                 <div  class="form-group ">
-                    <label for="" class="control-label col-md-4" style="text-align: left">FvW antigéne :</label>
+                    <label for="" class="control-label col-md-4" style="text-align: left">FvW antigène :</label>
                     <div class="controls col-md-8 ">
                         <input class="input-md textinput textInput form-control" id="id_password1" name="fvw" placeholder="%" style="margin-bottom: 10px" type="text" />
                     </div>
@@ -502,7 +498,7 @@
                     </tr>
 
                     <tr>
-                        <td>serpin C1</td>
+                        <td>Serpin C1</td>
                         <td><select class="form-control" id="sel1" name="thromboincode_serpin_c1">
                             <option value="1">sauvage</option>
                             <option value="2">Hétérozygote</option>
@@ -609,6 +605,7 @@
                 <div id="" class="form-group ">
                     <h4>Bilan d'autoimmunité :</h4>
                 </div>
+
                 <div id="" class="form-group ">
                     <label for="id-1" class="control-label col-md-4  " style="text-align: left">ACC-LA:</label>
                     <div class="controls col-md-8 ">
@@ -616,6 +613,12 @@
                             <option value="0">Absence</option>
                             <option value="1">Présence</option>
                         </select>
+                    </div>
+                </div>
+                <div  class="form-group ">
+                    <label for="" class="control-label col-md-4" style="text-align: left">Ratio de dépistage ou ratio normalisé(dRVVT) :</label>
+                    <div class="controls col-md-8 ">
+                        <input class="input-md textinput textInput form-control" id="id_password1" name="drvvt" placeholder="" style="margin-bottom: 10px" type="text" />
                     </div>
                 </div>
                 <div  class="form-group ">
@@ -640,12 +643,6 @@
                     <label for="" class="control-label col-md-4" style="text-align: left">AB2 GP1 IgM  :</label>
                     <div class="controls col-md-8 ">
                         <input class="input-md textinput textInput form-control" id="id_password1" name="ab2gp1_lgm" placeholder="" style="margin-bottom: 10px" type="text" />
-                    </div>
-                </div>
-                <div  class="form-group ">
-                    <label for="" class="control-label col-md-4" style="text-align: left">Ratio de dépistage ou ratio normalisé(dRVVT) :</label>
-                    <div class="controls col-md-8 ">
-                        <input class="input-md textinput textInput form-control" id="id_password1" name="drvvt" placeholder="" style="margin-bottom: 10px" type="text" />
                     </div>
                 </div>
                 <div  class="form-group ">

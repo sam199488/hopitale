@@ -8,7 +8,7 @@
         <li><a href="">Informations générales <span class="sr-only">(current)</span></a></li>
         <li><a href="{% url 'facris' id %}">Facteur de risque cardiovasculaire</a></li>
         <li><a href="{% url 'epTr' id %}">Episodes thrombotique</a></li>
-        <li><a href="{% url 'atcd' id %}">Antecedents chirugicaux</a></li>
+        <li><a href="{% url 'atcd' id %}">Antecedents chirurgicaux</a></li>
         <li><a href="{% url 'trRec' id %}">Antécédents thrombotiques</a></li>
         <li><a href="{% url 'pathoMaligne' id %}">Thrombose et oncologie</a></li>
         <li class="active"><a href="{% url 'compVasGI' id %}">Complications vasculaires de la grossesse et
@@ -145,7 +145,7 @@
                 </div>
 
                 <div id="" class="form-group ">
-                    <label for="id-1" class="control-label col-md-4  " style="text-align: left">Complication de la grossess : </label>
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left">Complication de la grossesse : </label>
                     <div class="controls col-md-2 ">
                         <select class="form-control" id="sel1" name="complication_grossess">
                             <option value="1">oui</option>
@@ -157,8 +157,7 @@
 
                 <div id="" class="form-group ">
                     <div id="" class="controls col-md-6">
-                        <label for="id-1" class="control-label col-md-8  " style="text-align: left">Perte fœtal terme
-                            : </label>
+                        <label for="id-1" class="control-label col-md-8  " style="text-align: left">Perte fœtal : </label>
                         <div class="controls col-md-4 ">
                             <select class="form-control" id="sel1" name="perte_foetal_terme">
                                 <option value="1">oui</option>
@@ -208,8 +207,7 @@
                         </div>
                     </div>
                     <div id="" class="controls col-md-6">
-                        <label for="id-1" class="control-label col-md-8  " style="text-align: left">RCIU vasculaire
-                            : </label>
+                        <label for="id-1" class="control-label col-md-8  " style="text-align: left">RCIU : </label>
                         <div class="controls col-md-4 ">
                             <select class="form-control" id="sel1" name="rciu">
                                 <option value="1">oui</option>
@@ -225,7 +223,7 @@
                         </div>
                     </div>
                     <div id="" class="controls col-md-6">
-                        <label for="id-1" class="control-label col-md-8  " style="text-align: left">PE : </label>
+                        <label for="id-1" class="control-label col-md-8  " style="text-align: left">EP : </label>
                         <div class="controls col-md-4 ">
                             <select class="form-control" id="sel1" name="pe">
                                 <option value="1">oui</option>
@@ -283,7 +281,7 @@
                     </div>
                 </div>
                 <a href="{% url 'epTr' id %}" target="_blank">Ajouter une thrombose</a><br>
-                <a href="{% url 'trRec' id %}" target="_blank">Ajouter une thrombose antecedent</a>
+                <a href="{% url 'trRec' id %}" target="_blank">Ajouter un antécédent thrombotique </a>
 
                 <div id="" class="form-group ">
                     <div id="div_id_password1" class="controls col-md-6">
@@ -423,24 +421,7 @@
                     </div>
                 </div>
 
-                <div id="div_id_password1" class="form-group">
-                    <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Iso : </label>
-                    <div class="controls col-md-4 ">
-                        <select class="form-control" onchange="yesnoCheck2('6')" id="ynCheck6" name="iso">
-                            <option value="0">non</option>
-                            <option value="1">oui</option>
-                        </select>
-                    </div>
-                </div>
-                <div id="field_6" style="display:none">
-                    <div id="div_id_password1" class="form-group">
-                        <label for="" class="control-label col-md-4" style="text-align: left">Dose :</label>
-                        <div class="controls col-md-8 ">
-                            <input class="input-md textinput textInput form-control" id="id_password1" name="iso_dose"
-                                   placeholder="" style="margin-bottom: 10px" type="text"/>
-                        </div>
-                    </div>
-                </div>
+
 
 
                 <div id="div_id_password1" class="form-group">
@@ -545,8 +526,7 @@
                     </div>
                 </div>
                 <div id="div_id_password1" class="form-group">
-                    <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Hématome décidual base
-                        : </label>
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Hématome décidual base : </label>
                     <div class="controls col-md-4 ">
                         <select class="form-control" id="sel1" name="hem_dec_base">
                             <option value="1">oui</option>
@@ -659,7 +639,7 @@
                     </div>
                 </div>
                 <div id="" class="form-group ">
-                    <label for="id-1" class="control-label col-md-4  " style="text-align: left"> nombre de fausse couche : </label>
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left"> nombre de fausses couches : </label>
                     <div class="controls col-md-8 ">
                         <input class="input-md  textInput form-control" id="id1" name="nombre_fausse_couches" placeholder=""
                                style="margin-bottom: 10px" type="date"/>

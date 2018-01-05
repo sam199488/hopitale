@@ -164,18 +164,20 @@
                             : </label>
                         <div class="controls col-md-8 ">
                             <select class="form-control" id="sel1" name="traitemnt_precedent">
-                                <option value="12"></option>
-                                <option value="1">Arixtra</option>
-                                <option value="2">lexiana</option>
-                                <option value="3">AVK</option>
-                                <option value="4">heparine non fractionel</option>
-                                <option value="5">arganova</option>
-                                <option value="6">Eliquis</option>
-                                <option value="7">Xarelto</option>
-                                <option value="8">Fragmine</option>
-                                <option value="9">Innohep</option>
-                                <option value="10">Lovenox</option>
-                                <option value="11">Pradaxa</option>
+                                <option value="14"></option>
+                                <option value="1">Rivaroxaban</option>
+                                <option value="2">Apixaban</option>
+                                <option value="3">Dabigatran</option>
+                                <option value="4">Edoxaban</option>
+                                <option value="5">Fondaparinux</option>
+                                <option value="6">Heparine non-fractionnée</option>
+                                <option value="7">Dalteparine</option>
+                                <option value="8">Tinzaparine</option>
+                                <option value="9">Enoxaparine</option>
+                                <option value="10">Argatroban</option>
+                                <option value="11">Acénocoumarol</option>
+                                <option value="12">Fluindione</option>
+                                <option value="13">Warfarine</option>
                             </select>
                         </div>
                     </div>
@@ -201,40 +203,40 @@
 
                 <div id="field_2" style="display:none">
                     <div id="" class="form-group ">
-                    <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Date de Recidive en
-                        cours de traitement antithrombotique: </label>
-                    <div class="controls col-md-8 ">
-                        <input class="input-md  textInput form-control" id="id1" name="recdtat_date" placeholder=""
-                               style="margin-bottom: 10px" type="date"/>
+                        <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Date de Recidive en
+                            cours de traitement antithrombotique: </label>
+                        <div class="controls col-md-8 ">
+                            <input class="input-md  textInput form-control" id="id1" name="recdtat_date" placeholder=""
+                                   style="margin-bottom: 10px" type="date"/>
+                        </div>
+                    </div>
+
+                    <div id="" class="form-group ">
+                        <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Type de récidive
+                            : </label>
+                        <div class="controls col-md-8 ">
+                            <select class="form-control" id="sel1" name="recdtat_type">
+                                <option value="4"></option>
+                                <option value="1">Aggravation/reapparition des symptomes</option>
+                                <option value="2">Extension du thrombus vue a l'imagerie</option>
+                                <option value="3">Nouvelle thrombose</option>
+
+                            </select>
+                        </div>
+                    </div>
+
+                    <div id="" class="form-group ">
+                        <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Localisation : </label>
+                        <div class="controls col-md-8 ">
+                            <input class="input-md  textInput form-control" id="id1" name="recdtat_localisation"
+                                   placeholder="" style="margin-bottom: 10px" type="text"/>
+                        </div>
                     </div>
                 </div>
 
-                <div id="" class="form-group ">
-                    <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Type de récidive
-                        : </label>
-                    <div class="controls col-md-8 ">
-                        <select class="form-control" id="sel1" name="recdtat_type">
-                            <option value="4"></option>
-                            <option value="1">Aggravation/reapparition des symptomes</option>
-                            <option value="2">Extension du thrombus vue a l'imagerie</option>
-                            <option value="3">Nouvelle thrombose</option>
-
-                        </select>
-                    </div>
-                </div>
 
                 <div id="" class="form-group ">
-                    <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Localisation : </label>
-                    <div class="controls col-md-8 ">
-                        <input class="input-md  textInput form-control" id="id1" name="recdtat_localisation"
-                               placeholder="" style="margin-bottom: 10px" type="text"/>
-                    </div>
-                </div>
-                </div>
-
-
-                <div id="" class="form-group ">
-                    <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Hémoragie: </label>
+                    <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Hémorragie: </label>
                     <div class="controls col-md-8 ">
                         <select class="form-control" id="ynCheck3" onchange="yesnoCheck2('3')" name="hemoragie">
                             <option value="0">non</option>
@@ -245,7 +247,7 @@
 
                 <div id="field_3" style="display:none">
                     <div id="" class="form-group ">
-                        <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Date de l'hémoragie
+                        <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Date de l'hémorragie
                             : </label>
                         <div class="controls col-md-8 ">
                             <input class="input-md  textInput form-control" id="id1" name="date_hemor" placeholder=""
@@ -253,7 +255,7 @@
                         </div>
                     </div>
                     <div id="" class="form-group ">
-                        <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Charactere de
+                        <label for="id-1" class="control-label col-md-4  " style="text-align: left"> Caractère de
                             l'hémoragie: </label>
                         <div class="controls col-md-8 ">
                             <select class="form-control" id="sel1" name="charactere_hemor">
