@@ -347,6 +347,25 @@ class GrossessInfertilite(models.Model):
     malformation_foetus = models.IntegerField(blank=True, null=True)
     patient_idpatient = models.ForeignKey('Patient', models.DO_NOTHING, db_column='patient_idpatient')
 
+    date_naissance = models.DateField(blank=True, null=True)
+    nombre_fausse_couches = models.IntegerField(blank=True, null=True)
+    fausse_couches_1_age = models.IntegerField(blank=True, null=True)
+    fausse_couches_1_SA  = models.IntegerField(blank=True, null=True)
+    fausse_couches_2_age = models.IntegerField(blank=True, null=True)
+    fausse_couches_2_SA  = models.IntegerField(blank=True, null=True)
+    fausse_couches_3_age = models.IntegerField(blank=True, null=True)
+    fausse_couches_3_SA  = models.IntegerField(blank=True, null=True)
+    fausse_couches_4_age = models.IntegerField(blank=True, null=True)
+    fausse_couches_4_SA = models.IntegerField(blank=True, null=True)
+    fausse_couches_5_age = models.IntegerField(blank=True, null=True)
+    fausse_couches_5_SA = models.IntegerField(blank=True, null=True)
+    fausse_couches_6_age = models.IntegerField(blank=True, null=True)
+    fausse_couches_6_SA = models.IntegerField(blank=True, null=True)
+    fausse_couches_7_age = models.IntegerField(blank=True, null=True)
+    fausse_couches_7_SA = models.IntegerField(blank=True, null=True)
+    fausse_couches_8_age = models.IntegerField(blank=True, null=True)
+    fausse_couches_8_SA = models.IntegerField(blank=True, null=True)
+
     class Meta:
         managed = True
         db_table = 'grossess_infertilite'
