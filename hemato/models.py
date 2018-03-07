@@ -417,6 +417,7 @@ class Patient(models.Model):
     datenaissance = models.DateField(blank=True, null=True)
     groupesanguin = models.CharField(max_length=5, blank=True, null=True)
     telephonepatient = models.CharField(max_length=15, blank=True, null=True)
+
     hopitale = models.IntegerField(blank=True, null=True) #1 tenon #2 st antoine #3 pitie salpetriere
     servicereference = models.CharField(max_length=45, blank=True, null=True)
     nommedecinreferent = models.CharField(max_length=45, blank=True, null=True)
