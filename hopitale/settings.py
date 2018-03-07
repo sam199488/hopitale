@@ -79,7 +79,7 @@ WSGI_APPLICATION = 'hopitale.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'hemato', #heroku_c5e49214c3f2350
+        'NAME': 'heroku_c5e49214c3f2350', #heroku_c5e49214c3f2350 hemato
         'USER': 'b3d0817a1e6204',#'root', #b3d0817a1e6204
         'PASSWORD': 'da0a434e', #samirtiti
         'HOST': 'eu-cdbr-west-01.cleardb.com',#'35.184.66.164',   # Or an IP Address that your DB is hosted on  (eu-cdbr-west-01.cleardb.com)
