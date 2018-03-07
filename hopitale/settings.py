@@ -80,9 +80,9 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'hemato', #heroku_c5e49214c3f2350
-        'USER': 'root', #b3d0817a1e6204
-        'PASSWORD': 'samirtiti', #da0a434e
-        'HOST': '35.184.66.164',   # Or an IP Address that your DB is hosted on  (eu-cdbr-west-01.cleardb.com)
+        'USER': 'b3d0817a1e6204',#'root', #b3d0817a1e6204
+        'PASSWORD': 'da0a434e', #samirtiti
+        'HOST': 'eu-cdbr-west-01.cleardb.com',#'35.184.66.164',   # Or an IP Address that your DB is hosted on  (eu-cdbr-west-01.cleardb.com)
         #'PORT': '3306',
     }
 }
