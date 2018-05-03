@@ -50,7 +50,7 @@ class Login(TemplateView):
             return HttpResponseRedirect(reverse('facris', kwargs={'slug': response['id']}))
             #return redirect("facris",response)
         else:
-            return HttpResponse("Form Not Valid (ajoutp)")
+            return HttpResponse(str(form.errors))#"Form Not Valid (ajoutp)"
 
 
 class Index(LoginRequiredMixin, TemplateView):
