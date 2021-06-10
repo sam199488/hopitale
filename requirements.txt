@@ -3,7 +3,7 @@ bs4==0.0.1
 certifi==2017.7.27.1
 chardet==3.0.4
 click==6.7
-Django==1.11.2
+Django==2.2.24
 flake8==3.4.1
 Flask==0.12.2
 gunicorn==19.7.1
